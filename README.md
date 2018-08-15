@@ -21,7 +21,7 @@ int main()
 This creates a window(640x480 default resolution) and draws a line starting at coordinate (50, 60) to (300, 400). The default color of any primitive is white(and can easily be changed), while the background color of the window is black. 
 
 # Building
-You have to have cmake installed to build this project. After that it's pretty simple:
+You have to have cmake and SDL2 library installed to build this project. After that it's pretty simple:
 ```
 cd /path/to/project && mkdir build && cd build
 cmake -G"Unix Makefiles (or whatever)" ..
