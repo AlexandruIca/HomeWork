@@ -1,0 +1,54 @@
+\hypertarget{hwapi_8cpp}{}\section{hwapi.\+cpp File Reference}
+\label{hwapi_8cpp}\index{hwapi.\+cpp@{hwapi.\+cpp}}
+{\ttfamily \#include \char`\"{}hwapi.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}window.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacedummy__api}{dummy\+\_\+api}}
+\begin{DoxyCompactList}\small\item\em Provides an easy to use api for drawing different primitives like points, lines, rectangles etc. ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{hwapi_8cpp_a7522c279ea4fe10cb9ab86dfbbe333d4}\label{hwapi_8cpp_a7522c279ea4fe10cb9ab86dfbbe333d4}} 
+std\+::vector$<$ \mbox{\hyperlink{classdummy__api_1_1Shape}{da\+::\+Shape}} $\ast$ $>$ \& \mbox{\hyperlink{hwapi_8cpp_a7522c279ea4fe10cb9ab86dfbbe333d4}{get\+\_\+shapes}} ()
+\begin{DoxyCompactList}\small\item\em Accesses the vector of Shapes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hwapi_8cpp_ad5df57eae17ff9caf0670739743b2f46}\label{hwapi_8cpp_ad5df57eae17ff9caf0670739743b2f46}} 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classdummy__api_1_1Shape}{da\+::\+Shape}} $>$ $>$ \& \mbox{\hyperlink{hwapi_8cpp_ad5df57eae17ff9caf0670739743b2f46}{get\+\_\+anon\+\_\+shapes}} ()
+\begin{DoxyCompactList}\small\item\em Accesses the vector of anonymous Shapes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hwapi_8cpp_a65158f1ff9bf2fcd39d42c6c89adcd97}\label{hwapi_8cpp_a65158f1ff9bf2fcd39d42c6c89adcd97}} 
+S\+D\+L\+\_\+\+Renderer $\ast$ \mbox{\hyperlink{hwapi_8cpp_a65158f1ff9bf2fcd39d42c6c89adcd97}{get\+\_\+renderer}} ()
+\begin{DoxyCompactList}\small\item\em Gets the global renderer(available only if N\+O\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+W\+I\+N\+D\+OW is not defined). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{hwapi_8cpp_abdef5c71187a2dacb2ac3d0ac5a58a54}\label{hwapi_8cpp_abdef5c71187a2dacb2ac3d0ac5a58a54}} 
+S\+D\+L\+\_\+\+Window $\ast$ \mbox{\hyperlink{hwapi_8cpp_abdef5c71187a2dacb2ac3d0ac5a58a54}{get\+\_\+window}} ()
+\begin{DoxyCompactList}\small\item\em Gets the global window(available only if N\+O\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+W\+I\+N\+D\+OW is not defined). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacedummy__api_af7279753320ab1e1f990aeb1eae8207f}{dummy\+\_\+api\+::draw\+\_\+shapes}} ()
+\begin{DoxyCompactList}\small\item\em Draws all the shapes currently requested. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacedummy__api_a0f9b713b956e1acd503ea73b92666c6a}{dummy\+\_\+api\+::draw}} (std\+::function$<$ void()$>$ t\+\_\+call\+\_\+first=\mbox{[}$\,$\mbox{]}() -\/$>$ void \{\}, std\+::function$<$ void()$>$ t\+\_\+call\+\_\+last=\mbox{[}$\,$\mbox{]}() -\/$>$ void \{\})
+\begin{DoxyCompactList}\small\item\em Updates the window and handles events. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacedummy__api_a249a7c0ef8dbebf1440e41f7a5c0298f}\label{namespacedummy__api_a249a7c0ef8dbebf1440e41f7a5c0298f}} 
+void \mbox{\hyperlink{namespacedummy__api_a249a7c0ef8dbebf1440e41f7a5c0298f}{dummy\+\_\+api\+::point}} (const \mbox{\hyperlink{structhw_1_1vec2}{hw\+::vec2}} \&t\+\_\+pos, const \mbox{\hyperlink{structhw_1_1color}{hw\+::color}} \&t\+\_\+color=\mbox{\hyperlink{structhw_1_1color}{hw\+::color}}\{\})
+\begin{DoxyCompactList}\small\item\em Draws a point with given position and color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacedummy__api_a4efd30052d197d72b64bd67f13322e5a}{dummy\+\_\+api\+::point}} (const int t\+\_\+x, const int t\+\_\+y, const \mbox{\hyperlink{structhw_1_1color}{hw\+::color}} \&t\+\_\+color=\mbox{\hyperlink{structhw_1_1color}{hw\+::color}}\{\})
+\item 
+void \mbox{\hyperlink{namespacedummy__api_a7bac2a56021c552911f6dc5ae4c8f5ad}{dummy\+\_\+api\+::line}} (const \mbox{\hyperlink{structhw_1_1vec2}{hw\+::vec2}} \&t\+\_\+a, const \mbox{\hyperlink{structhw_1_1vec2}{hw\+::vec2}} \&t\+\_\+b, const \mbox{\hyperlink{structhw_1_1color}{hw\+::color}} \&t\+\_\+color=\mbox{\hyperlink{structhw_1_1color}{hw\+::color}}\{\})
+\begin{DoxyCompactList}\small\item\em Draws a line with given position and color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacedummy__api_afc5312dbe53632c5a898028246252a13}{dummy\+\_\+api\+::line}} (const int t\+\_\+x1, const int t\+\_\+y1, const int t\+\_\+x2, const int t\+\_\+y2, const \mbox{\hyperlink{structhw_1_1color}{hw\+::color}} \&t\+\_\+color=\mbox{\hyperlink{structhw_1_1color}{hw\+::color}}\{\})
+\item 
+\mbox{\Hypertarget{namespacedummy__api_a7799be9f25e4e7e0c30a9bb3df0037f9}\label{namespacedummy__api_a7799be9f25e4e7e0c30a9bb3df0037f9}} 
+void \mbox{\hyperlink{namespacedummy__api_a7799be9f25e4e7e0c30a9bb3df0037f9}{dummy\+\_\+api\+::outline\+\_\+triangle}} (const \mbox{\hyperlink{structhw_1_1vec2}{hw\+::vec2}} \&t\+\_\+pos1, const \mbox{\hyperlink{structhw_1_1vec2}{hw\+::vec2}} \&t\+\_\+pos2, const \mbox{\hyperlink{structhw_1_1vec2}{hw\+::vec2}} \&t\+\_\+pos3, const \mbox{\hyperlink{structhw_1_1color}{hw\+::color}} \&t\+\_\+color=\mbox{\hyperlink{structhw_1_1color}{hw\+::color}}\{\})
+\begin{DoxyCompactList}\small\item\em Draws a triangle with given position and color but does not fill it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacedummy__api_a5787cd4a30c15be2bb4e647477821ff3}{dummy\+\_\+api\+::outline\+\_\+triangle}} (const int t\+\_\+x1, const int t\+\_\+y1, const int t\+\_\+x2, const int t\+\_\+y2, const int t\+\_\+x3, const int t\+\_\+y3, const \mbox{\hyperlink{structhw_1_1color}{hw\+::color}} \&t\+\_\+color=\mbox{\hyperlink{structhw_1_1color}{hw\+::color}}\{\})
+\item 
+void \mbox{\hyperlink{namespacedummy__api_acb6344e33577af291978e41b3322c14b}{dummy\+\_\+api\+::rectangle}} (const \mbox{\hyperlink{structhw_1_1vec2}{hw\+::vec2}} \&t\+\_\+pos, const int t\+\_\+width, const int t\+\_\+height, const \mbox{\hyperlink{structhw_1_1color}{hw\+::color}} \&t\+\_\+color=\mbox{\hyperlink{structhw_1_1color}{hw\+::color}}\{\})
+\begin{DoxyCompactList}\small\item\em Draws a rectangle with given position and color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacedummy__api_a6409e8fb0ec9267490a4671efb23c536}{dummy\+\_\+api\+::rectangle}} (const int t\+\_\+x, const int t\+\_\+y, const int t\+\_\+width, const int t\+\_\+height, const \mbox{\hyperlink{structhw_1_1color}{hw\+::color}} \&t\+\_\+color=\mbox{\hyperlink{structhw_1_1color}{hw\+::color}}\{\})
+\item 
+void \mbox{\hyperlink{namespacedummy__api_a4e2f013ea9cf0109e20c1fa82e8ec65a}{dummy\+\_\+api\+::outline\+\_\+rectangle}} (const \mbox{\hyperlink{structhw_1_1vec2}{hw\+::vec2}} \&t\+\_\+pos, const int t\+\_\+width, const int t\+\_\+height, const \mbox{\hyperlink{structhw_1_1color}{hw\+::color}} \&t\+\_\+color=\mbox{\hyperlink{structhw_1_1color}{hw\+::color}}\{\})
+\begin{DoxyCompactList}\small\item\em Draws a rectangle with given position and color but does not fill it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacedummy__api_a07cc87a9879b2f59afb9c2d41904c024}{dummy\+\_\+api\+::outline\+\_\+rectangle}} (const int t\+\_\+x, const int t\+\_\+y, const int t\+\_\+width, const int t\+\_\+height, const \mbox{\hyperlink{structhw_1_1color}{hw\+::color}} \&t\+\_\+color=\mbox{\hyperlink{structhw_1_1color}{hw\+::color}}\{\})
+\end{DoxyCompactItemize}
