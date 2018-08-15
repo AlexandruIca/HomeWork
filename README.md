@@ -33,7 +33,7 @@ And now you can run the test(s).
 Check /docs folder for the doxygen-generated documentation of this project(needs more of it).
 
 # Contributing
-Want to contribute? AWESOME! There's no strict guideline to follow, although following the current coding style would be great.
+Want to contribute? AWESOME! There's no strict guideline to follow, although following the current coding style would be great. Keep in mind contributing doesn't mean just contributing to code. Find the usage of a function confusing? Improve the documentation! Not sure it handles some specific use cases? Test it and submit the tests! Found a spelling error? Fix it!
 
 # Limitations
 * There is no way to draw filled triangles yet. That is because an algorithm has to be chosen because SDL doesn't have such a function.
