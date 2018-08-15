@@ -1,0 +1,47 @@
+# HomeWork
+An API that aims to make it as easy as possible to draw shapes in c++11.
+
+# Why does it even exist?
+I've created this api to hopefully make it easy to show to the uninitiated(esp. students) how c++ can render graphics. It's not a crazy complicated 3d rendering engine and it doesn't try to be one. It just provides functionality for drawing primitives like points, lines, rectangles etc.
+
+# Basic usage
+Making a simple app should be as straightforward as:
+```c++
+#include "hwapi.hpp"
+
+using namespace dummy_api;
+
+int main()
+{
+    line(50, 60, 300, 400);
+    
+    return draw();
+}
+```
+This creates a window(640x480 default resolution) and draws a line starting at coordinate (50, 60) to (300, 400). The default color of any primitive is white(and can easily be changed), while the background color of the window is black. 
+
+# Building
+You have to have cmake installed to build this project. After that it's pretty simple:
+```
+cd /path/to/project && mkdir build && cd build
+cmake -G"Unix Makefiles (or whatever)" ..
+make
+```
+And now you can run the test(s).
+
+# Documentation
+Check /docs folder for the doxygen-generated documentation of this project(needs more of it).
+
+# Contributing
+Want to contribute? AWESOME! There's no strict guideline to follow, although following the current coding style would be great.
+
+# Limitations
+* There is no way to draw filled triangles yet. That is because an algorithm has to be chosen because SDL doesn't have such a function.
+* There is no way to draw circles(neither one of circle and outline_circle) for the same reason.
+* Some work needs to be done to make the api a bit more flexible.
+
+# TODO
+* Need many more tests.
+* Configure CMake to build this as a library.
+* Make it more flexible(eg. making a custom window).
+* Improve documentation.
