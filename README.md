@@ -42,6 +42,5 @@ Want to contribute? AWESOME! There's no strict guideline to follow, although fol
 
 # TODO
 * Need many more tests.
-* Configure CMake to build this as a library.
 * Make it more flexible(eg. making a custom window).
 * Improve documentation.
