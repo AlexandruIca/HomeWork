@@ -25,6 +25,12 @@ add_library( HW_LIB ${SRC_FILES} )
 target_link_libraries( HW_LIB ${SDL2_LIBRARIES} )
 
 add_executable( basic_example ${CMAKE_CURRENT_SOURCE_DIR}/tests/basic_example.cpp )
+add_executable( line_test ${CMAKE_CURRENT_SOURCE_DIR}/tests/line.cpp )
+add_executable( rect_test ${CMAKE_CURRENT_SOURCE_DIR}/tests/rect.cpp )
+add_executable( outrect_test ${CMAKE_CURRENT_SOURCE_DIR}/tests/outrect.cpp )
 
 target_link_libraries( basic_example HW_LIB )
+target_link_libraries( line_test HW_LIB )
+target_link_libraries( rect_test HW_LIB )
+target_link_libraries( outrect_test HW_LIB )
 
