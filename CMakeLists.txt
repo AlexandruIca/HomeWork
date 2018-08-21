@@ -1,4 +1,4 @@
-cmake_minimum_required( VERSION 2.8 )
+cmake_minimum_required( VERSION 3.5 )
 
 project( HWAPI )
 
@@ -6,8 +6,19 @@ set( CMAKE_CXX_STANDARD 11 )
 
 find_package( SDL2 REQUIRED )
 
-include_directories( ${PROJECT_SOURCE_DIR}/include/ )
-include_directories( ${SDL2_INCLUDE_DIR} )
+if( UNIX )
+	set( HW_SDL2_INCLUDE_DIR /usr/local/include )
+	set( HW_SDL2_LIBRARY_DIR /usr/local/lib )
+	set( HW_SDL2_LIBRARY SDL2main SDL2 )
+else()
+	set( HW_SDL2_INCLUDE_DIR ${SDL2_INCLUDE_DIR} )
+	set( HW_SDL2_LIBRARY_DIR )
+	set( HW_SDL2_LIBRARY ${SDL2_LIBRARY} )
+endif()
+
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include/ )
+include_directories( ${HW_SDL2_INCLUDE_DIR} )
+link_directories( ${HW_SDL2_LIBRARY_DIR} )
 
 set( SRC_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/include/window.hpp
@@ -22,7 +33,7 @@ set( SRC_FILES
 
 add_library( HW_LIB ${SRC_FILES} )
 
-target_link_libraries( HW_LIB ${SDL2_LIBRARIES} )
+target_link_libraries( HW_LIB ${HW_SDL2_LIBRARY} )
 
 add_executable( basic_example ${CMAKE_CURRENT_SOURCE_DIR}/tests/basic_example.cpp )
 add_executable( line_test ${CMAKE_CURRENT_SOURCE_DIR}/tests/line.cpp )
