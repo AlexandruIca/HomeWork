@@ -32,7 +32,7 @@ And now you can run the test(s).
 # Documentation
 Check /docs folder for the doxygen-generated documentation of this project(needs more of it).
 
-# Contributing
+# Contributing 
 Want to contribute? AWESOME! There's no strict guideline to follow, although following the current coding style would be great. Keep in mind contributing doesn't mean just contributing to code. Find the usage of a function confusing? Improve the documentation! Not sure it handles some specific use cases? Test it and submit the tests! Found a spelling error? Fix it!
 
 # Limitations
@@ -44,3 +44,4 @@ Want to contribute? AWESOME! There's no strict guideline to follow, although fol
 * Need many more tests.
 * Make it more flexible(eg. making a custom window).
 * Improve documentation.
+* Add circle, fill circle and fill triangle features(and optionally more).
