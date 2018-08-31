@@ -7,7 +7,7 @@ set( CMAKE_CXX_STANDARD 11 )
 find_package( SDL2 REQUIRED )
 
 if( UNIX )
-	set( HW_SDL2_INCLUDE_DIR /usr//include )
+	set( HW_SDL2_INCLUDE_DIR /usr/include )
 	set( HW_SDL2_LIBRARY_DIR /usr/lib )
 	set( HW_SDL2_LIBRARY SDL2main SDL2 )
 else()
