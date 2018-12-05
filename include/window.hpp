@@ -1,21 +1,27 @@
+///
+/// @file
+///
+
 #pragma once
 #ifndef WINDOW_HPP 
 #define WINDOW_HPP 
 
+#include <vector>
+
 #include "SDL2/SDL.h"
+//struct SDL_Window;
+//struct SDL_Renderer;
+//struct SDL_Event;
 
 #include "color.hpp" 
-
-///
-/// @file
-///
 
 ///
 /// @brief Almost all functionality is provided in @ref hw namespace.
 ///
 namespace hw {   
     ///
-    /// @brief Window object that can (obviously) create a window, set the clear color,
+    /// @brief Window object that can (obviously) create a window, 
+	///        set the clear color,
     ///        update it and get what key was pressed.
     ///
     class window
@@ -27,12 +33,13 @@ namespace hw {
         int m_width{ -1 };
         int m_height{ -1 };
 
-        const Uint8* m_events{ nullptr };
+        //const Uint8* m_events{ nullptr };
+        std::vector<SDL_Event> m_event_queue{}; 
 
         hw::color m_color{ 0, 0, 0, 155 };
 
     public:
-        constexpr window() = default;
+        window() = default;
         ///
         /// @brief Constructs the window with given dimensions and title.
         ///
@@ -41,7 +48,7 @@ namespace hw {
         window(const int t_width, const int t_height, const char* t_name);
         ~window();
 
-        using event_t = SDL_Event;
+        //using event_t = SDL_Event;
 
         inline int get_width() const
         {
@@ -71,6 +78,7 @@ namespace hw {
         /// @brief Renders everything on the screen.
         ///
         void update();
+        void handle_events();
         void set_bgcolor(const std::uint8_t t_r, const std::uint8_t t_g,
                 const std::uint8_t t_b, const std::uint8_t t_a = 255);
         void set_bgcolor(const hw::color& t_color);
@@ -78,7 +86,7 @@ namespace hw {
         void clear();
 
         bool was_key_pressed(int t_key);
-        bool closed(event_t& t_event);
+        bool closed(/*event_t& t_event*/);
     };
 }
 

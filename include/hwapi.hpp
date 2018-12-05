@@ -1,3 +1,6 @@
+///
+/// @file
+///
 #pragma once
 #ifndef HWAPI_HPP
 #define HWAPI_HPP
@@ -8,75 +11,102 @@
 
 #include "color.hpp"
 #include "vec2.hpp"
-
-///
-/// @file
-///
+#include "window.hpp"
 
 /// 
 /// @brief
 ///
-struct SDL_Renderer;
-struct SDL_Window;
-
-namespace dummy_api {
-    class Shape;
-}
-
-///
-/// @brief Accesses the vector of Shapes.
-///
-std::vector<dummy_api::Shape*>& get_shapes();
-///
-/// @brief Accesses the vector of anonymous Shapes.
-///
-std::vector<std::unique_ptr<dummy_api::Shape>>& get_anon_shapes();
-///
-/// @brief Gets the global renderer(available only if @ref NO_DEFAULT_WINDOW is not defined).
-///
-SDL_Renderer* get_renderer();
-///
-/// @brief Gets the global window(available only if @ref NO_DEFAULT_WINDOW is not defined).
-///
-SDL_Window* get_window();
+//struct SDL_Renderer;
+//struct SDL_Window;
 
 /// 
 /// @brief Provides an easy to use api for drawing different primitives
 ///        like points, lines, rectangles etc.  
 ///
 namespace dummy_api {
+    class Shape;
+
+	///
+	/// @brief Accesses the vector of Shapes.
+	///
+	std::vector<dummy_api::Shape*>& get_shapes();
+	///
+	/// @brief Accesses the vector of anonymous Shapes.
+	///
+	std::vector<std::unique_ptr<dummy_api::Shape>>& get_anon_shapes();
+	///
+	/// @brief Gets the global renderer(available only if 
+	///        @ref NO_DEFAULT_WINDOW is not defined).
+	///
+	//SDL_Renderer* get_renderer();
+	///
+	/// @brief Gets the global window(available only if 
+	///        @ref NO_DEFAULT_WINDOW is not defined).
+	///
+	//SDL_Window* get_window();
+    ///
+    /// Gets the default window which is created for easy development.
+    /// By default a 640x480 window is created(during the @ref draw call)
+    /// 
+    /// @retval Returns nullptr if you call it before @ref draw. Otherwise
+    ///         it returns that 640x480 window.
+    ///
+    hw::window* get_global_window();
+    ///
+    /// @retval If you don't call @ref set_global_width it returns 640
+    ///         by default.
+    ///
+    int get_global_width();
+    ///
+    /// @retval If you don't call @ref set_global_height it returns 480 
+    ///         by default.
+    ///
+    int get_global_height();
+    ///
+    /// By default the width of the window is 640. If you want to change it
+    /// call this. 
+    ///
+    /// @param t_width New width.
+    ///
+    void set_global_width(const int t_width); 
+    ///
+    /// By default the height of the window is 640. If you want to change it
+    /// call this.
+    ///
+    /// @param t_height New height.
+    ///
+    void set_global_height(const int t_height);
+
     ///
     /// @brief Draws all the shapes currently requested.
     /// 
     /// Should be called every frame since shapes may be updated frequently
     /// (eg. changes of color).
     /// 
-    /// @warning Does NOTHING else, only draws the shapes(no window event handling).
+    /// @warning Does NOTHING else, only draws the 
+	///          shapes(no window event handling).
     ///
     void draw_shapes();
     ///
     /// @brief Updates the window and handles events.
     ///
-    /// This is an entire "main loop" that draws everything on the screen and stops
-    /// when either the window is closed by the user or the 'ESC' key is pressed.
+    /// This is an entire "main loop" that draws everything on the screen 
+	/// and stops when either the window is closed by the user or the
+	/// 'ESC' key is pressed.
     ///
-    /// @param[in] t_call_first needs to be a void function with no arguments
-    ///                         and will be called before the @ref draw_shapes call
-    ///                         inside @ref draw.
-    /// @param[in] t_call_last the only difference between this and @ref t_call_first
-    ///                        is that it will be called after @ref draw_shapes.
+    /// @param[in] t_call needs to be a void function that takes a float
+    ///            as a parameter. The parameter of that function is 
+    ///            the elapsed time since the last frame.
     ///
-    /// @retval int Returns 0 to make it easy to write something like:
-    ///             @code{.cpp} return draw(); @endcode in @ref main.
-    ///
-    int draw(std::function<void()> t_call_first = []() -> void {},
-             std::function<void()> t_call_last  = []() -> void {});
+    int draw(std::function<void(double)> t_call = [](double) -> void {});
     ///
     /// @brief Draws a point with given position and color.
     ///
-    void point(const hw::vec2& t_pos, const hw::color& t_color = hw::color{});
+    void point(const hw::vec2& t_pos, 
+			   const hw::color& t_color = hw::color{});
     ///
-    /// Is the same as: @code{.cpp} point(hw::vec2{ t_x, t_y }, t_color); @endcode
+    /// Is the same as: @code{.cpp} point(hw::vec2{ t_x, t_y }, t_color);
+	///                 @endcode
     ///
     void point(const int t_x, const int t_y, 
                const hw::color& t_color = hw::color{});
@@ -117,7 +147,8 @@ namespace dummy_api {
                   const int t_x3, const int t_y3, 
                   const hw::color& t_color = hw::color{});
     ///
-    /// @brief Draws a triangle with given position and color but does not fill it.
+    /// @brief Draws a triangle with given position and color but does not
+	///        fill it.
     ///
     void outline_triangle(const hw::vec2& t_pos1,
                           const hw::vec2& t_pos2,
@@ -143,8 +174,8 @@ namespace dummy_api {
     /// @param[in] t_width is the width starting from @ref t_pos (right).
     /// @param[in] t_height is the height starting from @ref t_pos (down).
     ///
-    void rectangle(const hw::vec2& t_pos, const int t_width, const int t_height,
-                   const hw::color& t_color = hw::color{});
+    void rectangle(const hw::vec2& t_pos, const int t_width, 
+			const int t_height, const hw::color& t_color = hw::color{});
     ///
     /// Same as:
     /// @code{.cpp}
@@ -157,7 +188,8 @@ namespace dummy_api {
                    const int t_width, const int t_height, 
                    const hw::color& t_color = hw::color{});
     ///
-    /// @brief Draws a rectangle with given position and color but does not fill it.
+    /// @brief Draws a rectangle with given position and color but does
+	///        not fill it.
     /// 
     /// Parameters have the same meaning as in @ref rectangle.
     ///
@@ -192,7 +224,8 @@ namespace dummy_api {
                 const int t_radius, 
                 const hw::color& t_color = hw::color{});
     ///
-    /// @brief Draws a circle with given center, radius and color but does not fill it.
+    /// @brief Draws a circle with given center, radius and color but 
+	///        does not fill it.
     ///
     void outline_circle(const hw::vec2& t_pos, const int t_radius, 
                         const hw::color& t_color = hw::color{});
@@ -212,20 +245,27 @@ namespace dummy_api {
     ///
     enum ShapeType : int 
     {
-        POINT, LINE, TRIANGLE, OUTLINE_TRIANGLE, RECTANGLE, OUTLINE_RECTANGLE,
-        CIRCLE, OUTLINE_CIRCLE
+        POINT, LINE, TRIANGLE, OUTLINE_TRIANGLE, RECTANGLE, 
+		OUTLINE_RECTANGLE, CIRCLE, OUTLINE_CIRCLE
     };
 
     ///
-    /// @Brief Every object that has information about a primitive is derived from @ref Shape.
+    /// @brief Every object that has information about a primitive is 
+	///        derived from @ref Shape.
     ///
     /// Cannot be instantiated(only through derived ojects).
-    /// Instead of calling functions like @ref point or @ref line you can create objects that
-    /// store information needed to draw the primitives so you can modify it later.
-    /// Objects have the UpperCamelCase naming convention(eg. @ref Line, @ref Point).
-    /// Constructors of derived objects should have the same parameters as their functions relatives.
-    /// Each derived class will provide equality operators and comparison operators for the same types.
-    /// Each derived class will provide methods for retrieving information like color and position.
+    /// Instead of calling functions like @ref point or @ref line you 
+	/// can create objects that
+    /// store information needed to draw the primitives so you can modify
+	/// it later.
+    /// Objects have the UpperCamelCase naming convention(eg. @ref Line,
+	/// @ref Point).
+    /// Constructors of derived objects should have the same parameters 
+	/// as their functions relatives.
+    /// Each derived class will provide equality operators and comparison
+	/// operators for the same types.
+    /// Each derived class will provide methods for retrieving information
+	/// like color and position.
     ///
     class Shape
     {
@@ -248,8 +288,10 @@ namespace dummy_api {
 
     public:
         Point() = default;
-        Point(const int t_x, const int t_y, const hw::color& t_color = hw::color{});
-        Point(const hw::vec2& t_pos, const hw::color& t_color = hw::color{});
+        Point(const int t_x, const int t_y, 
+		      const hw::color& t_color = hw::color{});
+        Point(const hw::vec2& t_pos, 
+		      const hw::color& t_color = hw::color{});
         Point(hw::vec2&& t_pos, hw::color&& t_color = hw::color{});
         virtual ~Point() = default;
 
@@ -302,9 +344,11 @@ namespace dummy_api {
     public:
         Line() = default;
         Line(const int t_x1, const int t_y1, const int t_x2, const int t_y2,
-               const hw::color& t_color = hw::color{}); 
-        Line(const hw::vec2& t_a, const hw::vec2& t_b, const hw::color& t_color = hw::color{});
-        Line(hw::vec2&& t_a, hw::vec2&& t_b, hw::color&& t_color = hw::color{});
+             const hw::color& t_color = hw::color{}); 
+        Line(const hw::vec2& t_a, const hw::vec2& t_b, 
+		     const hw::color& t_color = hw::color{});
+        Line(hw::vec2&& t_a, hw::vec2&& t_b, 
+		     hw::color&& t_color = hw::color{});
         virtual ~Line() = default;
 
         virtual void draw() final override;
@@ -367,13 +411,13 @@ namespace dummy_api {
     public:
         Triangle() = default;
         Triangle(const int t_x1, const int t_y1, 
-                const int t_x2, const int t_y2, 
-                const int t_x3, const int t_y3,
-                const hw::color& t_color = hw::color{});
+                 const int t_x2, const int t_y2, 
+                 const int t_x3, const int t_y3,
+                 const hw::color& t_color = hw::color{});
         Triangle(const hw::vec2& t_pos1,
-                const hw::vec2& t_pos2, 
-                const hw::vec2& t_pos3,
-                const hw::color& t_color = hw::color{});
+                 const hw::vec2& t_pos2, 
+                 const hw::vec2& t_pos3,
+                 const hw::color& t_color = hw::color{});
         Triangle(hw::vec2&& t_pos1, hw::vec2&& t_pos2, hw::vec2&& t_pos3, 
                 hw::color&& t_color = hw::color{});
         virtual ~Triangle() = default;
@@ -455,7 +499,8 @@ namespace dummy_api {
                 const hw::vec2& t_pos2,
                 const hw::vec2& t_pos3, 
                 const hw::color& t_color = hw::color{});
-        OutlineTriangle(hw::vec2&& t_pos1, hw::vec2&& t_pos2, hw::vec2&& t_pos3,
+        OutlineTriangle(hw::vec2&& t_pos1, hw::vec2&& t_pos2, 
+		        hw::vec2&& t_pos3,
                 hw::color&& t_color = hw::color{});
         virtual ~OutlineTriangle() = default;
 
@@ -531,7 +576,8 @@ namespace dummy_api {
         Rectangle(const int t_x, const int t_y,
                 const int t_width, const int t_height,
                 const hw::color& t_color = hw::color{});
-        Rectangle(const hw::vec2& t_start, const int t_width, const int t_height, 
+        Rectangle(const hw::vec2& t_start, const int t_width, 
+		        const int t_height, 
                 const hw::color& t_color = hw::color{});
         Rectangle(hw::vec2&& t_start, 
                   const int t_width, const int t_height, 
@@ -600,10 +646,10 @@ namespace dummy_api {
         OutlineRectangle(const int t_x, const int t_y,
                 const int t_width, const int t_height,
                 const hw::color& t_color = hw::color{});
-        OutlineRectangle(const hw::vec2& t_start, const int t_width, const int t_height,
-                const hw::color& t_color = hw::color{});
-        OutlineRectangle(hw::vec2&& t_start, const int t_width, const int t_height, 
-                         hw::color&& t_color = hw::color{});
+        OutlineRectangle(const hw::vec2& t_start, const int t_width, 
+		        const int t_height, const hw::color& t_color = hw::color{});
+        OutlineRectangle(hw::vec2&& t_start, const int t_width, 
+		         const int t_height, hw::color&& t_color = hw::color{});
         virtual ~OutlineRectangle() = default;
 
         virtual void draw() final override;
@@ -665,10 +711,11 @@ namespace dummy_api {
     public:
         Circle() = default;
         Circle(const int t_x, const int t_y, const int t_radius,
-                const hw::color& t_color = hw::color{});
+               const hw::color& t_color = hw::color{});
         Circle(const hw::vec2& t_pos, const int t_radius,
-                const hw::color& t_color = hw::color{});
-        Circle(hw::vec2&& t_pos, const int t_radius, hw::color&& t_color = hw::color{});
+               const hw::color& t_color = hw::color{});
+        Circle(hw::vec2&& t_pos, const int t_radius, 
+		       hw::color&& t_color = hw::color{});
         virtual ~Circle() = default;
 
         virtual void draw() final override;
@@ -733,7 +780,8 @@ namespace dummy_api {
                 const hw::color& t_color = hw::color{});
         OutlineCircle(const hw::vec2& t_pos, const int t_radius,
                 const hw::color& t_color = hw::color{});
-        OutlineCircle(hw::vec2&& t_pos, const int t_radius, hw::color&& t_color = hw::color{});
+        OutlineCircle(hw::vec2&& t_pos, const int t_radius, 
+		        hw::color&& t_color = hw::color{});
         virtual ~OutlineCircle() = default;
 
         virtual void draw() final override;
