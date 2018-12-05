@@ -4,6 +4,7 @@
 #include <utility>
 #include <chrono>
 #include <iostream>
+#include <string>
 
 ///
 /// @file
@@ -22,46 +23,64 @@ namespace da = dummy_api;
 // no c++14
 template<typename T, typename...Args>
 static std::unique_ptr<T> make_unique(Args&&...args)
-{
-    return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
-}
+{ return std::unique_ptr<T>(new T(std::forward<Args>(args)...)); }
 
+/*
 #ifndef NO_DEFAULT_WINDOW
 static hw::window g_window{ 640, 480, "Hey There" };
 static hw::window::event_t g_event;
 #endif
 
-std::vector<da::Shape*>& get_shapes()
-{
-    static std::vector<da::Shape*> shapes;
-    return shapes;
+#ifndef NO_DEFAULT_WINDOW*/
+namespace {
+    hw::window* g_global_window{ nullptr };
+    int g_global_width{ 640 };
+    int g_global_height{ 480 };
 }
-
-std::vector<std::unique_ptr<da::Shape>>& get_anon_shapes()
-{
-    static std::vector<std::unique_ptr<da::Shape>> shapes;
-    return shapes;
-}
-
-SDL_Renderer* get_renderer()
-{
-#ifndef NO_DEFAULT_WINDOW
-    return g_window.get_renderer();
-#else
-    return nullptr;
-#endif
-}
-
-SDL_Window* get_window()
-{
-#ifndef NO_DEFAULT_WINDOW
-    return g_window.get();
-#else
-    return nullptr;
-#endif
-}
+//#endif
 
 namespace dummy_api {
+	std::vector<da::Shape*>& get_shapes()
+	{
+	    static std::vector<da::Shape*> shapes;
+	    return shapes;
+	}
+	
+	std::vector<std::unique_ptr<da::Shape>>& get_anon_shapes()
+	{
+	    static std::vector<std::unique_ptr<da::Shape>> shapes;
+	    return shapes;
+	}
+	
+	//SDL_Renderer* get_renderer()
+	//{
+	//#ifndef NO_DEFAULT_WINDOW
+	//    return g_window.get_renderer();
+	//#else
+	//    return nullptr;
+	//#endif
+	//}
+	//
+	//SDL_Window* get_window()
+	//{
+	//#ifndef NO_DEFAULT_WINDOW
+	//    return g_window.get();
+	//#else
+	//    return nullptr;
+	//#endif
+	//}
+
+    hw::window* get_global_window()
+    { return g_global_window; }
+    int get_global_width()
+    { return g_global_width; }
+    int get_global_height()
+    { return g_global_height; }
+    void set_global_width(const int t_width)
+    { g_global_width = t_width; }
+    void set_global_height(const int t_height)
+    { g_global_height = t_height; }
+ 
     void draw_shapes()
     {
         for(auto& anon_shape : get_anon_shapes()) {
@@ -73,29 +92,48 @@ namespace dummy_api {
         }
     }
 
-    int draw(std::function<void()> t_call_first, std::function<void()> t_call_last)
+    int draw(std::function<void(double)> t_call) 
     {
+        hw::window wnd{ g_global_width, g_global_height, "HWindow" };
+        g_global_window = &wnd;
+
         double avg_fps{ 0.0 };
 
-        while(!g_window.closed(g_event) 
-           && !g_window.was_key_pressed(SDL_SCANCODE_ESCAPE)) 
+        auto start = std::chrono::steady_clock::now();
+
+        while(!wnd.closed() 
+           && !wnd.was_key_pressed(SDLK_ESCAPE)) 
         {
-            auto start = std::chrono::steady_clock::now();
+            //auto start = std::chrono::steady_clock::now();
+            auto end = std::chrono::steady_clock::now();
+            double elapsed_time = std::chrono::duration<double>(
+                    end - start
+            ).count();
+            avg_fps += std::chrono::seconds(1).count() / elapsed_time;
+            avg_fps /= 2;
+            start = end;
 
-            g_window.clear();
+            SDL_SetWindowTitle(wnd.get(), 
+                (std::string{ "HWindow: " } + std::to_string(avg_fps)
+                + std::string{ "FPS" }).c_str()
+            );
 
-            t_call_first();
+            wnd.clear();
+
+            t_call(elapsed_time);
 
             draw_shapes();
 
-            t_call_last();
+            wnd.update();
 
-            g_window.update();
-
-            auto end = std::chrono::steady_clock::now();
-            avg_fps += (std::chrono::seconds(1).count() 
-                    / std::chrono::duration<double>(end - start).count());
-            avg_fps /= 2;
+            //auto end = std::chrono::steady_clock::now();
+            //avg_fps += (std::chrono::seconds(1).count() 
+            //        / std::chrono::duration<double>(end - start).count());
+            //avg_fps /= 2;
+            //SDL_SetWindowTitle(wnd.get(), 
+            //    (std::string{ "HWindow: " } + std::to_string(avg_fps)
+            //    + std::string{ "FPS" }).c_str()
+            //);    
         }
 
         std::cout << "FPS: " << avg_fps << '\n';
@@ -104,87 +142,281 @@ namespace dummy_api {
     }
 
     void point(const hw::vec2& t_pos, const hw::color& t_color)
-    {
-        get_anon_shapes().push_back(make_unique<da::Point>(t_pos, t_color));
-    }
+    { get_anon_shapes().push_back(make_unique<da::Point>(t_pos, t_color)); }
     void point(const int t_x, const int t_y, const hw::color& t_color)
-    {
-        point(hw::vec2{ t_x, t_y }, t_color);
-    }
+    { point(hw::vec2{ t_x, t_y }, t_color); }
 
     Point::Point(const hw::vec2& t_pos, const hw::color& t_color)
         : m_value(t_pos)
         , m_color(t_color)
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
     Point::Point(const int t_x, const int t_y, const hw::color& t_color)
         : m_value(hw::vec2{ t_x, t_y })
         , m_color(t_color)
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
     Point::Point(hw::vec2&& t_pos, hw::color&& t_color)
         : m_value(std::move(t_pos))
         , m_color(std::move(t_color))
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
     void Point::draw()
     {
-        SDL_SetRenderDrawColor(get_renderer(), m_color.r, m_color.g, m_color.b, m_color.a);
-        SDL_RenderDrawPoint(get_renderer(), m_value.x, m_value.y);
+        SDL_SetRenderDrawColor(get_global_window()->get_renderer(), 
+			m_color.r, m_color.g, m_color.b, m_color.a);
+        SDL_RenderDrawPoint(get_global_window()->get_renderer(), 
+            m_value.x, m_value.y);
     }
 
-    void line(const hw::vec2& t_a, const hw::vec2& t_b, const hw::color& t_color)
-    {
-        get_anon_shapes().push_back(make_unique<Line>(t_a, t_b, t_color));
-    }
+    void line(const hw::vec2& t_a, const hw::vec2& t_b, 
+			  const hw::color& t_color)
+    { get_anon_shapes().push_back(make_unique<Line>(t_a, t_b, t_color)); }
     void line(const int t_x1, const int t_y1,
               const int t_x2, const int t_y2, 
               const hw::color& t_color)
-    {
-        line(hw::vec2{ t_x1, t_y1 }, hw::vec2{ t_x2, t_y2 }, t_color);
-    }
+    { line(hw::vec2{ t_x1, t_y1 }, hw::vec2{ t_x2, t_y2 }, t_color); }
 
-    Line::Line(const int t_x1, const int t_y1, const int t_x2, const int t_y2,
-            const hw::color& t_color)
+    Line::Line(const int t_x1, const int t_y1, const int t_x2,
+			   const int t_y2, const hw::color& t_color)
         : m_start(hw::vec2{ t_x1, t_y1 })
         , m_end(hw::vec2{ t_x2, t_y2 })
         , m_color(t_color)
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
-    Line::Line(const hw::vec2& t_a, const hw::vec2& t_b, const hw::color& t_color)
+    Line::Line(const hw::vec2& t_a, const hw::vec2& t_b, 
+			   const hw::color& t_color)
         : m_start(t_a)
         , m_end(t_b)
         , m_color(t_color)
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
     Line::Line(hw::vec2&& t_a, hw::vec2&& t_b, hw::color&& t_color)
         : m_start(std::move(t_a))
         , m_end(std::move(t_b))
         , m_color(std::move(t_color))
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
     void Line::draw()
     {
-        SDL_SetRenderDrawColor(get_renderer(), m_color.r, m_color.g, m_color.b, m_color.a);
-        SDL_RenderDrawLine(get_renderer(), m_start.x, m_start.y, m_end.x, m_end.y);
+        SDL_SetRenderDrawColor(get_global_window()->get_renderer(), 
+			m_color.r, m_color.g, m_color.b, m_color.a);
+        SDL_RenderDrawLine(get_global_window()->get_renderer(), 
+			m_start.x, m_start.y, m_end.x, m_end.y);
     }
 
-    void outline_triangle(const hw::vec2& t_pos1, const hw::vec2& t_pos2, const hw::vec2& t_pos3,
-                          const hw::color& t_color)
+    void triangle(const hw::vec2& t_pos1,
+                  const hw::vec2& t_pos2,
+                  const hw::vec2& t_pos3,
+                  const hw::color& t_color)
     {
-        get_anon_shapes().push_back(make_unique<OutlineTriangle>(t_pos1, t_pos2, t_pos3, t_color));
+        get_anon_shapes().push_back(make_unique<Triangle>(
+            t_pos1, t_pos2, t_pos3, t_color
+        ));
+    }
+
+    void triangle(const int t_x1, const int t_y1,
+                  const int t_x2, const int t_y2,
+                  const int t_x3, const int t_y3,
+                  const hw::color& t_color)
+    {
+        get_anon_shapes().push_back(make_unique<Triangle>(
+            hw::vec2{ t_x1, t_y1 }, hw::vec2{ t_x2, t_y2 }, 
+            hw::vec2{ t_x3, t_y3 }, t_color
+        ));
+    }
+
+    Triangle::Triangle(const int t_x1, const int t_y1,
+                       const int t_x2, const int t_y2,
+                       const int t_x3, const int t_y3,
+                       const hw::color& t_color)
+        : m_first{ t_x1, t_y1 }
+        , m_second{ t_x2, t_y2 }
+        , m_third{ t_x3, t_y3 }
+        , m_color{ t_color }
+    { get_shapes().push_back(this); }
+
+    Triangle::Triangle(const hw::vec2& t_pos1,
+                       const hw::vec2& t_pos2,
+                       const hw::vec2& t_pos3,
+                       const hw::color& t_color)
+        : m_first{ t_pos1 }
+        , m_second{ t_pos2 }
+        , m_third{ t_pos3 }
+        , m_color{ t_color }
+    { get_shapes().push_back(this); }
+
+    Triangle::Triangle(hw::vec2&& t_pos1, hw::vec2&& t_pos2, 
+                       hw::vec2&& t_pos3, hw::color&& t_color)
+        : m_first{ std::move(t_pos1) }
+        , m_second{ std::move(t_pos2) }
+        , m_third{ std::move(t_pos3) }
+        , m_color{ std::move(t_color) }
+    { get_shapes().push_back(this); }
+
+    // stolen from javidx9:
+    // https://github.com/OneLoneCoder/videos/blob/master/olcConsoleGameEngine.h
+    void Triangle::draw()
+    {
+        SDL_SetRenderDrawColor(get_global_window()->get_renderer(),
+            m_color.r, m_color.g, m_color.b, m_color.a
+        );
+		auto SWAP = [](int &x, int &y) { int t = x; x = y; y = t; };
+		auto drawline = [&](int sx, int ex, int ny) 
+        //{ for (int i = sx; i <= ex; i++) Draw(i, ny, c, col); };
+        {
+            SDL_RenderDrawLine(get_global_window()->get_renderer(),
+                sx, ny, ex, ny
+            );
+        };
+
+        auto x1 = m_first.x;
+        auto y1 = m_first.y;
+
+        auto x2 = m_second.x;
+        auto y2 = m_second.y;
+
+        auto x3 = m_third.x;
+        auto y3 = m_third.y;
+		
+		int t1x, t2x, y, minx, maxx, t1xp, t2xp;
+		bool changed1 = false;
+		bool changed2 = false;
+		int signx1, signx2, dx1, dy1, dx2, dy2;
+		int e1, e2;
+		// Sort vertices
+		if (y1>y2) { SWAP(y1, y2); SWAP(x1, x2); }
+		if (y1>y3) { SWAP(y1, y3); SWAP(x1, x3); }
+		if (y2>y3) { SWAP(y2, y3); SWAP(x2, x3); }
+
+		t1x = t2x = x1; y = y1;   // Starting points
+		dx1 = (int)(x2 - x1); if (dx1<0) { dx1 = -dx1; signx1 = -1; }
+		else signx1 = 1;
+		dy1 = (int)(y2 - y1);
+
+		dx2 = (int)(x3 - x1); if (dx2<0) { dx2 = -dx2; signx2 = -1; }
+		else signx2 = 1;
+		dy2 = (int)(y3 - y1);
+
+		if (dy1 > dx1) {   // swap values
+			SWAP(dx1, dy1);
+			changed1 = true;
+		}
+		if (dy2 > dx2) {   // swap values
+			SWAP(dy2, dx2);
+			changed2 = true;
+		}
+
+		e2 = (int)(dx2 >> 1);
+		// Flat top, just process the second half
+		if (y1 == y2) goto next;
+		e1 = (int)(dx1 >> 1);
+
+		for (int i = 0; i < dx1;) {
+			t1xp = 0; t2xp = 0;
+			if (t1x<t2x) { minx = t1x; maxx = t2x; }
+			else { minx = t2x; maxx = t1x; }
+			// process first line until y value is about to change
+			while (i<dx1) {
+				i++;
+				e1 += dy1;
+				while (e1 >= dx1) {
+					e1 -= dx1;
+					if (changed1) t1xp = signx1;//t1x += signx1;
+					else          goto next1;
+				}
+				if (changed1) break;
+				else t1x += signx1;
+			}
+			// Move line
+		next1:
+			// process second line until y value is about to change
+			while (1) {
+				e2 += dy2;
+				while (e2 >= dx2) {
+					e2 -= dx2;
+					if (changed2) t2xp = signx2;//t2x += signx2;
+					else          goto next2;
+				}
+				if (changed2)     break;
+				else              t2x += signx2;
+			}
+		next2:
+			if (minx>t1x) minx = t1x; if (minx>t2x) minx = t2x;
+			if (maxx<t1x) maxx = t1x; if (maxx<t2x) maxx = t2x;
+			drawline(minx, maxx, y);    // Draw line from min to max points found on the y
+										 // Now increase y
+			if (!changed1) t1x += signx1;
+			t1x += t1xp;
+			if (!changed2) t2x += signx2;
+			t2x += t2xp;
+			y += 1;
+			if (y == y2) break;
+
+		}
+	next:
+		// Second half
+		dx1 = (int)(x3 - x2); if (dx1<0) { dx1 = -dx1; signx1 = -1; }
+		else signx1 = 1;
+		dy1 = (int)(y3 - y2);
+		t1x = x2;
+
+		if (dy1 > dx1) {   // swap values
+			SWAP(dy1, dx1);
+			changed1 = true;
+		}
+		else changed1 = false;
+
+		e1 = (int)(dx1 >> 1);
+
+		for (int i = 0; i <= dx1; i++) {
+			t1xp = 0; t2xp = 0;
+			if (t1x<t2x) { minx = t1x; maxx = t2x; }
+			else { minx = t2x; maxx = t1x; }
+			// process first line until y value is about to change
+			while (i<dx1) {
+				e1 += dy1;
+				while (e1 >= dx1) {
+					e1 -= dx1;
+					if (changed1) { t1xp = signx1; break; }//t1x += signx1;
+					else          goto next3;
+				}
+				if (changed1) break;
+				else   	   	  t1x += signx1;
+				if (i<dx1) i++;
+			}
+		next3:
+			// process second line until y value is about to change
+			while (t2x != x3) {
+				e2 += dy2;
+				while (e2 >= dx2) {
+					e2 -= dx2;
+					if (changed2) t2xp = signx2;
+					else          goto next4;
+				}
+				if (changed2)     break;
+				else              t2x += signx2;
+			}
+		next4:
+
+			if (minx>t1x) minx = t1x; if (minx>t2x) minx = t2x;
+			if (maxx<t1x) maxx = t1x; if (maxx<t2x) maxx = t2x;
+			drawline(minx, maxx, y);   										
+			if (!changed1) t1x += signx1;
+			t1x += t1xp;
+			if (!changed2) t2x += signx2;
+			t2x += t2xp;
+			y += 1;
+			if (y>y3) return; 
+        }
+    }
+
+    void outline_triangle(const hw::vec2& t_pos1, const hw::vec2& t_pos2,
+			const hw::vec2& t_pos3, const hw::color& t_color)
+    {
+        get_anon_shapes().push_back(make_unique<OutlineTriangle>(
+            t_pos1, t_pos2, t_pos3, t_color
+        ));
     }
     void outline_triangle(const int t_x1, const int t_y1, 
                           const int t_x2, const int t_y2,
@@ -205,9 +437,7 @@ namespace dummy_api {
         , m_second(hw::vec2{ t_x2, t_y2 })
         , m_third(hw::vec2{ t_x3, t_y3 })
         , m_color(t_color)
-    {
-         get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
     OutlineTriangle::OutlineTriangle(const hw::vec2& t_pos1, 
                                      const hw::vec2& t_pos2,
@@ -217,39 +447,38 @@ namespace dummy_api {
         , m_second(t_pos2)
         , m_third(t_pos3)
         , m_color(t_color)
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
-    OutlineTriangle::OutlineTriangle(hw::vec2&& t_pos1, hw::vec2&& t_pos2, hw::vec2&& t_pos3,
-            hw::color&& t_color)
+    OutlineTriangle::OutlineTriangle(hw::vec2&& t_pos1, 
+	        hw::vec2&& t_pos2, hw::vec2&& t_pos3, hw::color&& t_color)
         : m_first(std::move(t_pos1))
         , m_second(std::move(t_pos2))
         , m_third(std::move(t_pos3))
         , m_color(std::move(t_color))
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
     void OutlineTriangle::draw()
     {
-        SDL_SetRenderDrawColor(get_renderer(), m_color.r, m_color.g, m_color.b, m_color.a);
-        SDL_RenderDrawLine(get_renderer(), m_first.x, m_first.y, m_second.x, m_second.y);
-        SDL_RenderDrawLine(get_renderer(), m_second.x, m_second.y, m_third.x, m_third.y);
-        SDL_RenderDrawLine(get_renderer(), m_third.x, m_third.y, m_first.x, m_first.y);
+        SDL_SetRenderDrawColor(get_global_window()->get_renderer(), 
+			m_color.r, m_color.g, m_color.b, m_color.a);
+        SDL_RenderDrawLine(get_global_window()->get_renderer(), 
+			m_first.x, m_first.y, m_second.x, m_second.y);
+        SDL_RenderDrawLine(get_global_window()->get_renderer(), 
+			m_second.x, m_second.y, m_third.x, m_third.y);
+        SDL_RenderDrawLine(get_global_window()->get_renderer(), 
+			m_third.x, m_third.y, m_first.x, m_first.y);
     }
 
-    void rectangle(const hw::vec2& t_pos, const int t_width, const int t_height,
-              const hw::color& t_color)
+    void rectangle(const hw::vec2& t_pos, const int t_width, 
+			const int t_height, const hw::color& t_color)
     {
-        get_anon_shapes().push_back(make_unique<Rectangle>(t_pos, t_width, t_height, t_color));
+        get_anon_shapes().push_back(make_unique<Rectangle>(t_pos, 
+			t_width, t_height, t_color));
     }
 
-    void rectangle(const int t_x, const int t_y, const int t_width, const int t_height,
-              const hw::color& t_color)
-    {
-        rectangle(hw::vec2{ t_x, t_y }, t_width, t_height, t_color);
-    }
+    void rectangle(const int t_x, const int t_y, const int t_width,
+			  const int t_height, const hw::color& t_color)
+    { rectangle(hw::vec2{ t_x, t_y }, t_width, t_height, t_color); }
 
     Rectangle::Rectangle(const int t_x, const int t_y,
                          const int t_width, const int t_height,
@@ -257,31 +486,26 @@ namespace dummy_api {
         : m_pos(hw::vec2{ t_x, t_y })
         , m_dimensions(hw::vec2{ t_width, t_height })
         , m_color(t_color)
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
-    Rectangle::Rectangle(const hw::vec2& t_pos, const int t_width, const int t_height,
-                         const hw::color& t_color)
+    Rectangle::Rectangle(const hw::vec2& t_pos, const int t_width,
+			const int t_height, const hw::color& t_color)
         : m_pos(t_pos)
         , m_dimensions(hw::vec2{ t_width, t_height })
         , m_color(t_color)
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
-    Rectangle::Rectangle(hw::vec2&& t_pos, const int t_width, const int t_height, 
-                         hw::color&& t_color)
+    Rectangle::Rectangle(hw::vec2&& t_pos, const int t_width, 
+			const int t_height, hw::color&& t_color)
         : m_pos(std::move(t_pos))
         , m_dimensions(hw::vec2{ t_width, t_height })
         , m_color(std::move(t_color))
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
     void Rectangle::draw()
     {
-        SDL_SetRenderDrawColor(get_renderer(), m_color.r, m_color.g, m_color.b, m_color.a);
+        SDL_SetRenderDrawColor(get_global_window()->get_renderer(), 
+			m_color.r, m_color.g, m_color.b, m_color.a);
         
         SDL_Rect tmp_rect;
 
@@ -290,51 +514,51 @@ namespace dummy_api {
         tmp_rect.w = m_dimensions.x;
         tmp_rect.h = m_dimensions.y;
 
-        SDL_RenderFillRect(get_renderer(), &tmp_rect);
+        SDL_RenderFillRect(get_global_window()->get_renderer(), &tmp_rect);
     }
 
-    void outline_rectangle(const hw::vec2& t_pos, const int t_width, const int t_height,
-                           const hw::color& t_color)
+    void outline_rectangle(const hw::vec2& t_pos, const int t_width,
+			const int t_height, const hw::color& t_color)
     {
-        get_anon_shapes().push_back(make_unique<OutlineRectangle>(t_pos, t_width, t_height, t_color));
+        get_anon_shapes().push_back(make_unique<OutlineRectangle>(t_pos,
+			t_width, t_height, t_color));
     }
-    void outline_rectangle(const int t_x, const int t_y, const int t_width, const int t_height,
-                           const hw::color& t_color)
+    void outline_rectangle(const int t_x, const int t_y, 
+			const int t_width, const int t_height, 
+			const hw::color& t_color)
     {
-        outline_rectangle(hw::vec2{ t_x, t_y }, t_width, t_height, t_color);
+        outline_rectangle(hw::vec2{ t_x, t_y }, t_width, t_height, 
+			t_color);
     }
 
     OutlineRectangle::OutlineRectangle(const int t_x, const int t_y, 
-                                       const int t_width, const int t_height,
-                                       const hw::color& t_color)
+            const int t_width, const int t_height, 
+			const hw::color& t_color)
         : m_pos(hw::vec2{ t_x, t_y })
         , m_dimensions(hw::vec2{ t_width, t_height })
         , m_color(t_color)
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
-    OutlineRectangle::OutlineRectangle(const hw::vec2& t_start, const int t_width, const int t_height,
-                                       const hw::color& t_color)
+    OutlineRectangle::OutlineRectangle(const hw::vec2& t_start, 
+			const int t_width, const int t_height, 
+			const hw::color& t_color)
         : m_pos(t_start)
         , m_dimensions(hw::vec2{ t_width, t_height })
         , m_color(t_color)
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
-    OutlineRectangle::OutlineRectangle(hw::vec2&& t_start, const int t_width, const int t_height,
-                                       hw::color&& t_color)
+    OutlineRectangle::OutlineRectangle(hw::vec2&& t_start, 
+			const int t_width, const int t_height, hw::color&& t_color)
         : m_pos(std::move(t_start))
         , m_dimensions(hw::vec2{ t_width, t_height })
         , m_color(std::move(t_color))
-    {
-        get_shapes().push_back(this);
-    }
+    { get_shapes().push_back(this); }
 
     void OutlineRectangle::draw()
     {
-        SDL_SetRenderDrawColor(get_renderer(), m_color.r, m_color.g, m_color.b, m_color.a);
+        SDL_SetRenderDrawColor(get_global_window()->get_renderer(), 
+			m_color.r, m_color.g, m_color.b, m_color.a
+        );
         
         SDL_Rect tmp_rect;
 
@@ -343,7 +567,150 @@ namespace dummy_api {
         tmp_rect.w = m_dimensions.x;
         tmp_rect.h = m_dimensions.y;
 
-        SDL_RenderDrawRect(get_renderer(), &tmp_rect);
+        SDL_RenderDrawRect(get_global_window()->get_renderer(), &tmp_rect);
+    }
+
+    void circle(const hw::vec2& t_pos, const int t_radius,
+                const hw::color& t_color)
+    {
+        get_anon_shapes().push_back(make_unique<Circle>(
+            t_pos, t_radius, t_color
+        ));
+    }
+
+    void circle(const int t_x, const int t_y,
+                const int t_radius,
+                const hw::color& t_color)
+    { circle(hw::vec2{ t_x, t_y }, t_radius, t_color); }
+
+    Circle::Circle(const int t_x, const int t_y, const int t_radius,
+                   const hw::color& t_color)
+        : m_pos{ t_x, t_y }
+        , m_radius{ t_radius }
+        , m_color{ t_color }
+    { get_shapes().push_back(this); }
+
+    Circle::Circle(const hw::vec2& t_pos, const int t_radius,
+                   const hw::color& t_color)
+        : m_pos{ t_pos }
+        , m_radius{ t_radius }
+        , m_color{ t_color }
+    { get_shapes().push_back(this); }
+
+    Circle::Circle(hw::vec2&& t_pos, const int t_radius, hw::color&& t_color)
+        : m_pos{ std::move(t_pos) }
+        , m_radius{ t_radius }
+        , m_color{ std::move(t_color) }
+    { get_shapes().push_back(this); }
+
+    // Taken from javidx9, taken from wikipedia
+    void Circle::draw()
+    {
+        auto xc = m_pos.x;
+        auto yc = m_pos.y;
+        auto r = m_radius;
+
+        int x = 0;
+		int y = r;
+		int p = 3 - 2 * r;
+		if (!r) return;
+
+        SDL_SetRenderDrawColor(get_global_window()->get_renderer(),
+            m_color.r, m_color.g, m_color.b, m_color.a
+        );
+		auto drawline = [&](int sx, int ex, int ny)
+		//{
+		//	for (int i = sx; i <= ex; i++)
+		//		Draw(i, ny, c, col);
+		//};
+        {
+            SDL_RenderDrawLine(get_global_window()->get_renderer(), 
+                sx, ny, ex, ny
+            );
+        };
+
+		while (y >= x)
+		{
+			// Modified to draw scan-lines instead of edges
+			drawline(xc - x, xc + x, yc - y);
+			drawline(xc - y, xc + y, yc - x);
+			drawline(xc - x, xc + x, yc + y);
+			drawline(xc - y, xc + y, yc + x);
+			if (p < 0) p += 4 * x++ + 6;
+			else p += 4 * (x++ - y--) + 10;
+		}
+    }
+
+    void outline_circle(const hw::vec2& t_pos, const int t_radius,
+                        const hw::color& t_color)
+    { 
+        get_anon_shapes().push_back(make_unique<OutlineCircle>(
+            t_pos, t_radius, t_color 
+        )); 
+    }
+
+    void outline_circle(const int t_x, const int t_y, const int t_radius,
+                        const hw::color& t_color)
+    { outline_circle(hw::vec2{ t_x, t_y }, t_radius, t_color ); }
+
+    OutlineCircle::OutlineCircle(const int t_x, const int t_y, 
+                                 const int t_radius, 
+                                 const hw::color& t_color)
+        : m_pos{ t_x, t_y }
+        , m_radius{ t_radius }
+        , m_color{ t_color }
+    { get_shapes().push_back(this); }
+
+    OutlineCircle::OutlineCircle(const hw::vec2& t_pos, const int t_radius,
+                                 const hw::color& t_color)
+        : m_pos{ t_pos }
+        , m_radius{ t_radius }
+        , m_color{ t_color }
+    { get_shapes().push_back(this); }
+
+    OutlineCircle::OutlineCircle(hw::vec2&& t_pos, const int t_radius,
+                                 hw::color&& t_color)
+        : m_pos{ std::move(t_pos) }
+        , m_radius { t_radius }
+        , m_color{ std::move(t_color) }
+    { get_shapes().push_back(this); }
+
+    // guess who wrote this?
+    void OutlineCircle::draw()
+    {
+        SDL_SetRenderDrawColor(get_global_window()->get_renderer(),
+            m_color.r, m_color.g, m_color.b, m_color.a    
+        );
+
+        auto Draw = [&](const int t_x, const int t_y)
+        {
+            SDL_RenderDrawPoint(get_global_window()->get_renderer(),
+                t_x, t_y
+            );
+        };
+
+        auto r = m_radius;
+        auto xc = m_pos.x;
+        auto yc = m_pos.y;
+
+        int x = 0;
+		int y = r;
+		int p = 3 - 2 * r;
+		if (!r) return;
+
+		while (y >= x) // only formulate 1/8 of circle
+		{
+			Draw(xc - x, yc - y);//upper left left
+			Draw(xc - y, yc - x);//upper upper left
+			Draw(xc + y, yc - x);//upper upper right
+			Draw(xc + x, yc - y);//upper right right
+			Draw(xc - x, yc + y);//lower left left
+			Draw(xc - y, yc + x);//lower lower left
+			Draw(xc + y, yc + x);//lower lower right
+			Draw(xc + x, yc + y);//lower right right
+			if (p < 0) p += 4 * x++ + 6;
+			else p += 4 * (x++ - y--) + 10;
+        }
     }
 }
 
