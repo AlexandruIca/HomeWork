@@ -47,6 +47,7 @@ add_executable( outcircle2_test ${CMAKE_CURRENT_SOURCE_DIR}/tests/outcircle2.cpp
 add_executable( keyboard_test ${CMAKE_CURRENT_SOURCE_DIR}/tests/keyboard_test.cpp )
 add_executable( rect2 ${CMAKE_CURRENT_SOURCE_DIR}/tests/rect2.cpp )
 add_executable( mixed ${CMAKE_CURRENT_SOURCE_DIR}/tests/mixed.cpp )
+add_executable( basic_line ${CMAKE_CURRENT_SOURCE_DIR}/tests/basic_line.cpp )
 
 target_link_libraries( basic_example HW_LIB )
 target_link_libraries( line_test HW_LIB )
@@ -61,5 +62,6 @@ target_link_libraries( outcircle2_test HW_LIB )
 target_link_libraries( keyboard_test HW_LIB )
 target_link_libraries( rect2 HW_LIB )
 target_link_libraries( mixed HW_LIB )
+target_link_libraries( basic_line HW_LIB )
 
 
