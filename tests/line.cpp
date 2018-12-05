@@ -21,7 +21,7 @@ int main()
     int rincrement{ 1 };
     int gincrement{ -1 };
 
-    auto f1 = [&]() -> void 
+    auto f = [&](double) -> void 
     { 
         if(modifiable.color().r >= 255) 
             rincrement = -1; 
@@ -29,10 +29,7 @@ int main()
             rincrement = 1;
 
         modifiable.color().r += rincrement;
-    };
 
-    auto f2 = [&]() -> void
-    {
         if(modifiable.color().g >= 255)
             gincrement = -1;
         else if(modifiable.color().g <= 0)
@@ -41,6 +38,6 @@ int main()
         modifiable.color().g += gincrement;
     };
 
-    return draw(f1, f2);
+    return draw(f);
 }
 

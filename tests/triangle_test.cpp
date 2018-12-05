@@ -6,19 +6,19 @@ using namespace dummy_api;
 
 int main()
 {
-	outline_triangle( hw::vec2{ 50, 20 }, hw::vec2{ 20, 80 }, hw::vec2{ 70, 80 });
-	outline_triangle( hw::vec2{ 50, 120 }, hw::vec2{ 20, 180 }, 
+	triangle( hw::vec2{ 50, 20 }, hw::vec2{ 20, 80 }, hw::vec2{ 70, 80 });
+	triangle( hw::vec2{ 50, 120 }, hw::vec2{ 20, 180 }, 
             hw::vec2{ 70, 180 }, hw::color{ 234, 192, 45 });
-	outline_triangle(50, 220, 20, 280, 70, 280);
-	outline_triangle(50, 320, 20, 380, 70, 380, hw::color{ 35, 67, 89 });
+	triangle(50, 220, 20, 280, 70, 280);
+	triangle(50, 320, 20, 380, 70, 380, hw::color{ 35, 67, 89 });
 
-	OutlineTriangle a{ hw::vec2{ 220, 20 }, hw::vec2{ 190, 80 }, hw::vec2{ 230, 80 } };
-	OutlineTriangle b{ hw::vec2{ 220, 120 }, hw::vec2{ 190, 180 },
+	Triangle a{ hw::vec2{ 220, 20 }, hw::vec2{ 190, 80 }, hw::vec2{ 230, 80 } };
+	Triangle b{ hw::vec2{ 220, 120 }, hw::vec2{ 190, 180 },
         hw::vec2{ 230, 180 }, hw::color{ 90, 90, 20 } };
-	OutlineTriangle c{ 220, 220, 190, 280, 230, 280};
-	OutlineTriangle d{ 220, 320, 190, 380, 230, 380, hw::color{ 23, 150, 160 } };
+	Triangle c{ 220, 220, 190, 280, 230, 280};
+	Triangle d{ 220, 320, 190, 380, 230, 380, hw::color{ 23, 150, 160 } };
 
-	OutlineTriangle modifiable{ hw::vec2{ 120, 400 }, hw::vec2{ 90, 460 }, hw::vec2{ 150, 460 } };
+	Triangle modifiable{ hw::vec2{ 120, 400 }, hw::vec2{ 90, 460 }, hw::vec2{ 150, 460 } };
 	
 	modifiable.color() = b.color();
  

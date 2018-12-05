@@ -1,4 +1,5 @@
 #include "hwapi.hpp"
+#include <iostream>
 
 using namespace dummy_api;
 
@@ -21,21 +22,26 @@ int main()
     int rincrement{ 1 };
     int gincrement{ -1 };
 
-    auto f = [&](double) -> void 
+    float red = modifiable.color().r;
+    float green = modifiable.color().g;
+
+    auto f = [&](const double t_elapsed_time) -> void 
     { 
-        if(modifiable.color().r >= 255) 
+        if(red >= 255) 
             rincrement = -1; 
-        else if(modifiable.color().r <= 0)
+        else if(red <= 0)
             rincrement = 1;
 
-        modifiable.color().r += rincrement;
+        red += rincrement * (t_elapsed_time * 120);
+        modifiable.color().r = red;
         
-        if(modifiable.color().g >= 255)
+        if(green >= 255)
             gincrement = -1;
-        else if(modifiable.color().g <= 0)
+        else if(green <= 0)
             gincrement = 1;
 
-        modifiable.color().g += gincrement;
+        green += gincrement * (t_elapsed_time * 120);
+        modifiable.color().g = green;
     };
 
     return draw(f);
