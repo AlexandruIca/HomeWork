@@ -1,5 +1,22 @@
 ///
-/// @file
+/// @file hwapi.hpp
+/// This file contains the api for drawing primitives. To draw a primitive 
+/// you have to call <primitive>(positions...) where '<primitive>' can be 
+/// point, line, rectangle, triangle, circle. To draw only the outline
+/// of a primitive just call outline_<primitive>(positions...).
+/// To draw primitives but also be able to modify them in some way
+/// (eg: change their color) you should create objects of type
+/// <primitive>. Only the naming convention is different. To 
+/// create an object of type triangle:
+/// @code{.cpp}
+/// Triangle shape{ x1, y1, x2, y2, x3, y3 };
+/// @endcode
+/// And to draw only the outline:
+/// @code{.cpp}
+/// OutlineTriangle shape{ x1, y1, x2, y2, x3, y3 };
+/// @endcode
+/// This file also provides functions to modify the size of the window
+/// that will be created to draw stuff.
 ///
 #pragma once
 #ifndef HWAPI_HPP
@@ -12,12 +29,6 @@
 #include "color.hpp"
 #include "vec2.hpp"
 #include "window.hpp"
-
-/// 
-/// @brief
-///
-//struct SDL_Renderer;
-//struct SDL_Window;
 
 /// 
 /// @brief Provides an easy to use api for drawing different primitives
@@ -241,15 +252,6 @@ namespace dummy_api {
                         const hw::color& t_color = hw::color{});
 
     ///
-    /// @brief All primitives that can be drawn in @ref dummy_api.
-    ///
-    enum ShapeType : int 
-    {
-        POINT, LINE, TRIANGLE, OUTLINE_TRIANGLE, RECTANGLE, 
-		OUTLINE_RECTANGLE, CIRCLE, OUTLINE_CIRCLE
-    };
-
-    ///
     /// @brief Every object that has information about a primitive is 
 	///        derived from @ref Shape.
     ///
@@ -267,13 +269,17 @@ namespace dummy_api {
     /// Each derived class will provide methods for retrieving information
 	/// like color and position.
     ///
+    /// @attention Constructors of types derived from @ref Shape take
+    ///            the same parameters(with the same meaning) as their
+    ///            function equivalents.
+    ///
     class Shape
     {
     protected:
         Shape() = default;
     
     public:
-        virtual ~Shape() = default;
+        virtual ~Shape() noexcept = default;
 
         virtual void draw() = 0;
     };
@@ -293,29 +299,21 @@ namespace dummy_api {
         Point(const hw::vec2& t_pos, 
 		      const hw::color& t_color = hw::color{});
         Point(hw::vec2&& t_pos, hw::color&& t_color = hw::color{});
-        virtual ~Point() = default;
+        virtual ~Point() noexcept = default;
 
         virtual void draw() final override;
 
         inline hw::vec2& data()
-        {
-            return m_value;
-        }
+        { return m_value; }
         inline const hw::vec2& data() const
-        {
-            return m_value;
-        }
+        { return m_value; }
 
         inline hw::color& color()
-        {
-            return m_color;
-        }
+        { return m_color; }
         inline const hw::color& color() const
-        {
-            return m_color;
-        }
+        { return m_color; }
 
-        inline Point& operator=(const Point& t_other)
+        Point& operator=(const Point& t_other)
         {
             m_value = t_other.data();
             
@@ -323,13 +321,9 @@ namespace dummy_api {
         }
 
         inline bool operator==(const Point& t_other) const
-        {
-            return m_value == t_other.data();
-        }
+        { return m_value == t_other.data(); }
         inline bool operator!=(const Point& t_other) const 
-        {
-            return !this->operator==(t_other);
-        }
+        { return !this->operator==(t_other); }
     };
 
     ///
@@ -349,37 +343,26 @@ namespace dummy_api {
 		     const hw::color& t_color = hw::color{});
         Line(hw::vec2&& t_a, hw::vec2&& t_b, 
 		     hw::color&& t_color = hw::color{});
-        virtual ~Line() = default;
+        virtual ~Line() noexcept = default;
 
         virtual void draw() final override;
         
         inline hw::vec2& first()
-        {
-            return m_start;
-        }
-        inline hw::vec2& second()
-        {
-            return m_end;
-        }
+        { return m_start; }
         inline const hw::vec2& first() const
-        {
-            return m_start;
-        }
+        { return m_start; }
+
+        inline hw::vec2& second()
+        { return m_end; }
         inline const hw::vec2& second() const
-        {
-            return m_end;
-        }
+        { return m_end; }
         
         inline hw::color& color()
-        {
-            return m_color;
-        }
+        { return m_color; }
         inline const hw::color& color() const
-        {
-            return m_color;
-        }
+        { return m_color; }
 
-        inline Line& operator=(const Line& t_other)
+        Line& operator=(const Line& t_other)
         {
             m_start = t_other.first();
             m_end = t_other.second();
@@ -393,9 +376,7 @@ namespace dummy_api {
                 && m_end == t_other.second();
         }
         inline bool operator!=(const Line& t_other) const 
-        {
-            return !this->operator==(t_other);
-        }
+        { return !this->operator==(t_other); }
     };
 
     ///
@@ -420,45 +401,31 @@ namespace dummy_api {
                  const hw::color& t_color = hw::color{});
         Triangle(hw::vec2&& t_pos1, hw::vec2&& t_pos2, hw::vec2&& t_pos3, 
                 hw::color&& t_color = hw::color{});
-        virtual ~Triangle() = default;
+        virtual ~Triangle() noexcept = default;
 
         virtual void draw() final override;
 
         inline hw::vec2& first()
-        {
-            return m_first;
-        }
+        { return m_first; }
         inline const hw::vec2& first() const
-        {
-            return m_first;
-        }
+        { return m_first; }
+
         inline hw::vec2& second()
-        {
-            return m_second;
-        }
+        { return m_second; }
         inline const hw::vec2& second() const
-        {
-            return m_second;
-        }
+        { return m_second; }
+
         inline hw::vec2& third()
-        {
-            return m_third;
-        }
+        { return m_third; }
         inline const hw::vec2& third() const
-        {
-            return m_third;
-        }
+        { return m_third; }
         
         inline hw::color& color()
-        {
-            return m_color;
-        }
+        { return m_color; }
         inline const hw::color& color() const
-        {
-            return m_color;
-        }
+        { return m_color; }
 
-        inline Triangle& operator=(const Triangle& t_other)
+        Triangle& operator=(const Triangle& t_other)
         {
             m_first = t_other.first();
             m_second = t_other.second();
@@ -474,9 +441,7 @@ namespace dummy_api {
                 && m_third == t_other.third();
         }
         inline bool operator!=(const Triangle& t_other) const 
-        {
-            return !this->operator==(t_other);
-        }
+        { return !this->operator==(t_other); }
     };
     
     ///
@@ -502,45 +467,31 @@ namespace dummy_api {
         OutlineTriangle(hw::vec2&& t_pos1, hw::vec2&& t_pos2, 
 		        hw::vec2&& t_pos3,
                 hw::color&& t_color = hw::color{});
-        virtual ~OutlineTriangle() = default;
+        virtual ~OutlineTriangle() noexcept = default;
 
         virtual void draw() final override;
         
         inline hw::vec2& first()
-        {
-            return m_first;
-        }
+        { return m_first; }
         inline const hw::vec2& first() const
-        {
-            return m_first;
-        }
+        { return m_first; }
+
         inline hw::vec2& second()
-        {
-            return m_second;
-        }
+        { return m_second; }
         inline const hw::vec2& second() const
-        {
-            return m_second;
-        }
+        { return m_second; }
+
         inline hw::vec2& third()
-        {
-            return m_third;
-        }
+        { return m_third; }
         inline const hw::vec2& third() const
-        {
-            return m_third;
-        }
+        { return m_third; }
 
         inline hw::color& color()
-        {
-            return m_color;
-        }
+        { return m_color; }
         inline const hw::color& color() const
-        {
-            return m_color;
-        }
+        { return m_color; }
 
-        inline OutlineTriangle& operator=(const Triangle& t_other)
+        OutlineTriangle& operator=(const Triangle& t_other)
         {
             m_first = t_other.first();
             m_second = t_other.second();
@@ -556,9 +507,7 @@ namespace dummy_api {
                 && m_third == t_other.third();
         }
         inline bool operator!=(const OutlineTriangle& t_other) const 
-        {
-            return !this->operator==(t_other);
-        }
+        { return !this->operator==(t_other); }
     };
 
     
@@ -582,37 +531,26 @@ namespace dummy_api {
         Rectangle(hw::vec2&& t_start, 
                   const int t_width, const int t_height, 
                   hw::color&& t_color = hw::color{});
-        virtual ~Rectangle() = default;
+        virtual ~Rectangle() noexcept = default;
 
         virtual void draw() final override;
         
         inline hw::vec2& pos()
-        {
-            return m_pos;
-        }
-        inline hw::vec2& dim()
-        {
-            return m_dimensions;
-        }
+        { return m_pos; }
         inline const hw::vec2& pos() const
-        {
-            return m_pos;
-        }
+        { return m_pos; }
+
+        inline hw::vec2& dim()
+        { return m_dimensions; }
         inline const hw::vec2& dim() const
-        {
-            return m_dimensions;
-        }
+        { return m_dimensions; }
     
         inline hw::color& color()
-        {
-            return m_color;
-        }
+        { return m_color; }
         inline const hw::color& color() const
-        {
-            return m_color;
-        }
+        { return m_color; }
 
-        inline Rectangle& operator=(const Rectangle& t_other)
+        Rectangle& operator=(const Rectangle& t_other)
         {
             m_pos = t_other.pos();
             m_dimensions = t_other.dim();
@@ -626,9 +564,7 @@ namespace dummy_api {
                 && m_dimensions == t_other.dim();
         }
         inline bool operator!=(const Rectangle& t_other) const 
-        {
-            return !this->operator==(t_other);
-        }
+        { return !this->operator==(t_other); }
     };
 
     
@@ -650,37 +586,26 @@ namespace dummy_api {
 		        const int t_height, const hw::color& t_color = hw::color{});
         OutlineRectangle(hw::vec2&& t_start, const int t_width, 
 		         const int t_height, hw::color&& t_color = hw::color{});
-        virtual ~OutlineRectangle() = default;
+        virtual ~OutlineRectangle() noexcept = default;
 
         virtual void draw() final override;
         
         inline hw::vec2& pos()
-        {
-            return m_pos;
-        }
-        inline hw::vec2& dim()
-        {
-            return m_dimensions;
-        }
+        { return m_pos; }
         inline const hw::vec2& pos() const
-        {
-            return m_pos;
-        }
+        { return m_pos; }
+
+        inline hw::vec2& dim()
+        { return m_dimensions; }
         inline const hw::vec2& dim() const
-        {
-            return m_dimensions;
-        }
+        { return m_dimensions; }
         
         inline hw::color& color()
-        {
-            return m_color;
-        }
+        { return m_color; }
         inline const hw::color& color() const
-        {
-            return m_color;
-        }
+        { return m_color; }
 
-        inline OutlineRectangle& operator=(const OutlineRectangle& t_other)
+        OutlineRectangle& operator=(const OutlineRectangle& t_other)
         {
             m_pos = t_other.pos();
             m_dimensions = t_other.dim();
@@ -694,9 +619,7 @@ namespace dummy_api {
                 && m_dimensions == t_other.dim();
         }
         inline bool operator!=(const OutlineRectangle& t_other) const 
-        {
-            return !this->operator==(t_other);
-        }
+        { return !this->operator==(t_other); }
     };
 
     ///
@@ -716,37 +639,26 @@ namespace dummy_api {
                const hw::color& t_color = hw::color{});
         Circle(hw::vec2&& t_pos, const int t_radius, 
 		       hw::color&& t_color = hw::color{});
-        virtual ~Circle() = default;
+        virtual ~Circle() noexcept = default;
 
         virtual void draw() final override;
 
         inline hw::vec2& pos()
-        {
-            return m_pos;
-        }
-        inline int& radius()
-        {
-            return m_radius;
-        }
+        { return m_pos; }
         inline const hw::vec2& pos() const
-        {
-            return m_pos;
-        }
+        { return m_pos; }
+
+        inline int& radius()
+        { return m_radius; }
         inline const int& radius() const
-        {
-            return m_radius;
-        }
+        { return m_radius; }
         
         inline hw::color& color()
-        {
-            return m_color;
-        }
+        { return m_color; }
         inline const hw::color& color() const
-        {
-            return m_color;
-        }
+        { return m_color; }
 
-        inline Circle& operator=(const Circle& t_other)
+        Circle& operator=(const Circle& t_other)
         {
             m_pos = t_other.pos();
             m_radius = t_other.radius();
@@ -760,9 +672,7 @@ namespace dummy_api {
                 && m_radius == t_other.radius();
         }
         inline bool operator!=(const Circle& t_other) const 
-        {
-            return !this->operator==(t_other);
-        }
+        { return !this->operator==(t_other); }
     };
 
     ///
@@ -782,37 +692,26 @@ namespace dummy_api {
                 const hw::color& t_color = hw::color{});
         OutlineCircle(hw::vec2&& t_pos, const int t_radius, 
 		        hw::color&& t_color = hw::color{});
-        virtual ~OutlineCircle() = default;
+        virtual ~OutlineCircle() noexcept = default;
 
         virtual void draw() final override;
     
         inline hw::vec2& pos()
-        {
-            return m_pos;
-        }
-        inline int& radius()
-        {
-            return m_radius;
-        }
+        { return m_pos; }
         inline const hw::vec2& pos() const
-        {
-            return m_pos;
-        }
+        { return m_pos; }
+
+        inline int& radius()
+        { return m_radius; }
         inline const int& radius() const
-        {
-            return m_radius;
-        }
+        { return m_radius; }
         
         inline hw::color& color()
-        {
-            return m_color;
-        }
+        { return m_color; }
         inline const hw::color& color() const
-        {
-            return m_color;
-        }
+        { return m_color; }
 
-        inline OutlineCircle& operator=(const OutlineCircle& t_other)
+        OutlineCircle& operator=(const OutlineCircle& t_other)
         {
             m_pos = t_other.pos();
             m_radius = t_other.radius();
@@ -826,9 +725,7 @@ namespace dummy_api {
                 && m_radius == t_other.radius();
         }
         inline bool operator!=(const OutlineCircle& t_other) const 
-        {
-            return !this->operator==(t_other);
-        }
+        { return !this->operator==(t_other); }
      };
 }
 
