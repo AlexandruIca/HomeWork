@@ -7,17 +7,9 @@
 #include <string>
 
 ///
-/// @file
+/// @file hwapi.cpp
 ///
 
-///
-/// @def NO_DEFAULT_WINDOW
-/// Define this if you want to have your custom window(s).
-///
-
-///
-/// @brief
-///
 namespace da = dummy_api;
 
 // no c++14
@@ -25,19 +17,11 @@ template<typename T, typename...Args>
 static std::unique_ptr<T> make_unique(Args&&...args)
 { return std::unique_ptr<T>(new T(std::forward<Args>(args)...)); }
 
-/*
-#ifndef NO_DEFAULT_WINDOW
-static hw::window g_window{ 640, 480, "Hey There" };
-static hw::window::event_t g_event;
-#endif
-
-#ifndef NO_DEFAULT_WINDOW*/
 namespace {
     hw::window* g_global_window{ nullptr };
     int g_global_width{ 640 };
     int g_global_height{ 480 };
 }
-//#endif
 
 namespace dummy_api {
 	std::vector<da::Shape*>& get_shapes()
@@ -52,32 +36,18 @@ namespace dummy_api {
 	    return shapes;
 	}
 	
-	//SDL_Renderer* get_renderer()
-	//{
-	//#ifndef NO_DEFAULT_WINDOW
-	//    return g_window.get_renderer();
-	//#else
-	//    return nullptr;
-	//#endif
-	//}
-	//
-	//SDL_Window* get_window()
-	//{
-	//#ifndef NO_DEFAULT_WINDOW
-	//    return g_window.get();
-	//#else
-	//    return nullptr;
-	//#endif
-	//}
-
     hw::window* get_global_window()
     { return g_global_window; }
+
     int get_global_width()
     { return g_global_width; }
+
     int get_global_height()
     { return g_global_height; }
+
     void set_global_width(const int t_width)
     { g_global_width = t_width; }
+
     void set_global_height(const int t_height)
     { g_global_height = t_height; }
  
@@ -104,19 +74,14 @@ namespace dummy_api {
         while(!wnd.closed() 
            && !wnd.was_key_pressed(SDLK_ESCAPE)) 
         {
-            //auto start = std::chrono::steady_clock::now();
             auto end = std::chrono::steady_clock::now();
             double elapsed_time = std::chrono::duration<double>(
                     end - start
             ).count();
-            avg_fps += std::chrono::seconds(1).count() / elapsed_time;
+            avg_fps += (elapsed_time <= 0.0000001) ? 999.0 
+                       : std::chrono::seconds(1).count() / elapsed_time;
             avg_fps /= 2;
             start = end;
-
-            SDL_SetWindowTitle(wnd.get(), 
-                (std::string{ "HWindow: " } + std::to_string(avg_fps)
-                + std::string{ "FPS" }).c_str()
-            );
 
             wnd.clear();
 
@@ -125,15 +90,6 @@ namespace dummy_api {
             draw_shapes();
 
             wnd.update();
-
-            //auto end = std::chrono::steady_clock::now();
-            //avg_fps += (std::chrono::seconds(1).count() 
-            //        / std::chrono::duration<double>(end - start).count());
-            //avg_fps /= 2;
-            //SDL_SetWindowTitle(wnd.get(), 
-            //    (std::string{ "HWindow: " } + std::to_string(avg_fps)
-            //    + std::string{ "FPS" }).c_str()
-            //);    
         }
 
         std::cout << "FPS: " << avg_fps << '\n';
@@ -143,6 +99,7 @@ namespace dummy_api {
 
     void point(const hw::vec2& t_pos, const hw::color& t_color)
     { get_anon_shapes().push_back(make_unique<da::Point>(t_pos, t_color)); }
+
     void point(const int t_x, const int t_y, const hw::color& t_color)
     { point(hw::vec2{ t_x, t_y }, t_color); }
 
@@ -263,7 +220,6 @@ namespace dummy_api {
         );
 		auto SWAP = [](int &x, int &y) { int t = x; x = y; y = t; };
 		auto drawline = [&](int sx, int ex, int ny) 
-        //{ for (int i = sx; i <= ex; i++) Draw(i, ny, c, col); };
         {
             SDL_RenderDrawLine(get_global_window()->get_renderer(),
                 sx, ny, ex, ny
@@ -619,10 +575,6 @@ namespace dummy_api {
             m_color.r, m_color.g, m_color.b, m_color.a
         );
 		auto drawline = [&](int sx, int ex, int ny)
-		//{
-		//	for (int i = sx; i <= ex; i++)
-		//		Draw(i, ny, c, col);
-		//};
         {
             SDL_RenderDrawLine(get_global_window()->get_renderer(), 
                 sx, ny, ex, ny
