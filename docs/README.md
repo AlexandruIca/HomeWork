@@ -133,3 +133,6 @@ int main()
 }
 ```
 
+# Reference
+For the full API reference please check: https://codedocs.xyz/AlexandruIca/HomeWork/
+
