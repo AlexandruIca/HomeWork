@@ -19,17 +19,34 @@ int main()
 This creates a window(640x480 default resolution) and draws a line starting at coordinate (50, 60) to (300, 400). The default color of any primitive is white(and can easily be changed), while the background color of the window is black:
 <img src="media/Line.png" style="width: 50%" align="left"/>
 
+Maybe 640x480 is too small for you:
+```c++
+#include "graphics.hpp"
+
+int main()
+{
+    set_width(1280);
+    set_height(720);
+    
+    triangle(20, 20, 900, 10, 800, 700, AMBER);
+    
+    return draw();
+}
+```
+<img src="media/Triangle.png" style="width: 50%" align="left"/> 
+
+Please check out docs/README.md for a quick start on using the library.
+
 # Building
 You have to have cmake and SDL2 library installed to build this project. After that it's pretty simple:
 ```
-cd /path/to/project && mkdir build && cd build
-cmake -G"Unix Makefiles (or whatever)" ..
+cd /path/to/project 
+mkdir build 
+cd build
+cmake -G"Unix Makefiles (or whatever)" -DHW_SDL2_INCLUDE_DIR=/path/to/sdl2/include -DHW_SDL2_LIBRARY_DIR=/path/to/sdl2/lib ..
 make
 ```
-And now you can run the test(s). A windows build is currently under way.
-
-# Documentation
-Check /docs folder for the doxygen-generated documentation of this project(needs more of it).
+And now you can link against this library and run the tests.
 
 # Contributing 
 Want to contribute? AWESOME! There's no strict guideline to follow, although following the current coding style would be great. Keep in mind contributing doesn't mean just contributing to code. Find the usage of a function confusing? Improve the documentation! Not sure it handles some specific use cases? Test it and submit the tests! Found a spelling error? Fix it!
@@ -39,6 +56,8 @@ Want to contribute? AWESOME! There's no strict guideline to follow, although fol
 
 # TODO
 * Need many more tests.
+* Rewrite parts of the tests to make use of the graphics.hpp header.
+* Build the tests only if the user wants to.
 * Make it more flexible(eg. making a custom window).
 * Improve documentation.
 
