@@ -12,7 +12,7 @@
 ///
 /// @mainpage HomeWork - an API that makes it easy to draw shapes in c++
 /// Please read the README.md file in the github repository for a quick
-/// introduction to the library.
+/// introduction to the library: https://github.com/AlexandruIca/HomeWork/blob/master/README.md
 ///
 
 #include "hwapi.hpp"
