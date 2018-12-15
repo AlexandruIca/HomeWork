@@ -5,12 +5,10 @@
 #include <cstdint>
 
 ///
-/// @file
+/// @file color.hpp
+/// This file contains the declaration for a color object.
 ///
 
-///
-/// @brief
-///
 namespace hw 
 {
     ///
@@ -41,9 +39,7 @@ namespace hw
                 && a == t_other.a;
         }
         inline bool operator!=(const color& t_other) const
-        {
-            return !this->operator==(t_other);
-        }
+        { return !this->operator==(t_other); }
     };
 }
 

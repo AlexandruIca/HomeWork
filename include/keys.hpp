@@ -2,6 +2,14 @@
 #ifndef KEYS_HPP
 #define KEYS_HPP
 
+///
+/// @file keys.hpp
+/// This file contains an enum that is equivalent to what sdl
+/// offers but is used for having different names for keys instead of 
+/// SDL_SCANCODE_<KEY>. The main audience for this library is highschool 
+/// students so this should be beneficial.
+///
+
 #include "SDL2/SDL.h"
 
 enum keys
@@ -260,5 +268,5 @@ enum keys
     KEY_AUDIOFASTFORWARD = SDL_SCANCODE_TO_KEYCODE(SDL_SCANCODE_AUDIOFASTFORWARD)
 };
 
-#endif
+#endif // !KEYS_HPP
 

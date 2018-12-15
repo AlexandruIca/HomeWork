@@ -3,12 +3,10 @@
 #define VEC2_HPP
 
 ///
-/// @file
+/// @file vec2.hpp
+/// This files contains the declaration for the vec2 type.
 ///
 
-///
-/// @brief
-///
 namespace hw {
     ///
     /// @brief Holds two ints describing position in 2D space.
@@ -23,19 +21,14 @@ namespace hw {
         ~vec2() = default;
 
         inline bool operator==(const vec2& t_other) const
-        {
-            return x == t_other.x && y == t_other.y;
-        }
+        { return x == t_other.x && y == t_other.y; }
         inline bool operator!=(const vec2& t_other) const
-        {
-            return !this->operator==(t_other);
-        }
+        { return !this->operator==(t_other); }
 
         inline vec2 operator+(const vec2& t_other) const
-        {
-            return vec2{ x + t_other.x, y + t_other.y };
-        }
-        inline vec2& operator+=(const vec2& t_other)
+        { return vec2{ x + t_other.x, y + t_other.y }; }
+        
+        vec2& operator+=(const vec2& t_other)
         {
             x += t_other.x;
             y += t_other.y;
@@ -44,10 +37,9 @@ namespace hw {
         }
 
         inline vec2 operator-(const vec2& t_other) const
-        {
-            return vec2{ x - t_other.x, y - t_other.y };
-        }
-        inline vec2& operator-=(const vec2& t_other) 
+        { return vec2{ x - t_other.x, y - t_other.y }; }
+        
+        vec2& operator-=(const vec2& t_other) 
         {
             x -= t_other.x;
             y -= t_other.y;
