@@ -24,18 +24,18 @@ namespace {
 }
 
 namespace dummy_api {
-	std::vector<da::Shape*>& get_shapes()
-	{
-	    static std::vector<da::Shape*> shapes;
-	    return shapes;
-	}
-	
-	std::vector<std::unique_ptr<da::Shape>>& get_anon_shapes()
-	{
-	    static std::vector<std::unique_ptr<da::Shape>> shapes;
-	    return shapes;
-	}
-	
+    std::vector<da::Shape*>& get_shapes()
+    {
+        static std::vector<da::Shape*> shapes;
+        return shapes;
+    }
+
+    std::vector<std::unique_ptr<da::Shape>>& get_anon_shapes()
+    {
+        static std::vector<std::unique_ptr<da::Shape>> shapes;
+        return shapes;
+    }
+
     hw::window* get_global_window()
     { return g_global_window; }
 
@@ -50,13 +50,9 @@ namespace dummy_api {
 
     void set_global_height(const int t_height)
     { g_global_height = t_height; }
- 
+
     void draw_shapes()
     {
-        for(auto& anon_shape : get_anon_shapes()) {
-            anon_shape->draw();
-        }
-     
         for(auto& shape : get_shapes()) {
             shape->draw();
         }
@@ -93,9 +89,12 @@ namespace dummy_api {
         }
 
         std::cout << "FPS: " << avg_fps << '\n';
-        
+
         return 1;
     }
+
+    Shape::Shape()
+    { get_shapes().push_back(this); }
 
     void point(const hw::vec2& t_pos, const hw::color& t_color)
     { get_anon_shapes().push_back(make_unique<da::Point>(t_pos, t_color)); }
@@ -106,17 +105,17 @@ namespace dummy_api {
     Point::Point(const hw::vec2& t_pos, const hw::color& t_color)
         : m_value(t_pos)
         , m_color(t_color)
-    { get_shapes().push_back(this); }
+    {}
 
     Point::Point(const int t_x, const int t_y, const hw::color& t_color)
         : m_value(hw::vec2{ t_x, t_y })
         , m_color(t_color)
-    { get_shapes().push_back(this); }
+    {}
 
     Point::Point(hw::vec2&& t_pos, hw::color&& t_color)
         : m_value(std::move(t_pos))
         , m_color(std::move(t_color))
-    { get_shapes().push_back(this); }
+    {}
 
     void Point::draw()
     {
@@ -139,20 +138,20 @@ namespace dummy_api {
         : m_start(hw::vec2{ t_x1, t_y1 })
         , m_end(hw::vec2{ t_x2, t_y2 })
         , m_color(t_color)
-    { get_shapes().push_back(this); }
+    {}
 
     Line::Line(const hw::vec2& t_a, const hw::vec2& t_b, 
 			   const hw::color& t_color)
         : m_start(t_a)
         , m_end(t_b)
         , m_color(t_color)
-    { get_shapes().push_back(this); }
+    {}
 
     Line::Line(hw::vec2&& t_a, hw::vec2&& t_b, hw::color&& t_color)
         : m_start(std::move(t_a))
         , m_end(std::move(t_b))
         , m_color(std::move(t_color))
-    { get_shapes().push_back(this); }
+    {}
 
     void Line::draw()
     {
@@ -191,7 +190,7 @@ namespace dummy_api {
         , m_second{ t_x2, t_y2 }
         , m_third{ t_x3, t_y3 }
         , m_color{ t_color }
-    { get_shapes().push_back(this); }
+    {}
 
     Triangle::Triangle(const hw::vec2& t_pos1,
                        const hw::vec2& t_pos2,
@@ -201,7 +200,7 @@ namespace dummy_api {
         , m_second{ t_pos2 }
         , m_third{ t_pos3 }
         , m_color{ t_color }
-    { get_shapes().push_back(this); }
+    {}
 
     Triangle::Triangle(hw::vec2&& t_pos1, hw::vec2&& t_pos2, 
                        hw::vec2&& t_pos3, hw::color&& t_color)
@@ -209,7 +208,7 @@ namespace dummy_api {
         , m_second{ std::move(t_pos2) }
         , m_third{ std::move(t_pos3) }
         , m_color{ std::move(t_color) }
-    { get_shapes().push_back(this); }
+    {}
 
     // stolen from javidx9:
     // https://github.com/OneLoneCoder/videos/blob/master/olcConsoleGameEngine.h
@@ -393,7 +392,7 @@ namespace dummy_api {
         , m_second(hw::vec2{ t_x2, t_y2 })
         , m_third(hw::vec2{ t_x3, t_y3 })
         , m_color(t_color)
-    { get_shapes().push_back(this); }
+    {}
 
     OutlineTriangle::OutlineTriangle(const hw::vec2& t_pos1, 
                                      const hw::vec2& t_pos2,
@@ -403,7 +402,7 @@ namespace dummy_api {
         , m_second(t_pos2)
         , m_third(t_pos3)
         , m_color(t_color)
-    { get_shapes().push_back(this); }
+    {}
 
     OutlineTriangle::OutlineTriangle(hw::vec2&& t_pos1, 
 	        hw::vec2&& t_pos2, hw::vec2&& t_pos3, hw::color&& t_color)
@@ -411,7 +410,7 @@ namespace dummy_api {
         , m_second(std::move(t_pos2))
         , m_third(std::move(t_pos3))
         , m_color(std::move(t_color))
-    { get_shapes().push_back(this); }
+    {}
 
     void OutlineTriangle::draw()
     {
@@ -442,27 +441,28 @@ namespace dummy_api {
         : m_pos(hw::vec2{ t_x, t_y })
         , m_dimensions(hw::vec2{ t_width, t_height })
         , m_color(t_color)
-    { get_shapes().push_back(this); }
+    {}
 
     Rectangle::Rectangle(const hw::vec2& t_pos, const int t_width,
 			const int t_height, const hw::color& t_color)
         : m_pos(t_pos)
         , m_dimensions(hw::vec2{ t_width, t_height })
         , m_color(t_color)
-    { get_shapes().push_back(this); }
+    {}
 
     Rectangle::Rectangle(hw::vec2&& t_pos, const int t_width, 
 			const int t_height, hw::color&& t_color)
         : m_pos(std::move(t_pos))
         , m_dimensions(hw::vec2{ t_width, t_height })
         , m_color(std::move(t_color))
-    { get_shapes().push_back(this); }
+    {}
 
     void Rectangle::draw()
     {
         SDL_SetRenderDrawColor(get_global_window()->get_renderer(), 
-			m_color.r, m_color.g, m_color.b, m_color.a);
-        
+            m_color.r, m_color.g, m_color.b, m_color.a
+        );
+
         SDL_Rect tmp_rect;
 
         tmp_rect.x = m_pos.x;
@@ -493,7 +493,7 @@ namespace dummy_api {
         : m_pos(hw::vec2{ t_x, t_y })
         , m_dimensions(hw::vec2{ t_width, t_height })
         , m_color(t_color)
-    { get_shapes().push_back(this); }
+    {}
 
     OutlineRectangle::OutlineRectangle(const hw::vec2& t_start, 
 			const int t_width, const int t_height, 
@@ -501,14 +501,14 @@ namespace dummy_api {
         : m_pos(t_start)
         , m_dimensions(hw::vec2{ t_width, t_height })
         , m_color(t_color)
-    { get_shapes().push_back(this); }
+    {}
 
     OutlineRectangle::OutlineRectangle(hw::vec2&& t_start, 
 			const int t_width, const int t_height, hw::color&& t_color)
         : m_pos(std::move(t_start))
         , m_dimensions(hw::vec2{ t_width, t_height })
         , m_color(std::move(t_color))
-    { get_shapes().push_back(this); }
+    {}
 
     void OutlineRectangle::draw()
     {
@@ -544,20 +544,20 @@ namespace dummy_api {
         : m_pos{ t_x, t_y }
         , m_radius{ t_radius }
         , m_color{ t_color }
-    { get_shapes().push_back(this); }
+    {}
 
     Circle::Circle(const hw::vec2& t_pos, const int t_radius,
                    const hw::color& t_color)
         : m_pos{ t_pos }
         , m_radius{ t_radius }
         , m_color{ t_color }
-    { get_shapes().push_back(this); }
+    {}
 
     Circle::Circle(hw::vec2&& t_pos, const int t_radius, hw::color&& t_color)
         : m_pos{ std::move(t_pos) }
         , m_radius{ t_radius }
         , m_color{ std::move(t_color) }
-    { get_shapes().push_back(this); }
+    {}
 
     // Taken from javidx9, taken from wikipedia
     void Circle::draw()
@@ -611,21 +611,21 @@ namespace dummy_api {
         : m_pos{ t_x, t_y }
         , m_radius{ t_radius }
         , m_color{ t_color }
-    { get_shapes().push_back(this); }
+    {}
 
     OutlineCircle::OutlineCircle(const hw::vec2& t_pos, const int t_radius,
                                  const hw::color& t_color)
         : m_pos{ t_pos }
         , m_radius{ t_radius }
         , m_color{ t_color }
-    { get_shapes().push_back(this); }
+    {}
 
     OutlineCircle::OutlineCircle(hw::vec2&& t_pos, const int t_radius,
                                  hw::color&& t_color)
         : m_pos{ std::move(t_pos) }
         , m_radius { t_radius }
         , m_color{ std::move(t_color) }
-    { get_shapes().push_back(this); }
+    {}
 
     // guess who wrote this?
     void OutlineCircle::draw()
