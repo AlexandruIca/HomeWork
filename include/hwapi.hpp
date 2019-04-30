@@ -785,7 +785,7 @@ namespace dummy_api {
                       const hw::color& t_color = hw::color{});
         OutlineCircle(hw::vec2&& t_pos, const int t_radius,
                       hw::color&& t_color = hw::color{});
-        virtual ~OutlineCircle() noexcept = default;
+        ~OutlineCircle() noexcept override = default;
 
         virtual void draw() final override;
 

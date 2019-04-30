@@ -339,7 +339,7 @@ namespace dummy_api {
             // Move line
         next1:
             // process second line until y value is about to change
-            while(1) {
+            while(true) {
                 e2 += dy2;
                 while(e2 >= dx2) {
                     e2 -= dx2;
