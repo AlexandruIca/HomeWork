@@ -15,6 +15,54 @@
 /// introduction to the library, this is the API reference:
 /// https://github.com/AlexandruIca/HomeWork/blob/master/README.md
 ///
+/// @section sec_usage Usage of this API
+/// I've created this to help my teacher at school show students some
+/// interesting stuff you can make with c++, not only boring console
+/// programs. Untill now he had to install windows XP and get borland c++
+/// compiler using "graphics.h" to be able to draw very simple stuff in the
+/// console. It worked but it was not ideal at all. What if somebody wants to
+/// practice at home?
+/// This aims to be a replacement for that by using cross platform libraries
+/// like SDL2. In theory I would setup codeblocks on the computers at my
+/// school to have a user template that automatically creates a project
+/// which links to this library and provide a very simple program to start
+/// with so students don't have to get confused. I really hope this will
+/// prove useful.
+///
+/// @section sec_starting Starting out
+/// The best place to start out using this is to check out the git repo in
+/// docs/README.md. To include it in you project it's probably easy enough
+/// to just check the CMakeLists.txt and see how it's built. I didn't put too
+/// much soul into making the build process easy because I am the one who should
+/// build it and then it should just work with a codeblocks template, like I am
+/// planning to do.
+///
+/// @section sec_overview Overview
+/// The header that you should include every time you want to use thi is
+/// graphics.hpp. It only contains a few convenient functions and a macro
+/// to make the library dead easy to use. One of the main goals of this library
+/// is to be incredibly accessible to anyone.
+/// The header hwapi.hpp contains the actual api and you should check this out
+/// whenever you want to see if a feature is available.
+/// The window.hpp header is just a wrapper around SDL_Window.
+/// The rest is not really that important but if you need more detail you could
+/// probably just check out the sources. It's a very small library and I think
+/// it's very easy to just read what happens under the hood.
+///
+/// @section sec_why_cpp Why C++
+/// The turtle module in python is probably the easisest way to get started with
+/// graphics programming but sadly python is not taught in my school. We only
+/// learn c++(mostly the antique C-ish c++) and getting anything working
+/// properly on our computers is an absolute pain. I've already got some demos
+/// of this library working so this is the main reason why I chose c++. Luckily
+/// the codeblocks version(the editor that everyone uses at my school) is 13.12
+/// which includes a mingw version that supports c++11, making development
+/// so much smoother.
+/// I could have also just chosen plain C since we don't learn anything special
+/// about c++(except IO) but it doesn't provide some neat features like
+/// function overloading that make this much easier to use. As ease of use
+/// is one major goal of the library the choice is c++.
+///
 
 #include "hwapi.hpp"
 #include "keys.hpp"

@@ -62,7 +62,19 @@ $(function() {
 <div class="title">HomeWork - an API that makes it easy to draw shapes in c++ </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Please read the README.md file in the github repository for a quick introduction to the library, this is the API reference: <a href="https://github.com/AlexandruIca/HomeWork/blob/master/README.md">https://github.com/AlexandruIca/HomeWork/blob/master/README.md</a> </p>
+<div class="textblock"><p>Please read the README.md file in the github repository for a quick introduction to the library, this is the API reference: <a href="https://github.com/AlexandruIca/HomeWork/blob/master/README.md">https://github.com/AlexandruIca/HomeWork/blob/master/README.md</a></p>
+<h1><a class="anchor" id="sec_usage"></a>
+Usage of this API</h1>
+<p>I've created this to help my teacher at school show students some interesting stuff you can make with c++, not only boring console programs. Untill now he had to install windows XP and get borland c++ compiler using "graphics.h" to be able to draw very simple stuff in the console. It worked but it was not ideal at all. What if somebody wants to practice at home? This aims to be a replacement for that by using cross platform libraries like SDL2. In theory I would setup codeblocks on the computers at my school to have a user template that automatically creates a project which links to this library and provide a very simple program to start with so students don't have to get confused. I really hope this will prove useful.</p>
+<h1><a class="anchor" id="sec_starting"></a>
+Starting out</h1>
+<p>The best place to start out using this is to check out the git repo in docs/README.md. To include it in you project it's probably easy enough to just check the CMakeLists.txt and see how it's built. I didn't put too much soul into making the build process easy because I am the one who should build it and then it should just work with a codeblocks template, like I am planning to do.</p>
+<h1><a class="anchor" id="sec_overview"></a>
+Overview</h1>
+<p>The header that you should include every time you want to use thi is <a class="el" href="graphics_8hpp.html">graphics.hpp</a>. It only contains a few convenient functions and a macro to make the library dead easy to use. One of the main goals of this library is to be incredibly accessible to anyone. The header <a class="el" href="hwapi_8hpp.html">hwapi.hpp</a> contains the actual api and you should check this out whenever you want to see if a feature is available. The <a class="el" href="window_8hpp.html">window.hpp</a> header is just a wrapper around SDL_Window. The rest is not really that important but if you need more detail you could probably just check out the sources. It's a very small library and I think it's very easy to just read what happens under the hood.</p>
+<h1><a class="anchor" id="sec_why_cpp"></a>
+Why C++</h1>
+<p>The turtle module in python is probably the easisest way to get started with graphics programming but sadly python is not taught in my school. We only learn c++(mostly the antique C-ish c++) and getting anything working properly on our computers is an absolute pain. I've already got some demos of this library working so this is the main reason why I chose c++. Luckily the codeblocks version(the editor that everyone uses at my school) is 13.12 which includes a mingw version that supports c++11, making development so much smoother. I could have also just chosen plain C since we don't learn anything special about c++(except IO) but it doesn't provide some neat features like function overloading that make this much easier to use. As ease of use is one major goal of the library the choice is c++. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
