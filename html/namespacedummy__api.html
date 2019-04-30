@@ -105,9 +105,8 @@ Functions</h2></td></tr>
 std::vector&lt; <a class="el" href="classdummy__api_1_1Shape.html">dummy_api::Shape</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedummy__api.html#ae22d07d02c51f47a6a4f8898d1fb2081">get_shapes</a> ()</td></tr>
 <tr class="memdesc:ae22d07d02c51f47a6a4f8898d1fb2081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the vector of Shapes. <br /></td></tr>
 <tr class="separator:ae22d07d02c51f47a6a4f8898d1fb2081"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af53f27e6cbcce21108c91553e13dc883"><td class="memItemLeft" align="right" valign="top"><a id="af53f27e6cbcce21108c91553e13dc883"></a>
-std::vector&lt; std::unique_ptr&lt; <a class="el" href="classdummy__api_1_1Shape.html">dummy_api::Shape</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedummy__api.html#af53f27e6cbcce21108c91553e13dc883">get_anon_shapes</a> ()</td></tr>
-<tr class="memdesc:af53f27e6cbcce21108c91553e13dc883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the vector of anonymous Shapes. <br /></td></tr>
+<tr class="memitem:af53f27e6cbcce21108c91553e13dc883"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="classdummy__api_1_1Shape.html">dummy_api::Shape</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedummy__api.html#af53f27e6cbcce21108c91553e13dc883">get_anon_shapes</a> ()</td></tr>
+<tr class="memdesc:af53f27e6cbcce21108c91553e13dc883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the vector of anonymous Shapes.  <a href="#af53f27e6cbcce21108c91553e13dc883">More...</a><br /></td></tr>
 <tr class="separator:af53f27e6cbcce21108c91553e13dc883"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c2c72257eaf93c6ad454675ddc7d8e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classhw_1_1window.html">hw::window</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedummy__api.html#a8c2c72257eaf93c6ad454675ddc7d8e3">get_global_window</a> ()</td></tr>
 <tr class="memdesc:a8c2c72257eaf93c6ad454675ddc7d8e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the global renderer(available only if NO_DEFAULT_WINDOW is not defined).  <a href="#a8c2c72257eaf93c6ad454675ddc7d8e3">More...</a><br /></td></tr>
@@ -260,6 +259,26 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name
 <p>Draws all the shapes currently requested. </p>
 <p>Should be called every frame since shapes may be updated frequently (eg. changes of color).</p>
 <dl class="section warning"><dt>Warning</dt><dd>Does NOTHING else, only draws the shapes(no window event handling). </dd></dl>
+
+</div>
+</div>
+<a id="af53f27e6cbcce21108c91553e13dc883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af53f27e6cbcce21108c91553e13dc883">&#9670;&nbsp;</a></span>get_anon_shapes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::unique_ptr&lt; <a class="el" href="classdummy__api_1_1Shape.html">da::Shape</a> &gt; &gt; &amp; dummy_api::get_anon_shapes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Accesses the vector of anonymous Shapes. </p>
+<p>This vector holds pointers to shapes that are in the vector returned by <a class="el" href="namespacedummy__api.html#ae22d07d02c51f47a6a4f8898d1fb2081">get_shapes</a> so that when you create a shape like this: </p><div class="fragment"><div class="line">{</div><div class="line">    Rectangle r{};</div><div class="line">    <span class="comment">// do stuff</span></div><div class="line">} <span class="comment">// scope ending</span></div></div><!-- fragment --><p> the destructor of the shape doesn't get called and there is no segfault. Call methods starting with lowercase to create anonymous shapes. The disadvantage of anonymous shapes is that you can't change anything about them later. </p>
 
 </div>
 </div>

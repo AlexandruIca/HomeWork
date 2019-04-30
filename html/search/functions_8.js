@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['set_5fglobal_5fheight',['set_global_height',['../namespacedummy__api.html#a6dec9d711b9a8503960af9eb9f554965',1,'dummy_api']]],
-  ['set_5fglobal_5fwidth',['set_global_width',['../namespacedummy__api.html#a24b620f31b4574ab1866728c61ef933f',1,'dummy_api']]],
-  ['set_5fheight',['set_height',['../graphics_8hpp.html#ad63ec8df8e2160232afb9f44fe55593d',1,'graphics.hpp']]],
-  ['set_5fwidth',['set_width',['../graphics_8hpp.html#a7d9286f7a0b72416bad18975444c3f87',1,'graphics.hpp']]]
+  ['rectangle',['rectangle',['../namespacedummy__api.html#acb6344e33577af291978e41b3322c14b',1,'dummy_api::rectangle(const hw::vec2 &amp;t_pos, const int t_width, const int t_height, const hw::color &amp;t_color=hw::color{})'],['../namespacedummy__api.html#a6409e8fb0ec9267490a4671efb23c536',1,'dummy_api::rectangle(const int t_x, const int t_y, const int t_width, const int t_height, const hw::color &amp;t_color=hw::color{})']]]
 ];
