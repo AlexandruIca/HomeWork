@@ -1,6 +1,6 @@
 #pragma once
-#ifndef WINDOW_HPP 
-#define WINDOW_HPP 
+#ifndef WINDOW_HPP
+#define WINDOW_HPP
 
 ///
 /// @file window.hpp
@@ -10,31 +10,31 @@
 #include <vector>
 
 #include "SDL2/SDL.h"
-#include "color.hpp" 
+#include "color.hpp"
 
 ///
 /// @brief Almost all functionality is provided in @ref hw namespace.
 ///
-namespace hw {   
+namespace hw {
     ///
-    /// @brief Window object that can (obviously) create a window, 
-	///        set the clear color,
+    /// @brief Window object that can (obviously) create a window,
+    ///        set the clear color,
     ///        update it and get what key was pressed.
     ///
     class window
     {
-    private:
-        SDL_Window* m_window{ nullptr };
-        SDL_Renderer* m_renderer{ nullptr };
-        
-        int m_width{ -1 };
-        int m_height{ -1 };
+      private:
+        SDL_Window* m_window{nullptr};
+        SDL_Renderer* m_renderer{nullptr};
 
-        std::vector<SDL_Event> m_event_queue{}; 
+        int m_width{-1};
+        int m_height{-1};
 
-        hw::color m_color{ 0, 0, 0, 155 };
+        std::vector<SDL_Event> m_event_queue{};
 
-    public:
+        hw::color m_color{0, 0, 0, 155};
+
+      public:
         window() = default;
         ///
         /// @brief Constructs the window with given dimensions and title.
@@ -45,21 +45,29 @@ namespace hw {
         ~window();
 
         inline int get_width() const
-        { return m_width; }
+        {
+            return m_width;
+        }
 
         inline int get_height() const
-        { return m_height; }
-        
+        {
+            return m_height;
+        }
+
         ///
         /// @brief Returns the underlying renderer(used by SDL).
         ///
         inline SDL_Renderer* get_renderer()
-        { return m_renderer; }
+        {
+            return m_renderer;
+        }
         ///
         /// @brief Returns the underlying window(used by SDL).
         ///
         inline SDL_Window* get()
-        { return m_window; }
+        {
+            return m_window;
+        }
 
         ///
         /// @brief Renders everything on the screen.
@@ -75,7 +83,7 @@ namespace hw {
         bool was_key_pressed(int t_key);
         bool closed();
     };
-}
+} // namespace hw
 
 #endif // !WINDOW_HPP
 
