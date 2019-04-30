@@ -304,9 +304,9 @@ namespace dummy_api {
               const hw::color& t_color = hw::color{});
         Point(const hw::vec2& t_pos, const hw::color& t_color = hw::color{});
         Point(hw::vec2&& t_pos, hw::color&& t_color = hw::color{});
-        virtual ~Point() noexcept = default;
+        ~Point() noexcept override = default;
 
-        virtual void draw() final override;
+        void draw() final;
 
         inline hw::vec2& data()
         {
@@ -359,9 +359,9 @@ namespace dummy_api {
         Line(const hw::vec2& t_a, const hw::vec2& t_b,
              const hw::color& t_color = hw::color{});
         Line(hw::vec2&& t_a, hw::vec2&& t_b, hw::color&& t_color = hw::color{});
-        virtual ~Line() noexcept = default;
+        ~Line() noexcept override = default;
 
-        virtual void draw() final override;
+        void draw() final;
 
         inline hw::vec2& first()
         {
@@ -428,9 +428,9 @@ namespace dummy_api {
                  const hw::color& t_color = hw::color{});
         Triangle(hw::vec2&& t_pos1, hw::vec2&& t_pos2, hw::vec2&& t_pos3,
                  hw::color&& t_color = hw::color{});
-        virtual ~Triangle() noexcept = default;
+        ~Triangle() noexcept override = default;
 
-        virtual void draw() final override;
+        void draw() final;
 
         inline hw::vec2& first()
         {
@@ -508,9 +508,9 @@ namespace dummy_api {
                         const hw::color& t_color = hw::color{});
         OutlineTriangle(hw::vec2&& t_pos1, hw::vec2&& t_pos2, hw::vec2&& t_pos3,
                         hw::color&& t_color = hw::color{});
-        virtual ~OutlineTriangle() noexcept = default;
+        ~OutlineTriangle() noexcept override = default;
 
-        virtual void draw() final override;
+        void draw() final;
 
         inline hw::vec2& first()
         {
@@ -585,9 +585,9 @@ namespace dummy_api {
                   const int t_height, const hw::color& t_color = hw::color{});
         Rectangle(hw::vec2&& t_start, const int t_width, const int t_height,
                   hw::color&& t_color = hw::color{});
-        virtual ~Rectangle() noexcept = default;
+        ~Rectangle() noexcept override = default;
 
-        virtual void draw() final override;
+        void draw() final;
 
         inline hw::vec2& pos()
         {
@@ -653,9 +653,9 @@ namespace dummy_api {
                          const hw::color& t_color = hw::color{});
         OutlineRectangle(hw::vec2&& t_start, const int t_width,
                          const int t_height, hw::color&& t_color = hw::color{});
-        virtual ~OutlineRectangle() noexcept = default;
+        ~OutlineRectangle() noexcept override = default;
 
-        virtual void draw() final override;
+        void draw() final;
 
         inline hw::vec2& pos()
         {
@@ -719,9 +719,9 @@ namespace dummy_api {
                const hw::color& t_color = hw::color{});
         Circle(hw::vec2&& t_pos, const int t_radius,
                hw::color&& t_color = hw::color{});
-        virtual ~Circle() noexcept = default;
+        ~Circle() noexcept override = default;
 
-        virtual void draw() final override;
+        void draw() final;
 
         inline hw::vec2& pos()
         {
@@ -787,7 +787,7 @@ namespace dummy_api {
                       hw::color&& t_color = hw::color{});
         ~OutlineCircle() noexcept override = default;
 
-        virtual void draw() final override;
+        void draw() final;
 
         inline hw::vec2& pos()
         {
