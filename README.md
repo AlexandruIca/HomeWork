@@ -61,10 +61,12 @@ Want to contribute? AWESOME! There's no strict guideline to follow, although fol
 * Make it more flexible(eg. making a custom window).
 * Improve documentation.
 * Add images, text, sounds
-** Integrate them well with existing structures.
 
-** Example:
-** ```c++
+For the last point:
+Integrate them well with existing structures.
+
+Example:
+```c++
 Rectangle r{ /*...*/ };
 TextBox text{ r }; // if the rectangle is moved the text box is moved as well
 TextBox text2{ 20, 20, 30, 30, YELLOW }; // create a text box with yellow background
