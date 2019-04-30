@@ -15,7 +15,7 @@ hw::window::window(const int t_width, const int t_height, const char* t_name)
     , m_color{ 0, 0, 0, 255 }
 {
     SDL_Init(SDL_INIT_VIDEO);
-        
+
     m_window = SDL_CreateWindow(t_name, 
             SDL_WINDOWPOS_UNDEFINED,
             SDL_WINDOWPOS_UNDEFINED,
@@ -28,8 +28,10 @@ hw::window::window(const int t_width, const int t_height, const char* t_name)
     // change something about a primitive and their computer is
     // beefy it won't seem like nothing is happening(and hopefully less
     // glitches will appear)
-    m_renderer = SDL_CreateRenderer(m_window, -1, 
-            SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    m_renderer = SDL_CreateRenderer(
+        m_window, -1,
+        SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
+    );
 
     m_event_queue.reserve(10);
 
@@ -62,8 +64,10 @@ void hw::window::handle_events()
     }
 }
 
-void hw::window::set_bgcolor(const std::uint8_t t_r, const std::uint8_t t_g,
-                             const std::uint8_t t_b, const std::uint8_t t_a)
+void hw::window::set_bgcolor(
+        const std::uint8_t t_r, const std::uint8_t t_g,
+        const std::uint8_t t_b, const std::uint8_t t_a
+    )
 { m_color = hw::color{ t_r, t_g, t_b, t_a }; }
 
 void hw::window::set_bgcolor(const hw::color& t_color)
@@ -74,8 +78,10 @@ void hw::window::set_bgcolor(hw::color&& t_color)
 
 void hw::window::clear()
 {
-    SDL_SetRenderDrawColor(m_renderer, 
-            m_color.r, m_color.g, m_color.b, m_color.a);
+    SDL_SetRenderDrawColor(
+        m_renderer,
+        m_color.r, m_color.g, m_color.b, m_color.a
+    );
     SDL_RenderClear(m_renderer);
 }
 

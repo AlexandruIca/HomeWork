@@ -9,7 +9,7 @@
 /// This file contains the declaration for a color object.
 ///
 
-namespace hw 
+namespace hw
 {
     ///
     /// @brief Describes a @ref color object.
