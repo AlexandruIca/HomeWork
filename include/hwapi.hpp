@@ -43,6 +43,20 @@ namespace dummy_api {
 	std::vector<dummy_api::Shape*>& get_shapes();
 	///
 	/// @brief Accesses the vector of anonymous Shapes.
+    ///
+    /// This vector holds pointers to shapes that are in the vector returned
+    /// by @ref get_shapes so that when you create a shape like this:
+    /// @code{.cpp}
+    /// {
+    ///     Rectangle r{};
+    ///     // do stuff
+    /// } // scope ending
+    /// @endcode
+    /// the destructor of the shape doesn't get called and there is no
+    /// segfault. Call methods starting with lowercase to create anonymous
+    /// shapes.
+    /// The disadvantage of anonymous shapes is that you can't change anything
+    /// about them later.
 	///
 	std::vector<std::unique_ptr<dummy_api::Shape>>& get_anon_shapes();
 	///
@@ -276,7 +290,7 @@ namespace dummy_api {
     class Shape
     {
     protected:
-        Shape() = default;
+        Shape();
     
     public:
         virtual ~Shape() noexcept = default;
@@ -430,12 +444,12 @@ namespace dummy_api {
             m_first = t_other.first();
             m_second = t_other.second();
             m_third = t_other.third();
-            
+
             return *this;
         }
 
         inline bool operator==(const Triangle& t_other) const
-        { 
+        {
             return m_first == t_other.first()
                 && m_second == t_other.second() 
                 && m_third == t_other.third();
@@ -443,7 +457,7 @@ namespace dummy_api {
         inline bool operator!=(const Triangle& t_other) const 
         { return !this->operator==(t_other); }
     };
-    
+
     ///
     /// @brief Describes an @ref OutlineTriangle object.
     ///
