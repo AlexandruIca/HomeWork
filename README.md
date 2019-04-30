@@ -60,4 +60,25 @@ Want to contribute? AWESOME! There's no strict guideline to follow, although fol
 * Build the tests only if the user wants to.
 * Make it more flexible(eg. making a custom window).
 * Improve documentation.
+* Add images, text, sounds
+** Integrate them well with existing structures.
+
+** Example:
+** ```c++
+Rectangle r{ /*...*/ };
+TextBox text{ r }; // if the rectangle is moved the text box is moved as well
+TextBox text2{ 20, 20, 30, 30, YELLOW }; // create a text box with yellow background
+                                        // rest of the arguments are identical to Rectangle
+
+text.str = "Text to show";
+text.font_color = RED;
+
+Image img{ "image.png", r };
+Image img2{ /* same as Rectangle */ };
+
+music("file.mp3"); // play sound throughout the duration of the app
+Sound s{ "sound.mp3" };
+
+s.play(); // play sound.mp3
+```
 
