@@ -40,7 +40,7 @@ circle(x, y, r);
 ``` 
 will draw a circle starting at (x, y) with radius = r.
 
-To draw only the outline of a primitive you can prepend 'outline_' for every function except line and point:
+To draw only the outline of a primitive you can prepend 'outline\_' for every function except line and point:
 ```c++
 outline_rectangle(...);
 outline_triangle(...);
@@ -121,17 +121,29 @@ int main()
 }
 ```
 
-To check whether a key was pressed there is no intuitive way right now, work needs to done:
+To check whether a key was pressed:
 ```c++
 int main()
 {
     // ...
 
     return draw(WITH{
-        bool b = get_global_window()->was_key_pressed(KEY_A);
+        bool b = key(KEY_UP);
     });
 }
 ```
+All keys are in include/keys.hpp. They are the same as the SDL provided ones and you can use SDLK\_\* instead of KEY\_\*.
+
+To change the background of the window:
+```c++
+int main()
+{
+    return draw(WITH{
+        set_background(GREEN);
+    });
+}
+```
+Keep in mind to NEVER use set\_background before the draw call.
 
 # Reference
 For the full API reference please check: https://codedocs.xyz/AlexandruIca/HomeWork/
