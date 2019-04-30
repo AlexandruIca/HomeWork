@@ -86,4 +86,3 @@ namespace hw {
 } // namespace hw
 
 #endif // !WINDOW_HPP
-

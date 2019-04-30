@@ -110,4 +110,3 @@ bool hw::window::closed()
 
     return false;
 }
-

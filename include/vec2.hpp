@@ -58,4 +58,3 @@ namespace hw {
 } // namespace hw
 
 #endif // !VEC2_HPP
-

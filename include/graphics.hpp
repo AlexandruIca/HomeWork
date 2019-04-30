@@ -193,4 +193,3 @@ void set_background(unsigned char const t_r, unsigned char const t_g,
 #endif
 
 #endif // !GRAPHICS_HPP
-

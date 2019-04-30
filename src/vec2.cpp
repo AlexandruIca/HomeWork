@@ -9,4 +9,3 @@ hw::vec2::vec2(int t_x, int t_y)
     , y(t_y)
 {
 }
-

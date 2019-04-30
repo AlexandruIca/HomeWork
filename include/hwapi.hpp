@@ -836,4 +836,3 @@ namespace dummy_api {
 } // namespace dummy_api
 
 #endif // !HWAPI_HPP
-

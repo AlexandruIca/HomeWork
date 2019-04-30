@@ -776,4 +776,3 @@ namespace dummy_api {
         }
     }
 } // namespace dummy_api
-

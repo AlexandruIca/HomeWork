@@ -12,4 +12,3 @@ hw::color::color(const std::uint8_t t_r, const std::uint8_t t_g,
     , a(t_a)
 {
 }
-

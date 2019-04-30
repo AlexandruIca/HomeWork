@@ -43,4 +43,3 @@ namespace hw {
 } // namespace hw
 
 #endif // !COLOR_HPP
-
