@@ -41,6 +41,8 @@ add_example( circle2 ${CMAKE_CURRENT_SOURCE_DIR}/tests/circle2.cpp )
 add_example( outcircle ${CMAKE_CURRENT_SOURCE_DIR}/tests/outcircle.cpp )
 add_example( outcircle2 ${CMAKE_CURRENT_SOURCE_DIR}/tests/outcircle2.cpp )
 add_example( keyboard_test ${CMAKE_CURRENT_SOURCE_DIR}/tests/keyboard_test.cpp )
+add_example( keyboard_test2 ${CMAKE_CURRENT_SOURCE_DIR}/tests/keyboard_test2.cpp )
 add_example( mixed ${CMAKE_CURRENT_SOURCE_DIR}/tests/mixed.cpp )
 add_example( change_window_size ${CMAKE_CURRENT_SOURCE_DIR}/tests/change_window_size.cpp )
+add_example( background ${CMAKE_CURRENT_SOURCE_DIR}/tests/background.cpp )
 
