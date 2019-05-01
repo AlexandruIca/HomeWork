@@ -49,25 +49,25 @@
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/HW_LIB.dir/src/window.cpp.o -c /media/MHDD/devel/HomeWork/src/window.cpp",
+  "command": "/usr/bin/c++   -I../include  -g   -Werror -pedantic -pedantic-errors -std=gnu++11 -o CMakeFiles/HW_LIB.dir/src/window.cpp.o -c /media/MHDD/devel/HomeWork/src/window.cpp",
   "file": "/media/MHDD/devel/HomeWork/src/window.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/HW_LIB.dir/src/color.cpp.o -c /media/MHDD/devel/HomeWork/src/color.cpp",
+  "command": "/usr/bin/c++   -I../include  -g   -Werror -pedantic -pedantic-errors -std=gnu++11 -o CMakeFiles/HW_LIB.dir/src/color.cpp.o -c /media/MHDD/devel/HomeWork/src/color.cpp",
   "file": "/media/MHDD/devel/HomeWork/src/color.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/HW_LIB.dir/src/vec2.cpp.o -c /media/MHDD/devel/HomeWork/src/vec2.cpp",
+  "command": "/usr/bin/c++   -I../include  -g   -Werror -pedantic -pedantic-errors -std=gnu++11 -o CMakeFiles/HW_LIB.dir/src/vec2.cpp.o -c /media/MHDD/devel/HomeWork/src/vec2.cpp",
   "file": "/media/MHDD/devel/HomeWork/src/vec2.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/HW_LIB.dir/src/hwapi.cpp.o -c /media/MHDD/devel/HomeWork/src/hwapi.cpp",
+  "command": "/usr/bin/c++   -I../include  -g   -Werror -pedantic -pedantic-errors -std=gnu++11 -o CMakeFiles/HW_LIB.dir/src/hwapi.cpp.o -c /media/MHDD/devel/HomeWork/src/hwapi.cpp",
   "file": "/media/MHDD/devel/HomeWork/src/hwapi.cpp"
 },
 
