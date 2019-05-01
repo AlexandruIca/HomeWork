@@ -2,8 +2,6 @@
 
 import os
 import subprocess
-import argparse
-import sys
 
 directories_to_run_through = ["../src/", "../include"]
 
