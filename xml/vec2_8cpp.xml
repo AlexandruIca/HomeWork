@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="vec2_8cpp" kind="file" language="C++">
+    <compoundname>vec2.cpp</compoundname>
+    <includes refid="vec2_8hpp" local="yes">vec2.hpp</includes>
+    <incdepgraph>
+      <node id="57">
+        <label>vec2.hpp</label>
+        <link refid="vec2_8hpp"/>
+      </node>
+      <node id="56">
+        <label>vec2.cpp</label>
+        <link refid="vec2_8cpp"/>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/vec2.cpp"/>
+  </compounddef>
+</doxygen>

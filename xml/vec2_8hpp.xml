@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="vec2_8hpp" kind="file" language="C++">
+    <compoundname>vec2.hpp</compoundname>
+    <includedby refid="hwapi_8hpp" local="yes">hwapi.hpp</includedby>
+    <includedby refid="vec2_8cpp" local="yes">vec2.cpp</includedby>
+    <invincdepgraph>
+      <node id="62">
+        <label>graphics.hpp</label>
+        <link refid="graphics_8hpp"/>
+      </node>
+      <node id="61">
+        <label>hwapi.hpp</label>
+        <link refid="hwapi_8hpp"/>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>vec2.hpp</label>
+        <link refid="vec2_8hpp"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>hwapi.cpp</label>
+        <link refid="hwapi_8cpp"/>
+      </node>
+      <node id="64">
+        <label>vec2.cpp</label>
+        <link refid="vec2_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structhw_1_1vec2" prot="public">hw::vec2</innerclass>
+    <innernamespace refid="namespacehw">hw</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="vec2_8hpp_1a1eebb69f841f9e04d6ef94cc59fdc69e" prot="public" static="no">
+        <name>VEC2_HPP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vec2.hpp" line="3" column="9" bodyfile="include/vec2.hpp" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This files contains the declaration for the vec2 type. </para>    </detaileddescription>
+    <location file="include/vec2.hpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,483 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="graphics_8hpp" kind="file" language="C++">
+    <compoundname>graphics.hpp</compoundname>
+    <includes refid="hwapi_8hpp" local="yes">hwapi.hpp</includes>
+    <includes refid="keys_8hpp" local="yes">keys.hpp</includes>
+    <incdepgraph>
+      <node id="15">
+        <label>functional</label>
+      </node>
+      <node id="19">
+        <label>cstdint</label>
+      </node>
+      <node id="23">
+        <label>keys.hpp</label>
+        <link refid="keys_8hpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>graphics.hpp</label>
+        <link refid="graphics_8hpp"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="17">
+        <label>vector</label>
+      </node>
+      <node id="21">
+        <label>window.hpp</label>
+        <link refid="window_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>color.hpp</label>
+        <link refid="color_8hpp"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>hwapi.hpp</label>
+        <link refid="hwapi_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>vec2.hpp</label>
+        <link refid="vec2_8hpp"/>
+      </node>
+      <node id="16">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="graphics_8hpp_1a4f732cdbc8b35eb33dd1cadaf3b91cbe" prot="public" static="no">
+        <name>GRAPHICS_HPP</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="3" column="9" bodyfile="include/graphics.hpp" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="graphics_8hpp_1ae7c25feffce8514a98914fe5c5687d47" prot="public" static="no">
+        <name>WITH</name>
+        <initializer>[&amp;](const double elapsed_time)</initializer>
+        <briefdescription>
+<para>Runs code inside main loop. </para>        </briefdescription>
+        <detaileddescription>
+<para>If you want to modify the color of an object of type triangle let&apos;s say, then you can use this macro: <programlisting><codeline><highlight class="preprocessor">#include<sp/>&quot;<ref refid="graphics_8hpp" kindref="compound">graphics.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Triangle<sp/>t{<sp/>20,<sp/>20,<sp/>400,<sp/>400,<sp/>150,<sp/>100,<sp/>RED<sp/>};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacedummy__api_1abb6ead519f7216ac275e04501dd71956" kindref="member">draw</ref>(<ref refid="graphics_8hpp_1ae7c25feffce8514a98914fe5c5687d47" kindref="member">WITH</ref>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++(t.color().g);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t.color().g<sp/>=<sp/>t.color().g<sp/>%<sp/>255;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> which is here only to help you. You can just pass a lambda that takes a paramater of type double which is the elapsed time since last frame. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="186" column="9" bodyfile="include/graphics.hpp" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="graphics_8hpp_1a12cb7fbbd54aa5e8e8781cd4900a57c0" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color RED</definition>
+        <argsstring></argsstring>
+        <name>RED</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{255, 0, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="73" column="1" bodyfile="include/graphics.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1ab3fe01e62af1beb53a575676ebd69329" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color GREEN</definition>
+        <argsstring></argsstring>
+        <name>GREEN</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{0, 255, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="74" column="1" bodyfile="include/graphics.hpp" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1a8325bbe5e3b1ef39159ec53442e0cde0" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color BLUE</definition>
+        <argsstring></argsstring>
+        <name>BLUE</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{0, 0, 255}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="75" column="1" bodyfile="include/graphics.hpp" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1ad467c6a0b98c95ef2a050619216376b8" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color WHITE</definition>
+        <argsstring></argsstring>
+        <name>WHITE</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{255, 255, 255}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="76" column="1" bodyfile="include/graphics.hpp" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1a484e771da77cbb8e837bfe00dea714ed" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color BLACK</definition>
+        <argsstring></argsstring>
+        <name>BLACK</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{0, 0, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="77" column="1" bodyfile="include/graphics.hpp" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1a5421221abbb1344f6626353f84aba2c2" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color CYAN</definition>
+        <argsstring></argsstring>
+        <name>CYAN</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{0, 188, 212}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="78" column="1" bodyfile="include/graphics.hpp" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1a071584aa8fab58da2c7cac89d3b911de" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color YELLOW</definition>
+        <argsstring></argsstring>
+        <name>YELLOW</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{255, 235, 59}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="79" column="1" bodyfile="include/graphics.hpp" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1af28cd7ae5bca0b9ffb1285b2b77b60e4" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color LIME</definition>
+        <argsstring></argsstring>
+        <name>LIME</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{205, 220, 57}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="80" column="1" bodyfile="include/graphics.hpp" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1a178b3d835fa4c50db0170c76bbfac33c" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color TEAL</definition>
+        <argsstring></argsstring>
+        <name>TEAL</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{0, 150, 136}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="81" column="1" bodyfile="include/graphics.hpp" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1a74d7f9f5ce2f44c4ea8d7c761720948f" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color PURPLE</definition>
+        <argsstring></argsstring>
+        <name>PURPLE</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{156, 39, 176}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="82" column="1" bodyfile="include/graphics.hpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1a3a7b1983631d60b87d0383fe5df11fff" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color PINK</definition>
+        <argsstring></argsstring>
+        <name>PINK</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{236, 64, 122}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="83" column="1" bodyfile="include/graphics.hpp" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1a2bd763730012f088a4ac1fd44049bb6c" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color INDIGO</definition>
+        <argsstring></argsstring>
+        <name>INDIGO</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{63, 81, 181}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="84" column="1" bodyfile="include/graphics.hpp" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1a44fca06f3f9870985959caef09841417" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color AMBER</definition>
+        <argsstring></argsstring>
+        <name>AMBER</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{255, 193, 7}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="85" column="1" bodyfile="include/graphics.hpp" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1a8f39089463bec3daea619ab1317b9b99" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color ORANGE</definition>
+        <argsstring></argsstring>
+        <name>ORANGE</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{255, 152, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="86" column="1" bodyfile="include/graphics.hpp" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1af9d192bb9bc915795f8b45251a4c31c2" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color BROWN</definition>
+        <argsstring></argsstring>
+        <name>BROWN</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{121, 85, 72}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="87" column="1" bodyfile="include/graphics.hpp" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="graphics_8hpp_1a7135b269e22ca70ebb2062419f623824" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>const hw::color GREY</definition>
+        <argsstring></argsstring>
+        <name>GREY</name>
+        <initializer>= <ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{158, 158, 158}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="88" column="1" bodyfile="include/graphics.hpp" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="graphics_8hpp_1a7d9286f7a0b72416bad18975444c3f87" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void set_width</definition>
+        <argsstring>(const int t_width)</argsstring>
+        <name>set_width</name>
+        <param>
+          <type>const int</type>
+          <declname>t_width</declname>
+        </param>
+        <briefdescription>
+<para>Helper to change window width. </para>        </briefdescription>
+        <detaileddescription>
+<para>A wrapper for <ref refid="namespacedummy__api_1a24b620f31b4574ab1866728c61ef933f" kindref="member">dummy_api::set_global_width</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="95" column="1" bodyfile="include/graphics.hpp" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8hpp_1ad63ec8df8e2160232afb9f44fe55593d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void set_height</definition>
+        <argsstring>(const int t_height)</argsstring>
+        <name>set_height</name>
+        <param>
+          <type>const int</type>
+          <declname>t_height</declname>
+        </param>
+        <briefdescription>
+<para>Helper to change window height. </para>        </briefdescription>
+        <detaileddescription>
+<para>A wrapper for <ref refid="namespacedummy__api_1a6dec9d711b9a8503960af9eb9f554965" kindref="member">dummy_api::set_global_height</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="105" column="1" bodyfile="include/graphics.hpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8hpp_1a3eeed61a3424d2f907c8a1e420fddf6d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int width</definition>
+        <argsstring>()</argsstring>
+        <name>width</name>
+        <briefdescription>
+<para>Returns the width of the global window. </para>        </briefdescription>
+        <detaileddescription>
+<para>A wrapper for <ref refid="namespacedummy__api_1aff54a446fb6bdc1eaed9282ef6f1689b" kindref="member">dummy_api::get_global_width()</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="115" column="1" bodyfile="include/graphics.hpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8hpp_1a822ae85493a742654ba563619492b26a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int height</definition>
+        <argsstring>()</argsstring>
+        <name>height</name>
+        <briefdescription>
+<para>Returns the height of the global window. </para>        </briefdescription>
+        <detaileddescription>
+<para>A wrapper for <ref refid="namespacedummy__api_1a51288e311782806573e49cafb9cd14d9" kindref="member">dummy_api::get_global_height()</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="125" column="1" bodyfile="include/graphics.hpp" bodystart="125" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8hpp_1aa5e747a1239f223d5501c83906833529" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool key</definition>
+        <argsstring>(int const t_key)</argsstring>
+        <name>key</name>
+        <param>
+          <type>int const</type>
+          <declname>t_key</declname>
+        </param>
+        <briefdescription>
+<para>Checks if t_key was pressed. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="133" column="1" bodyfile="include/graphics.hpp" bodystart="133" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8hpp_1a11688f92166876d00e999b49a856e08c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool tasta</definition>
+        <argsstring>(int const t_tasta)</argsstring>
+        <name>tasta</name>
+        <param>
+          <type>int const</type>
+          <declname>t_tasta</declname>
+        </param>
+        <briefdescription>
+<para>Verifica data t_tasta a fost apasata. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="141" column="1" bodyfile="include/graphics.hpp" bodystart="141" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8hpp_1a895e2df1eef1497b429977573d969340" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void set_background</definition>
+        <argsstring>(hw::color const &amp;t_color)</argsstring>
+        <name>set_background</name>
+        <param>
+          <type><ref refid="structhw_1_1color" kindref="compound">hw::color</ref> const &amp;</type>
+          <declname>t_color</declname>
+        </param>
+        <briefdescription>
+<para>Changes the background color of global window. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="149" column="1" bodyfile="include/graphics.hpp" bodystart="149" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="graphics_8hpp_1a6d77b7a5ce8d325e59e4efde52193597" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void set_background</definition>
+        <argsstring>(unsigned char const t_r, unsigned char const t_g, unsigned char const t_b, unsigned char const t_a)</argsstring>
+        <name>set_background</name>
+        <param>
+          <type>unsigned char const</type>
+          <declname>t_r</declname>
+        </param>
+        <param>
+          <type>unsigned char const</type>
+          <declname>t_g</declname>
+        </param>
+        <param>
+          <type>unsigned char const</type>
+          <declname>t_b</declname>
+        </param>
+        <param>
+          <type>unsigned char const</type>
+          <declname>t_a</declname>
+        </param>
+        <briefdescription>
+<para>Changes the background color of global window. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>NEVER use this before the hw::draw call. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/graphics.hpp" line="159" column="1" bodyfile="include/graphics.hpp" bodystart="159" bodyend="163"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This file just makes it easier to interact with the library. Anyone that uses this library should only need to include this header. </para>    </detaileddescription>
+    <location file="include/graphics.hpp"/>
+  </compounddef>
+</doxygen>

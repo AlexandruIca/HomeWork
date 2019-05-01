@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="hwapi_8cpp" kind="file" language="C++">
+    <compoundname>hwapi.cpp</compoundname>
+    <includes refid="hwapi_8hpp" local="yes">hwapi.hpp</includes>
+    <includes refid="window_8hpp" local="yes">window.hpp</includes>
+    <includes local="no">chrono</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">string</includes>
+    <includes local="no">utility</includes>
+    <incdepgraph>
+      <node id="27">
+        <label>functional</label>
+      </node>
+      <node id="31">
+        <label>cstdint</label>
+      </node>
+      <node id="37">
+        <label>string</label>
+      </node>
+      <node id="34">
+        <label>SDL2/SDL.h</label>
+      </node>
+      <node id="29">
+        <label>vector</label>
+      </node>
+      <node id="33">
+        <label>window.hpp</label>
+        <link refid="window_8hpp"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>utility</label>
+      </node>
+      <node id="30">
+        <label>color.hpp</label>
+        <link refid="color_8hpp"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>iostream</label>
+      </node>
+      <node id="26">
+        <label>hwapi.hpp</label>
+        <link refid="hwapi_8hpp"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>vec2.hpp</label>
+        <link refid="vec2_8hpp"/>
+      </node>
+      <node id="35">
+        <label>chrono</label>
+      </node>
+      <node id="25">
+        <label>hwapi.cpp</label>
+        <link refid="hwapi_8cpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacedummy__api">dummy_api</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="hwapi_8cpp_1a2a5d4c1c43bc271647d65613e7de02dc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>std::unique_ptr&lt; T &gt;</type>
+        <definition>static std::unique_ptr&lt;T&gt; make_unique</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>make_unique</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/hwapi.cpp" line="17" column="1" bodyfile="src/hwapi.cpp" bodystart="17" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/hwapi.cpp"/>
+  </compounddef>
+</doxygen>

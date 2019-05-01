@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structhw_1_1vec2" kind="struct" language="C++" prot="public">
+    <compoundname>hw::vec2</compoundname>
+    <includes refid="vec2_8hpp" local="no">vec2.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhw_1_1vec2_1a234ad55719b97bc28ce90bf8f724d154" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hw::vec2::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <initializer>{-1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vec2.hpp" line="16" column="1" bodyfile="include/vec2.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhw_1_1vec2_1af4e933a3c6376bae59fbb0aabe3b290c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int hw::vec2::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <initializer>{-1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vec2.hpp" line="17" column="1" bodyfile="include/vec2.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structhw_1_1vec2_1a6a23cb7565cef99479ea2ca0f2f4e669" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr hw::vec2::vec2</definition>
+        <argsstring>()=default</argsstring>
+        <name>vec2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vec2.hpp" line="19" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structhw_1_1vec2_1a43cddeaa2d1ec8471e4669899a36433f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>hw::vec2::vec2</definition>
+        <argsstring>(int t_x, int t_y)</argsstring>
+        <name>vec2</name>
+        <param>
+          <type>int</type>
+          <declname>t_x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>t_y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vec2.hpp" line="20" column="1" bodyfile="src/vec2.cpp" bodystart="7" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="structhw_1_1vec2_1a6b398b844fb72a632d9b448ca64a61f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>hw::vec2::~vec2</definition>
+        <argsstring>()=default</argsstring>
+        <name>~vec2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vec2.hpp" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structhw_1_1vec2_1ad60f459a4d766abc03161654d13f5f03" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool hw::vec2::operator==</definition>
+        <argsstring>(const vec2 &amp;t_other) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>t_other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vec2.hpp" line="23" column="1" bodyfile="include/vec2.hpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="structhw_1_1vec2_1abb59a5e87cc0e2754f4ce22b8bfc97a3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool hw::vec2::operator!=</definition>
+        <argsstring>(const vec2 &amp;t_other) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>t_other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vec2.hpp" line="27" column="1" bodyfile="include/vec2.hpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="structhw_1_1vec2_1a70a4e162eadca8198a679b2eb6861973" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structhw_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>vec2 hw::vec2::operator+</definition>
+        <argsstring>(const vec2 &amp;t_other) const</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>t_other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vec2.hpp" line="32" column="1" bodyfile="include/vec2.hpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="structhw_1_1vec2_1a586498b69e9ac3f6c85bd525581b7e4e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structhw_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+        <definition>vec2&amp; hw::vec2::operator+=</definition>
+        <argsstring>(const vec2 &amp;t_other)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>t_other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vec2.hpp" line="37" column="1" bodyfile="include/vec2.hpp" bodystart="37" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="structhw_1_1vec2_1a874f28d6f2a34f50577569409ee8bb6c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structhw_1_1vec2" kindref="compound">vec2</ref></type>
+        <definition>vec2 hw::vec2::operator-</definition>
+        <argsstring>(const vec2 &amp;t_other) const</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>t_other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vec2.hpp" line="45" column="1" bodyfile="include/vec2.hpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="structhw_1_1vec2_1a7955bd3660904cf1198e5f43ae7acc3b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structhw_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+        <definition>vec2&amp; hw::vec2::operator-=</definition>
+        <argsstring>(const vec2 &amp;t_other)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">vec2</ref> &amp;</type>
+          <declname>t_other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/vec2.hpp" line="50" column="1" bodyfile="include/vec2.hpp" bodystart="50" bodyend="56"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Holds two ints describing position in 2D space. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/vec2.hpp" line="15" column="1" bodyfile="include/vec2.hpp" bodystart="14" bodyend="57"/>
+    <listofallmembers>
+      <member refid="structhw_1_1vec2_1abb59a5e87cc0e2754f4ce22b8bfc97a3" prot="public" virt="non-virtual"><scope>hw::vec2</scope><name>operator!=</name></member>
+      <member refid="structhw_1_1vec2_1a70a4e162eadca8198a679b2eb6861973" prot="public" virt="non-virtual"><scope>hw::vec2</scope><name>operator+</name></member>
+      <member refid="structhw_1_1vec2_1a586498b69e9ac3f6c85bd525581b7e4e" prot="public" virt="non-virtual"><scope>hw::vec2</scope><name>operator+=</name></member>
+      <member refid="structhw_1_1vec2_1a874f28d6f2a34f50577569409ee8bb6c" prot="public" virt="non-virtual"><scope>hw::vec2</scope><name>operator-</name></member>
+      <member refid="structhw_1_1vec2_1a7955bd3660904cf1198e5f43ae7acc3b" prot="public" virt="non-virtual"><scope>hw::vec2</scope><name>operator-=</name></member>
+      <member refid="structhw_1_1vec2_1ad60f459a4d766abc03161654d13f5f03" prot="public" virt="non-virtual"><scope>hw::vec2</scope><name>operator==</name></member>
+      <member refid="structhw_1_1vec2_1a6a23cb7565cef99479ea2ca0f2f4e669" prot="public" virt="non-virtual"><scope>hw::vec2</scope><name>vec2</name></member>
+      <member refid="structhw_1_1vec2_1a43cddeaa2d1ec8471e4669899a36433f" prot="public" virt="non-virtual"><scope>hw::vec2</scope><name>vec2</name></member>
+      <member refid="structhw_1_1vec2_1a234ad55719b97bc28ce90bf8f724d154" prot="public" virt="non-virtual"><scope>hw::vec2</scope><name>x</name></member>
+      <member refid="structhw_1_1vec2_1af4e933a3c6376bae59fbb0aabe3b290c" prot="public" virt="non-virtual"><scope>hw::vec2</scope><name>y</name></member>
+      <member refid="structhw_1_1vec2_1a6b398b844fb72a632d9b448ca64a61f3" prot="public" virt="non-virtual"><scope>hw::vec2</scope><name>~vec2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

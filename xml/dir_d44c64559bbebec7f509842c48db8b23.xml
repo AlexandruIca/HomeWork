@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_d44c64559bbebec7f509842c48db8b23" kind="dir">
+    <compoundname>include</compoundname>
+    <innerfile refid="color_8hpp">color.hpp</innerfile>
+    <innerfile refid="graphics_8hpp">graphics.hpp</innerfile>
+    <innerfile refid="hwapi_8hpp">hwapi.hpp</innerfile>
+    <innerfile refid="keys_8hpp">keys.hpp</innerfile>
+    <innerfile refid="vec2_8hpp">vec2.hpp</innerfile>
+    <innerfile refid="window_8hpp">window.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/"/>
+  </compounddef>
+</doxygen>

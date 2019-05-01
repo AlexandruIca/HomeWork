@@ -1,0 +1,741 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespacedummy__api" kind="namespace" language="C++">
+    <compoundname>dummy_api</compoundname>
+    <innerclass refid="classdummy__api_1_1Circle" prot="public">dummy_api::Circle</innerclass>
+    <innerclass refid="classdummy__api_1_1Line" prot="public">dummy_api::Line</innerclass>
+    <innerclass refid="classdummy__api_1_1OutlineCircle" prot="public">dummy_api::OutlineCircle</innerclass>
+    <innerclass refid="classdummy__api_1_1OutlineRectangle" prot="public">dummy_api::OutlineRectangle</innerclass>
+    <innerclass refid="classdummy__api_1_1OutlineTriangle" prot="public">dummy_api::OutlineTriangle</innerclass>
+    <innerclass refid="classdummy__api_1_1Point" prot="public">dummy_api::Point</innerclass>
+    <innerclass refid="classdummy__api_1_1Rectangle" prot="public">dummy_api::Rectangle</innerclass>
+    <innerclass refid="classdummy__api_1_1Shape" prot="public">dummy_api::Shape</innerclass>
+    <innerclass refid="classdummy__api_1_1Triangle" prot="public">dummy_api::Triangle</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacedummy__api_1ae22d07d02c51f47a6a4f8898d1fb2081" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="classdummy__api_1_1Shape" kindref="compound">dummy_api::Shape</ref> * &gt; &amp;</type>
+        <definition>std::vector&lt; da::Shape * &gt; &amp; dummy_api::get_shapes</definition>
+        <argsstring>()</argsstring>
+        <name>get_shapes</name>
+        <briefdescription>
+<para>Accesses the vector of Shapes. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="43" column="1" bodyfile="src/hwapi.cpp" bodystart="29" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1af53f27e6cbcce21108c91553e13dc883" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::unique_ptr&lt; <ref refid="classdummy__api_1_1Shape" kindref="compound">dummy_api::Shape</ref> &gt; &gt; &amp;</type>
+        <definition>std::vector&lt; std::unique_ptr&lt; da::Shape &gt; &gt; &amp; dummy_api::get_anon_shapes</definition>
+        <argsstring>()</argsstring>
+        <name>get_anon_shapes</name>
+        <briefdescription>
+<para>Accesses the vector of anonymous Shapes. </para>        </briefdescription>
+        <detaileddescription>
+<para>This vector holds pointers to shapes that are in the vector returned by <ref refid="namespacedummy__api_1ae22d07d02c51f47a6a4f8898d1fb2081" kindref="member">get_shapes</ref> so that when you create a shape like this: <programlisting><codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Rectangle<sp/>r{};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>stuff</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>scope<sp/>ending</highlight></codeline>
+</programlisting> the destructor of the shape doesn&apos;t get called and there is no segfault. Call methods starting with lowercase to create anonymous shapes. The disadvantage of anonymous shapes is that you can&apos;t change anything about them later. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="61" column="1" bodyfile="src/hwapi.cpp" bodystart="35" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a8c2c72257eaf93c6ad454675ddc7d8e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classhw_1_1window" kindref="compound">hw::window</ref> *</type>
+        <definition>hw::window * dummy_api::get_global_window</definition>
+        <argsstring>()</argsstring>
+        <name>get_global_window</name>
+        <briefdescription>
+<para>Gets the global renderer(available only if NO_DEFAULT_WINDOW is not defined). </para>        </briefdescription>
+        <detaileddescription>
+<para>Gets the global window(available only if NO_DEFAULT_WINDOW is not defined). Gets the default window which is created for easy development. By default a 640x480 window is created(during the <ref refid="namespacedummy__api_1abb6ead519f7216ac275e04501dd71956" kindref="member">draw</ref> call)</para><para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>Returns</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nullptr if you call it before <ref refid="namespacedummy__api_1abb6ead519f7216ac275e04501dd71956" kindref="member">draw</ref>. Otherwise it returns that 640x480 window. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="79" column="1" bodyfile="src/hwapi.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1aff54a446fb6bdc1eaed9282ef6f1689b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int dummy_api::get_global_width</definition>
+        <argsstring>()</argsstring>
+        <name>get_global_width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>If</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>you don&apos;t call <ref refid="namespacedummy__api_1a24b620f31b4574ab1866728c61ef933f" kindref="member">set_global_width</ref> it returns 640 by default. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="84" column="1" bodyfile="src/hwapi.cpp" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a51288e311782806573e49cafb9cd14d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int dummy_api::get_global_height</definition>
+        <argsstring>()</argsstring>
+        <name>get_global_height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>If</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>you don&apos;t call <ref refid="namespacedummy__api_1a6dec9d711b9a8503960af9eb9f554965" kindref="member">set_global_height</ref> it returns 480 by default. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="89" column="1" bodyfile="src/hwapi.cpp" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a24b620f31b4574ab1866728c61ef933f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::set_global_width</definition>
+        <argsstring>(const int t_width)</argsstring>
+        <name>set_global_width</name>
+        <param>
+          <type>const int</type>
+          <declname>t_width</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>By default the width of the window is 640. If you want to change it call this.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t_width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New width. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="96" column="1" bodyfile="src/hwapi.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a6dec9d711b9a8503960af9eb9f554965" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::set_global_height</definition>
+        <argsstring>(const int t_height)</argsstring>
+        <name>set_global_height</name>
+        <param>
+          <type>const int</type>
+          <declname>t_height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>By default the height of the window is 640. If you want to change it call this.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t_height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New height. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="103" column="1" bodyfile="src/hwapi.cpp" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1af7279753320ab1e1f990aeb1eae8207f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::draw_shapes</definition>
+        <argsstring>()</argsstring>
+        <name>draw_shapes</name>
+        <briefdescription>
+<para>Draws all the shapes currently requested. </para>        </briefdescription>
+        <detaileddescription>
+<para>Should be called every frame since shapes may be updated frequently (eg. changes of color).</para><para><simplesect kind="warning"><para>Does NOTHING else, only draws the shapes(no window event handling). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="114" column="1" bodyfile="src/hwapi.cpp" bodystart="66" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1abb6ead519f7216ac275e04501dd71956" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int dummy_api::draw</definition>
+        <argsstring>(std::function&lt; void(double)&gt; t_call=[](double) -&gt; void {})</argsstring>
+        <name>draw</name>
+        <param>
+          <type>std::function&lt; void(double)&gt;</type>
+          <declname>t_call</declname>
+          <defval>[](double) -&gt; void {}</defval>
+        </param>
+        <briefdescription>
+<para>Updates the window and handles events. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is an entire &quot;main loop&quot; that draws everything on the screen and stops when either the window is closed by the user or the &apos;ESC&apos; key is pressed.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">t_call</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>needs to be a void function that takes a float as a parameter. The parameter of that function is the elapsed time since the last frame. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="126" column="1" bodyfile="src/hwapi.cpp" bodystart="73" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a249a7c0ef8dbebf1440e41f7a5c0298f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::point</definition>
+        <argsstring>(const hw::vec2 &amp;t_pos, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>point</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_pos</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+<para>Draws a point with given position and color. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="130" column="1" bodyfile="src/hwapi.cpp" bodystart="111" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a4efd30052d197d72b64bd67f13322e5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::point</definition>
+        <argsstring>(const int t_x, const int t_y, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>point</name>
+        <param>
+          <type>const int</type>
+          <declname>t_x</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Is the same as:<programlisting><codeline><highlight class="normal"><ref refid="namespacedummy__api_1a249a7c0ef8dbebf1440e41f7a5c0298f" kindref="member">point</ref>(<ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref>{<sp/>t_x,<sp/>t_y<sp/>},<sp/>t_color);</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="135" column="1" bodyfile="src/hwapi.cpp" bodystart="116" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a7bac2a56021c552911f6dc5ae4c8f5ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::line</definition>
+        <argsstring>(const hw::vec2 &amp;t_a, const hw::vec2 &amp;t_b, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>line</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_b</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+<para>Draws a line with given position and color. </para>        </briefdescription>
+        <detaileddescription>
+<para>The order in which the points are given is irrelevant. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="142" column="1" bodyfile="src/hwapi.cpp" bodystart="147" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1afc5312dbe53632c5a898028246252a13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::line</definition>
+        <argsstring>(const int t_x1, const int t_y1, const int t_x2, const int t_y2, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>line</name>
+        <param>
+          <type>const int</type>
+          <declname>t_x1</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y1</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_x2</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y2</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Same as: <programlisting><codeline><highlight class="normal"><ref refid="namespacedummy__api_1a7bac2a56021c552911f6dc5ae4c8f5ad" kindref="member">line</ref>(<ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref>{<sp/>t_x1,<sp/>t_y1},<sp/><ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref>{<sp/>t_x2,<sp/>t_y2<sp/>},<sp/>t_color);</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="150" column="1" bodyfile="src/hwapi.cpp" bodystart="152" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a5d0771cc0f23a5b8da36bedf8c283a4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::triangle</definition>
+        <argsstring>(const hw::vec2 &amp;t_pos1, const hw::vec2 &amp;t_pos2, const hw::vec2 &amp;t_pos3, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>triangle</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_pos1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_pos2</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_pos3</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+<para>Draws a triangle with given position and color. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="155" column="1" bodyfile="src/hwapi.cpp" bodystart="189" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a39986f66e60a435145031fa476129332" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::triangle</definition>
+        <argsstring>(const int t_x1, const int t_y1, const int t_x2, const int t_y2, const int t_x3, const int t_y3, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>triangle</name>
+        <param>
+          <type>const int</type>
+          <declname>t_x1</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y1</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_x2</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y2</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_x3</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y3</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Same as: <programlisting><codeline><highlight class="normal"><ref refid="namespacedummy__api_1a5d0771cc0f23a5b8da36bedf8c283a4a" kindref="member">triangle</ref>(<ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref>{<sp/>t_x1,<sp/>t_y1<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref>{<sp/>t_x2,<sp/>t_y2<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref>{<sp/>t_x3,<sp/>t_y3<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t_color);</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="167" column="1" bodyfile="src/hwapi.cpp" bodystart="196" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a7799be9f25e4e7e0c30a9bb3df0037f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::outline_triangle</definition>
+        <argsstring>(const hw::vec2 &amp;t_pos1, const hw::vec2 &amp;t_pos2, const hw::vec2 &amp;t_pos3, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>outline_triangle</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_pos1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_pos2</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_pos3</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+<para>Draws a triangle with given position and color but does not fill it. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="174" column="1" bodyfile="src/hwapi.cpp" bodystart="474" bodyend="479"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a5787cd4a30c15be2bb4e647477821ff3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::outline_triangle</definition>
+        <argsstring>(const int t_x1, const int t_y1, const int t_x2, const int t_y2, const int t_x3, const int t_y3, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>outline_triangle</name>
+        <param>
+          <type>const int</type>
+          <declname>t_x1</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y1</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_x2</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y2</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_x3</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y3</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Same as: <programlisting><codeline><highlight class="normal">outline_triangle(hw::vec2{<sp/>t_x1,<sp/>t_y1<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hw::vec2{<sp/>t_x2,<sp/>t_y2<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hw::vec2{<sp/>t_x3,<sp/>t_y3<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t_color);</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="186" column="1" bodyfile="src/hwapi.cpp" bodystart="480" bodyend="486"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1acb6344e33577af291978e41b3322c14b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::rectangle</definition>
+        <argsstring>(const hw::vec2 &amp;t_pos, const int t_width, const int t_height, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>rectangle</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_pos</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_width</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_height</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+<para>Draws a rectangle with given position and color. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">t_pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the point where the rectangle should be drawn. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">t_width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the width starting from t_pos (right). </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">t_height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the height starting from t_pos (down). </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="196" column="1" bodyfile="src/hwapi.cpp" bodystart="531" bodyend="536"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a6409e8fb0ec9267490a4671efb23c536" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::rectangle</definition>
+        <argsstring>(const int t_x, const int t_y, const int t_width, const int t_height, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>rectangle</name>
+        <param>
+          <type>const int</type>
+          <declname>t_x</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_width</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_height</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Same as: <programlisting><codeline><highlight class="normal"><ref refid="namespacedummy__api_1acb6344e33577af291978e41b3322c14b" kindref="member">rectangle</ref>(<ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref>{<sp/>t_x,<sp/>t_y<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t_width,<sp/>t_height,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t_color);</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="206" column="1" bodyfile="src/hwapi.cpp" bodystart="538" bodyend="542"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a4e2f013ea9cf0109e20c1fa82e8ec65a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::outline_rectangle</definition>
+        <argsstring>(const hw::vec2 &amp;t_pos, const int t_width, const int t_height, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>outline_rectangle</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_pos</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_width</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_height</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+<para>Draws a rectangle with given position and color but does not fill it. </para>        </briefdescription>
+        <detaileddescription>
+<para>Parameters have the same meaning as in <ref refid="namespacedummy__api_1acb6344e33577af291978e41b3322c14b" kindref="member">rectangle</ref>. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="214" column="1" bodyfile="src/hwapi.cpp" bodystart="583" bodyend="588"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a07cc87a9879b2f59afb9c2d41904c024" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::outline_rectangle</definition>
+        <argsstring>(const int t_x, const int t_y, const int t_width, const int t_height, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>outline_rectangle</name>
+        <param>
+          <type>const int</type>
+          <declname>t_x</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_width</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_height</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Same as: <programlisting><codeline><highlight class="normal"><ref refid="namespacedummy__api_1a4e2f013ea9cf0109e20c1fa82e8ec65a" kindref="member">outline_rectangle</ref>(<ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref>{<sp/>t_x,<sp/>t_y<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t_width,<sp/>t_height,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t_color);</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="225" column="1" bodyfile="src/hwapi.cpp" bodystart="589" bodyend="593"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1aa74109ab06d357bdb17ade66df53e123" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::circle</definition>
+        <argsstring>(const hw::vec2 &amp;t_pos, const int t_radius, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>circle</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_pos</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_radius</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+<para>Draws a circle with given center, radius and color. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="231" column="1" bodyfile="src/hwapi.cpp" bodystart="636" bodyend="641"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a873ff67ce171c9920cb3d174444bc948" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::circle</definition>
+        <argsstring>(const int t_x, const int t_y, const int t_radius, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>circle</name>
+        <param>
+          <type>const int</type>
+          <declname>t_x</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_radius</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Same as: <programlisting><codeline><highlight class="normal"><ref refid="namespacedummy__api_1aa74109ab06d357bdb17ade66df53e123" kindref="member">circle</ref>(<ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref>{<sp/>t_x,<sp/>t_y<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t_radius,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t_color);</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="241" column="1" bodyfile="src/hwapi.cpp" bodystart="643" bodyend="647"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a35b3f34c20c038a11f609faa339046e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::outline_circle</definition>
+        <argsstring>(const hw::vec2 &amp;t_pos, const int t_radius, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>outline_circle</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_pos</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_radius</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+<para>Draws a circle with given center, radius and color but does not fill it. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="247" column="1" bodyfile="src/hwapi.cpp" bodystart="705" bodyend="710"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacedummy__api_1a8969b153de5f674aa317eef53f47a980" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void dummy_api::outline_circle</definition>
+        <argsstring>(const int t_x, const int t_y, const int t_radius, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>outline_circle</name>
+        <param>
+          <type>const int</type>
+          <declname>t_x</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_radius</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Same as: <programlisting><codeline><highlight class="normal"><ref refid="namespacedummy__api_1a35b3f34c20c038a11f609faa339046e4" kindref="member">outline_circle</ref>(<ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref>{<sp/>t_x,<sp/>t_y<sp/>},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t_radius,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>t_color);</highlight></codeline>
+</programlisting> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="257" column="1" bodyfile="src/hwapi.cpp" bodystart="712" bodyend="716"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides an easy to use api for drawing different primitives like points, lines, rectangles etc. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/hwapi.hpp" line="37" column="1"/>
+  </compounddef>
+</doxygen>

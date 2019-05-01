@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>HomeWork - an API that makes it easy to draw shapes in c++</title>
+    <detaileddescription>
+<para>Please read the README.md file in the github repository for a quick introduction to the library, this is the API reference: <ulink url="https://github.com/AlexandruIca/HomeWork/blob/master/README.md">https://github.com/AlexandruIca/HomeWork/blob/master/README.md</ulink></para><sect1 id="index_1sec_usage">
+<title>Usage of this API</title>
+<para>I&apos;ve created this to help my teacher at school show students some interesting stuff you can make with c++, not only boring console programs. Untill now he had to install windows XP and get borland c++ compiler using &quot;graphics.h&quot; to be able to draw very simple stuff in the console. It worked but it was not ideal at all. What if somebody wants to practice at home? This aims to be a replacement for that by using cross platform libraries like SDL2. In theory I would setup codeblocks on the computers at my school to have a user template that automatically creates a project which links to this library and provide a very simple program to start with so students don&apos;t have to get confused. I really hope this will prove useful.</para></sect1>
+<sect1 id="index_1sec_starting">
+<title>Starting out</title>
+<para>The best place to start out using this is to check out the git repo in docs/README.md. To include it in you project it&apos;s probably easy enough to just check the CMakeLists.txt and see how it&apos;s built. I didn&apos;t put too much soul into making the build process easy because I am the one who should build it and then it should just work with a codeblocks template, like I am planning to do.</para></sect1>
+<sect1 id="index_1sec_overview">
+<title>Overview</title>
+<para>The header that you should include every time you want to use thi is <ref refid="graphics_8hpp" kindref="compound">graphics.hpp</ref>. It only contains a few convenient functions and a macro to make the library dead easy to use. One of the main goals of this library is to be incredibly accessible to anyone. The header <ref refid="hwapi_8hpp" kindref="compound">hwapi.hpp</ref> contains the actual api and you should check this out whenever you want to see if a feature is available. The <ref refid="window_8hpp" kindref="compound">window.hpp</ref> header is just a wrapper around SDL_Window. The rest is not really that important but if you need more detail you could probably just check out the sources. It&apos;s a very small library and I think it&apos;s very easy to just read what happens under the hood.</para></sect1>
+<sect1 id="index_1sec_why_cpp">
+<title>Why C++</title>
+<para>The turtle module in python is probably the easisest way to get started with graphics programming but sadly python is not taught in my school. We only learn c++(mostly the antique C-ish c++) and getting anything working properly on our computers is an absolute pain. I&apos;ve already got some demos of this library working so this is the main reason why I chose c++. Luckily the codeblocks version(the editor that everyone uses at my school) is 13.12 which includes a mingw version that supports c++11, making development so much smoother. I could have also just chosen plain C since we don&apos;t learn anything special about c++(except IO) but it doesn&apos;t provide some neat features like function overloading that make this much easier to use. As ease of use is one major goal of the library the choice is c++. </para></sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

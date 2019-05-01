@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classdummy__api_1_1Rectangle" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>dummy_api::Rectangle</compoundname>
+    <basecompoundref refid="classdummy__api_1_1Shape" prot="public" virt="non-virtual">dummy_api::Shape</basecompoundref>
+    <includes refid="hwapi_8hpp" local="no">hwapi.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classdummy__api_1_1Rectangle_1a6f909be2c54e567aca770fd816dfbb7b" prot="private" static="no" mutable="no">
+        <type><ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref></type>
+        <definition>hw::vec2 dummy_api::Rectangle::m_pos</definition>
+        <argsstring></argsstring>
+        <name>m_pos</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="576" column="1" bodyfile="include/hwapi.hpp" bodystart="576" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdummy__api_1_1Rectangle_1a536514348f01599ca036f6bc976665bd" prot="private" static="no" mutable="no">
+        <type><ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref></type>
+        <definition>hw::vec2 dummy_api::Rectangle::m_dimensions</definition>
+        <argsstring></argsstring>
+        <name>m_dimensions</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="577" column="1" bodyfile="include/hwapi.hpp" bodystart="577" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classdummy__api_1_1Rectangle_1a4f31bf517c297f7c6bd8b2cc788cbac8" prot="private" static="no" mutable="no">
+        <type><ref refid="structhw_1_1color" kindref="compound">hw::color</ref></type>
+        <definition>hw::color dummy_api::Rectangle::m_color</definition>
+        <argsstring></argsstring>
+        <name>m_color</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="578" column="1" bodyfile="include/hwapi.hpp" bodystart="578" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1a94f3aedf0dfa20ba93b7d616fde76d81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dummy_api::Rectangle::Rectangle</definition>
+        <argsstring>()=default</argsstring>
+        <name>Rectangle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="581" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1ae742d15d2aeb5d46a76ed7e8144881a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dummy_api::Rectangle::Rectangle</definition>
+        <argsstring>(const int t_x, const int t_y, const int t_width, const int t_height, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>Rectangle</name>
+        <param>
+          <type>const int</type>
+          <declname>t_x</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_y</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_width</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_height</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="582" column="1" bodyfile="src/hwapi.cpp" bodystart="544" bodyend="550"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1ac04d41f0f59ef9b54234097cdd605ed0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dummy_api::Rectangle::Rectangle</definition>
+        <argsstring>(const hw::vec2 &amp;t_start, const int t_width, const int t_height, const hw::color &amp;t_color=hw::color{})</argsstring>
+        <name>Rectangle</name>
+        <param>
+          <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+          <declname>t_start</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_width</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_height</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="584" column="1" bodyfile="src/hwapi.cpp" bodystart="552" bodyend="558"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1a3961541dc017bac9c971951ae5744900" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dummy_api::Rectangle::Rectangle</definition>
+        <argsstring>(hw::vec2 &amp;&amp;t_start, const int t_width, const int t_height, hw::color &amp;&amp;t_color=hw::color{})</argsstring>
+        <name>Rectangle</name>
+        <param>
+          <type><ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;&amp;</type>
+          <declname>t_start</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_width</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>t_height</declname>
+        </param>
+        <param>
+          <type><ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;&amp;</type>
+          <declname>t_color</declname>
+          <defval><ref refid="structhw_1_1color" kindref="compound">hw::color</ref>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="586" column="1" bodyfile="src/hwapi.cpp" bodystart="560" bodyend="566"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1a125c1546cac3e7d1ba6011e3b4c80596" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dummy_api::Rectangle::~Rectangle</definition>
+        <argsstring>() noexcept override=default</argsstring>
+        <name>~Rectangle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="588" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1a2acd1416baed107073bab607f818bae6" prot="public" static="no" const="no" explicit="no" inline="no" final="yes" virt="virtual">
+        <type>void</type>
+        <definition>void dummy_api::Rectangle::draw</definition>
+        <argsstring>() final</argsstring>
+        <name>draw</name>
+        <reimplements refid="classdummy__api_1_1Shape_1a9f357f722f9df3199026cd95b2ef74b8">draw</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="590" column="1" bodyfile="src/hwapi.cpp" bodystart="568" bodyend="581"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1a02cd97bb02f82d70a9f8b7527ec2a5d8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+        <definition>hw::vec2&amp; dummy_api::Rectangle::pos</definition>
+        <argsstring>()</argsstring>
+        <name>pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="592" column="1" bodyfile="include/hwapi.hpp" bodystart="592" bodyend="595"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1a39002d1b8602b2c36ee41ffe16b7ac95" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+        <definition>const hw::vec2&amp; dummy_api::Rectangle::pos</definition>
+        <argsstring>() const</argsstring>
+        <name>pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="596" column="1" bodyfile="include/hwapi.hpp" bodystart="596" bodyend="599"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1a2e5d7fd192952864dcd9b20c6b457e0d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+        <definition>hw::vec2&amp; dummy_api::Rectangle::dim</definition>
+        <argsstring>()</argsstring>
+        <name>dim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="601" column="1" bodyfile="include/hwapi.hpp" bodystart="601" bodyend="604"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1acb4a7fa6e50bcb1ec5368e88f73a24a7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structhw_1_1vec2" kindref="compound">hw::vec2</ref> &amp;</type>
+        <definition>const hw::vec2&amp; dummy_api::Rectangle::dim</definition>
+        <argsstring>() const</argsstring>
+        <name>dim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="605" column="1" bodyfile="include/hwapi.hpp" bodystart="605" bodyend="608"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1a570fc10f9e8463b0469f99259a2840f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+        <definition>hw::color&amp; dummy_api::Rectangle::color</definition>
+        <argsstring>()</argsstring>
+        <name>color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="610" column="1" bodyfile="include/hwapi.hpp" bodystart="610" bodyend="613"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1ae779e34d36d5de59679fe948d00e1df8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="structhw_1_1color" kindref="compound">hw::color</ref> &amp;</type>
+        <definition>const hw::color&amp; dummy_api::Rectangle::color</definition>
+        <argsstring>() const</argsstring>
+        <name>color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="614" column="1" bodyfile="include/hwapi.hpp" bodystart="614" bodyend="617"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1a7deb9fa0985793f6a7de4e12116d4c46" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classdummy__api_1_1Rectangle" kindref="compound">Rectangle</ref> &amp;</type>
+        <definition>Rectangle&amp; dummy_api::Rectangle::operator=</definition>
+        <argsstring>(const Rectangle &amp;t_other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classdummy__api_1_1Rectangle" kindref="compound">Rectangle</ref> &amp;</type>
+          <declname>t_other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="619" column="1" bodyfile="include/hwapi.hpp" bodystart="619" bodyend="625"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1a88dbaecb49708c6f0b11a9c385a57cd3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool dummy_api::Rectangle::operator==</definition>
+        <argsstring>(const Rectangle &amp;t_other) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classdummy__api_1_1Rectangle" kindref="compound">Rectangle</ref> &amp;</type>
+          <declname>t_other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="627" column="1" bodyfile="include/hwapi.hpp" bodystart="627" bodyend="630"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Rectangle_1a3e8455e5a497ffe7e543913036932987" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool dummy_api::Rectangle::operator!=</definition>
+        <argsstring>(const Rectangle &amp;t_other) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classdummy__api_1_1Rectangle" kindref="compound">Rectangle</ref> &amp;</type>
+          <declname>t_other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="631" column="1" bodyfile="include/hwapi.hpp" bodystart="631" bodyend="634"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Describes a <ref refid="classdummy__api_1_1Rectangle" kindref="compound">Rectangle</ref> object. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="27">
+        <label>dummy_api::Shape</label>
+        <link refid="classdummy__api_1_1Shape"/>
+      </node>
+      <node id="26">
+        <label>dummy_api::Rectangle</label>
+        <link refid="classdummy__api_1_1Rectangle"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="29">
+        <label>dummy_api::Shape</label>
+        <link refid="classdummy__api_1_1Shape"/>
+      </node>
+      <node id="28">
+        <label>dummy_api::Rectangle</label>
+        <link refid="classdummy__api_1_1Rectangle"/>
+        <childnode refid="29" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/hwapi.hpp" line="575" column="1" bodyfile="include/hwapi.hpp" bodystart="574" bodyend="635"/>
+    <listofallmembers>
+      <member refid="classdummy__api_1_1Rectangle_1a570fc10f9e8463b0469f99259a2840f0" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>color</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1ae779e34d36d5de59679fe948d00e1df8" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>color</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a2e5d7fd192952864dcd9b20c6b457e0d" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>dim</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1acb4a7fa6e50bcb1ec5368e88f73a24a7" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>dim</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a2acd1416baed107073bab607f818bae6" prot="public" virt="virtual"><scope>dummy_api::Rectangle</scope><name>draw</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a4f31bf517c297f7c6bd8b2cc788cbac8" prot="private" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>m_color</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a536514348f01599ca036f6bc976665bd" prot="private" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>m_dimensions</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a6f909be2c54e567aca770fd816dfbb7b" prot="private" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>m_pos</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a3e8455e5a497ffe7e543913036932987" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>operator!=</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a7deb9fa0985793f6a7de4e12116d4c46" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>operator=</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a88dbaecb49708c6f0b11a9c385a57cd3" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>operator==</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a02cd97bb02f82d70a9f8b7527ec2a5d8" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>pos</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a39002d1b8602b2c36ee41ffe16b7ac95" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>pos</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a94f3aedf0dfa20ba93b7d616fde76d81" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>Rectangle</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1ae742d15d2aeb5d46a76ed7e8144881a4" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>Rectangle</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1ac04d41f0f59ef9b54234097cdd605ed0" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>Rectangle</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a3961541dc017bac9c971951ae5744900" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>Rectangle</name></member>
+      <member refid="classdummy__api_1_1Shape_1afa927ea1d5ef0635f209a117d7617067" prot="protected" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>Shape</name></member>
+      <member refid="classdummy__api_1_1Rectangle_1a125c1546cac3e7d1ba6011e3b4c80596" prot="public" virt="non-virtual"><scope>dummy_api::Rectangle</scope><name>~Rectangle</name></member>
+      <member refid="classdummy__api_1_1Shape_1afaa225741e5e3aaf6631a65e812766b6" prot="public" virt="virtual"><scope>dummy_api::Rectangle</scope><name>~Shape</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classdummy__api_1_1Shape" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>dummy_api::Shape</compoundname>
+    <derivedcompoundref refid="classdummy__api_1_1Circle" prot="public" virt="non-virtual">dummy_api::Circle</derivedcompoundref>
+    <derivedcompoundref refid="classdummy__api_1_1Line" prot="public" virt="non-virtual">dummy_api::Line</derivedcompoundref>
+    <derivedcompoundref refid="classdummy__api_1_1OutlineCircle" prot="public" virt="non-virtual">dummy_api::OutlineCircle</derivedcompoundref>
+    <derivedcompoundref refid="classdummy__api_1_1OutlineRectangle" prot="public" virt="non-virtual">dummy_api::OutlineRectangle</derivedcompoundref>
+    <derivedcompoundref refid="classdummy__api_1_1OutlineTriangle" prot="public" virt="non-virtual">dummy_api::OutlineTriangle</derivedcompoundref>
+    <derivedcompoundref refid="classdummy__api_1_1Point" prot="public" virt="non-virtual">dummy_api::Point</derivedcompoundref>
+    <derivedcompoundref refid="classdummy__api_1_1Rectangle" prot="public" virt="non-virtual">dummy_api::Rectangle</derivedcompoundref>
+    <derivedcompoundref refid="classdummy__api_1_1Triangle" prot="public" virt="non-virtual">dummy_api::Triangle</derivedcompoundref>
+    <includes refid="hwapi_8hpp" local="no">hwapi.hpp</includes>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classdummy__api_1_1Shape_1afa927ea1d5ef0635f209a117d7617067" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>dummy_api::Shape::Shape</definition>
+        <argsstring>()</argsstring>
+        <name>Shape</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="285" column="1" bodyfile="src/hwapi.cpp" bodystart="106" bodyend="109"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classdummy__api_1_1Shape_1afaa225741e5e3aaf6631a65e812766b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual dummy_api::Shape::~Shape</definition>
+        <argsstring>() noexcept=default</argsstring>
+        <name>~Shape</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="288" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classdummy__api_1_1Shape_1a9f357f722f9df3199026cd95b2ef74b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void dummy_api::Shape::draw</definition>
+        <argsstring>()=0</argsstring>
+        <name>draw</name>
+        <reimplementedby refid="classdummy__api_1_1Point_1ab2da03f816a1558128e0d4a345bfdef9">draw</reimplementedby>
+        <reimplementedby refid="classdummy__api_1_1Line_1abd7c3cb1fa4fdef98c0a7a13559c4ee9">draw</reimplementedby>
+        <reimplementedby refid="classdummy__api_1_1Triangle_1a98d87ea899e79018bfa3a19bc5758e37">draw</reimplementedby>
+        <reimplementedby refid="classdummy__api_1_1OutlineTriangle_1a9752469c9333a10526eca0ce0f714a62">draw</reimplementedby>
+        <reimplementedby refid="classdummy__api_1_1Rectangle_1a2acd1416baed107073bab607f818bae6">draw</reimplementedby>
+        <reimplementedby refid="classdummy__api_1_1OutlineRectangle_1a68ab58828516590078fcf477a96365ea">draw</reimplementedby>
+        <reimplementedby refid="classdummy__api_1_1Circle_1a1af189074586f476647ee754056e5abd">draw</reimplementedby>
+        <reimplementedby refid="classdummy__api_1_1OutlineCircle_1aa422deec6a5b1070091a07642584f67a">draw</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/hwapi.hpp" line="290" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Every object that has information about a primitive is derived from <ref refid="classdummy__api_1_1Shape" kindref="compound">Shape</ref>. </para>    </briefdescription>
+    <detaileddescription>
+<para>Cannot be instantiated(only through derived ojects). Instead of calling functions like <ref refid="namespacedummy__api_1a249a7c0ef8dbebf1440e41f7a5c0298f" kindref="member">point</ref> or <ref refid="namespacedummy__api_1a7bac2a56021c552911f6dc5ae4c8f5ad" kindref="member">line</ref> you can create objects that store information needed to draw the primitives so you can modify it later. Objects have the UpperCamelCase naming convention(eg. <ref refid="classdummy__api_1_1Line" kindref="compound">Line</ref>, <ref refid="classdummy__api_1_1Point" kindref="compound">Point</ref>). Constructors of derived objects should have the same parameters as their functions relatives. Each derived class will provide equality operators and comparison operators for the same types. Each derived class will provide methods for retrieving information like color and position.</para><para><simplesect kind="attention"><para>Constructors of types derived from <ref refid="classdummy__api_1_1Shape" kindref="compound">Shape</ref> take the same parameters(with the same meaning) as their function equivalents. </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="32">
+        <label>dummy_api::Line</label>
+        <link refid="classdummy__api_1_1Line"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>dummy_api::Triangle</label>
+        <link refid="classdummy__api_1_1Triangle"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>dummy_api::Shape</label>
+        <link refid="classdummy__api_1_1Shape"/>
+      </node>
+      <node id="35">
+        <label>dummy_api::OutlineTriangle</label>
+        <link refid="classdummy__api_1_1OutlineTriangle"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>dummy_api::OutlineCircle</label>
+        <link refid="classdummy__api_1_1OutlineCircle"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>dummy_api::OutlineRectangle</label>
+        <link refid="classdummy__api_1_1OutlineRectangle"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>dummy_api::Circle</label>
+        <link refid="classdummy__api_1_1Circle"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>dummy_api::Rectangle</label>
+        <link refid="classdummy__api_1_1Rectangle"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>dummy_api::Point</label>
+        <link refid="classdummy__api_1_1Point"/>
+        <childnode refid="30" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="include/hwapi.hpp" line="283" column="1" bodyfile="include/hwapi.hpp" bodystart="282" bodyend="291"/>
+    <listofallmembers>
+      <member refid="classdummy__api_1_1Shape_1a9f357f722f9df3199026cd95b2ef74b8" prot="public" virt="pure-virtual"><scope>dummy_api::Shape</scope><name>draw</name></member>
+      <member refid="classdummy__api_1_1Shape_1afa927ea1d5ef0635f209a117d7617067" prot="protected" virt="non-virtual"><scope>dummy_api::Shape</scope><name>Shape</name></member>
+      <member refid="classdummy__api_1_1Shape_1afaa225741e5e3aaf6631a65e812766b6" prot="public" virt="virtual"><scope>dummy_api::Shape</scope><name>~Shape</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
