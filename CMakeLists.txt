@@ -6,6 +6,7 @@ set( LIB_NAME HW_LIB )
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/include/ )
 include_directories( ${HW_SDL2_INCLUDE_DIR} )
+include_directories( ${HW_SDL2_IMAGE_INCLUDE_DIR} )
 link_directories( ${HW_SDL2_LIBRARY_DIR} )
 
 set( SRC_FILES
@@ -21,7 +22,7 @@ set( SRC_FILES
 
 add_library( ${LIB_NAME} ${SRC_FILES} )
 
-target_link_libraries( ${LIB_NAME} SDL2main SDL2 )
+target_link_libraries( ${LIB_NAME} SDL2main SDL2 SDL2_image )
 
 if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" )
     target_compile_options( ${LIB_NAME} PRIVATE -Werror -Wextra -Wpedantic )
@@ -31,8 +32,8 @@ endif()
 
 # helper to add an example
 function( add_example EXAMPLE_NAME EXAMPLE_FILE )
-    add_executable( ${EXAMPLE_NAME} ${EXAMPLE_FILE} ) 
-    target_link_libraries( ${EXAMPLE_NAME} HW_LIB )
+    add_executable( ${EXAMPLE_NAME} ${EXAMPLE_FILE} )
+    target_link_libraries( ${EXAMPLE_NAME} ${LIB_NAME} )
 endfunction()
 
 # add all examples
