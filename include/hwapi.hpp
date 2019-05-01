@@ -281,13 +281,26 @@ namespace dummy_api {
     ///
     class Shape
     {
+      private:
+        hw::vec2 m_prev_color{};
+
       protected:
         Shape();
+
+        ///
+        /// @brief Helpful for implementing the hide function.
+        ///
+        void store_color(hw::vec2 const& t_color) noexcept;
+        ///
+        /// If the show function was called get the color of the shape.
+        ///
+        hw::vec2 get_previous_color() const noexcept;
 
       public:
         virtual ~Shape() noexcept = default;
 
         virtual void draw() = 0;
+        virtual void hide(){};
     };
 
     ///
@@ -832,6 +845,69 @@ namespace dummy_api {
         {
             return !this->operator==(t_other);
         }
+    };
+
+    class Image : Shape
+    {
+      private:
+        Rectangle* m_rect{nullptr};
+        OutlineRectangle* m_outrect{nullptr};
+
+        std::string m_path{};
+        bool m_rectangle_created_here{false};
+
+        hw::vec2& get_rect_position() noexcept;
+        hw::vec2 const& get_rect_position() const noexcept;
+        hw::vec2& get_rect_dimensions() noexcept;
+        hw::vec2 const& get_rect_dimensions() const noexcept;
+        hw::color& get_rect_color() noexcept;
+        hw::color const& get_rect_color() const noexcept;
+
+        ///
+        /// @attention Deletes any rectangle if created here. You can safely
+        ///            call this on different rectangles multple times(if the
+        ///            user calls this->follow with both @ref Rectangle and
+        ///            @ref OutlineRectangle.
+        ///
+        void delete_rects_if_created_here() noexcept;
+
+      public:
+        Image() = default;
+        ///
+        /// @param[in] t_path Where the image is located.
+        /// @param[in] t_x X coordonate of the rect representing the image.
+        /// @param[in] t_y Y coordonate of the rect representing the image.
+        /// @param[in] t_width Width of the rect representing the image.
+        /// @param[in] t_height Height of the rect representing the image.
+        ///
+        Image(std::string const t_path, int const t_x, int const t_y,
+              int const t_width, int const t_height);
+        ///
+        /// @brief Same as @ref Rectangle parameters except t_path.
+        ///
+        Image(std::string const t_path, hw::vec2 const& t_pos,
+              hw::vec2 const& t_dim);
+        ///
+        /// @param[in] t_rect With this specified the image structure will
+        ///                   keep a pointer to the rect so whenever the rect
+        ///                   updates the image will also follow the rectangle.
+        ///
+        Image(std::string const t_path, Rectangle& t_rect);
+        Image(std::string const t_path, OutlineRectangle& t_rect);
+        ~Image() noexcept override;
+
+        ///
+        /// @brief Specify where the image is located.
+        ///
+        void set(std::string const t_path);
+        ///
+        /// Whenever the rectangle changes position/dimensions, the image will
+        /// also change accordingly.
+        ///
+        void follow(Rectangle& t_rect);
+        void follow(OutlineRectangle& t_rect);
+
+        void draw() final;
     };
 } // namespace dummy_api
 
