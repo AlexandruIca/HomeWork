@@ -102,9 +102,13 @@ namespace dummy_api {
     ///
     void set_global_height(const int t_height);
     ///
-    /// @brief Set the background color.
+    /// @brief Sets the background of the global color.
     ///
     void set_background_color(hw::color const& t_color) noexcept;
+    ///
+    /// @brief Gets the background color of the global window.
+    ///
+    hw::color get_background_color() noexcept;
 
     ///
     /// @brief Draws all the shapes currently requested.
@@ -858,6 +862,9 @@ namespace dummy_api {
         }
     };
 
+    ///
+    /// @brief Describes an @ref Image object.
+    ///
     class Image : public Shape
     {
       private:
