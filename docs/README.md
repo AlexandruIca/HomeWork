@@ -95,8 +95,66 @@ int main()
 ```
 The WITH macro is nothing but a lambda that takes a constant double as a parameter which signifies the elapsed time since the last frame, named 'elapsed_time'.
 
+# Images
+
+Similar to other classes:
+```c++
+#include "graphics.hpp"
+
+int main()
+{
+    Image img{ "Path/to/image" };
+    return draw();
+}
+```
+
+This will draw an image in the center of the screen. Of course you can specify more parameters:
+```c++
+OutlineRectangle rect{ 20, 20, 100, 100, BLACK };
+Image img{ "Path", rect }; // The image will follow the rectangle given.
+                           // That is if you modify the rectangles position/dimensions
+                           // the image will be shown exactly where the rectangle is
+
+Image img2{ "Path", 20, 20, 100, 100 }; // Draw the image at position (20, 20) with
+                                       // width = 100 and height = 100
+```
+
 # Customization
-To change the size of the window that will be drawn to just call set_width and set_height before the draw call:
+
+To hide/show shapes:
+```c++
+#include "graphics.hpp"
+
+int main()
+{
+    Image img{ "Path" };
+
+    return draw(WITH {
+        if(key(KEY_h)) {
+            img.hide();
+        }
+        if(key(KEY_s)) {
+            img.show();
+        }
+    });
+}
+```
+
+```
+hide
+```
+and
+```
+show
+```
+are available for all shapes. The shapes are:
+* Point/Line
+* Triangle/OutlineTriangle
+* Rect/OutlineRect
+* Circle/OutlineCircle
+* Images
+
+To change the size of the window that will be drawn to just call set\_width and set\_height before the draw call:
 ```c++
 int main()
 {
@@ -138,13 +196,11 @@ To change the background of the window:
 ```c++
 int main()
 {
-    return draw(WITH{
-        set_background(GREEN);
-    });
+    set_background(GREEN);
+    return draw();
 }
 ```
-Keep in mind to NEVER use set\_background before the draw call.
 
 # Reference
-For the full API reference please check: https://codedocs.xyz/AlexandruIca/HomeWork/
+For the full API reference please check: https://codedocs.xyz/AlexandruIca/HomeWork/ or open html/index.html with your favourite browser.
 
