@@ -1,74 +1,44 @@
 [
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/image_switch.dir/tests/image_switch.cpp.o -c /media/MHDD/devel/HomeWork/tests/image_switch.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/image_switch.cpp"
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/outcircle.dir/tests/outcircle.cpp.o -c /media/MHDD/devel/HomeWork/tests/outcircle.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/outcircle.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/image.dir/tests/image.cpp.o -c /media/MHDD/devel/HomeWork/tests/image.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/image.cpp"
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/outrect.dir/tests/outrect.cpp.o -c /media/MHDD/devel/HomeWork/tests/outrect.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/outrect.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/hide.dir/tests/hide.cpp.o -c /media/MHDD/devel/HomeWork/tests/hide.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/hide.cpp"
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/change_window_size.dir/tests/change_window_size.cpp.o -c /media/MHDD/devel/HomeWork/tests/change_window_size.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/change_window_size.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/keyboard_test2.dir/tests/keyboard_test2.cpp.o -c /media/MHDD/devel/HomeWork/tests/keyboard_test2.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/keyboard_test2.cpp"
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/triangle.dir/tests/triangle.cpp.o -c /media/MHDD/devel/HomeWork/tests/triangle.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/triangle.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/rect2.dir/tests/rect2.cpp.o -c /media/MHDD/devel/HomeWork/tests/rect2.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/rect2.cpp"
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/basic_example.dir/tests/basic_example.cpp.o -c /media/MHDD/devel/HomeWork/tests/basic_example.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/basic_example.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/image_norect.dir/tests/image_norect.cpp.o -c /media/MHDD/devel/HomeWork/tests/image_norect.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/image_norect.cpp"
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/circle.dir/tests/circle.cpp.o -c /media/MHDD/devel/HomeWork/tests/circle.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/circle.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/mixed.dir/tests/mixed.cpp.o -c /media/MHDD/devel/HomeWork/tests/mixed.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/mixed.cpp"
-},
-
-{
-  "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/rect.dir/tests/rect.cpp.o -c /media/MHDD/devel/HomeWork/tests/rect.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/rect.cpp"
-},
-
-{
-  "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/background.dir/tests/background.cpp.o -c /media/MHDD/devel/HomeWork/tests/background.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/background.cpp"
-},
-
-{
-  "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/outcircle2.dir/tests/outcircle2.cpp.o -c /media/MHDD/devel/HomeWork/tests/outcircle2.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/outcircle2.cpp"
-},
-
-{
-  "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/line.dir/tests/line.cpp.o -c /media/MHDD/devel/HomeWork/tests/line.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/line.cpp"
-},
-
-{
-  "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/circle2.dir/tests/circle2.cpp.o -c /media/MHDD/devel/HomeWork/tests/circle2.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/circle2.cpp"
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/keyboard_test.dir/tests/keyboard_test.cpp.o -c /media/MHDD/devel/HomeWork/tests/keyboard_test.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/keyboard_test.cpp"
 },
 
 {
@@ -97,49 +67,85 @@
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/keyboard_test.dir/tests/keyboard_test.cpp.o -c /media/MHDD/devel/HomeWork/tests/keyboard_test.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/keyboard_test.cpp"
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/circle2.dir/tests/circle2.cpp.o -c /media/MHDD/devel/HomeWork/tests/circle2.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/circle2.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/circle.dir/tests/circle.cpp.o -c /media/MHDD/devel/HomeWork/tests/circle.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/circle.cpp"
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/line.dir/tests/line.cpp.o -c /media/MHDD/devel/HomeWork/tests/line.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/line.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/basic_example.dir/tests/basic_example.cpp.o -c /media/MHDD/devel/HomeWork/tests/basic_example.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/basic_example.cpp"
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/outcircle2.dir/tests/outcircle2.cpp.o -c /media/MHDD/devel/HomeWork/tests/outcircle2.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/outcircle2.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/triangle.dir/tests/triangle.cpp.o -c /media/MHDD/devel/HomeWork/tests/triangle.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/triangle.cpp"
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/background.dir/tests/background.cpp.o -c /media/MHDD/devel/HomeWork/tests/background.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/background.cpp"
+},
+
+{
+  "directory": "/media/MHDD/devel/HomeWork/build",
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/rect.dir/tests/rect.cpp.o -c /media/MHDD/devel/HomeWork/tests/rect.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/rect.cpp"
+},
+
+{
+  "directory": "/media/MHDD/devel/HomeWork/build",
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/mixed.dir/tests/mixed.cpp.o -c /media/MHDD/devel/HomeWork/tests/mixed.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/mixed.cpp"
+},
+
+{
+  "directory": "/media/MHDD/devel/HomeWork/build",
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/image_norect.dir/tests/image_norect.cpp.o -c /media/MHDD/devel/HomeWork/tests/image_norect.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/image_norect.cpp"
+},
+
+{
+  "directory": "/media/MHDD/devel/HomeWork/build",
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/keyboard_test2.dir/tests/keyboard_test2.cpp.o -c /media/MHDD/devel/HomeWork/tests/keyboard_test2.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/keyboard_test2.cpp"
+},
+
+{
+  "directory": "/media/MHDD/devel/HomeWork/build",
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/rect2.dir/tests/rect2.cpp.o -c /media/MHDD/devel/HomeWork/tests/rect2.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/rect2.cpp"
+},
+
+{
+  "directory": "/media/MHDD/devel/HomeWork/build",
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/hide.dir/tests/hide.cpp.o -c /media/MHDD/devel/HomeWork/tests/hide.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/hide.cpp"
+},
+
+{
+  "directory": "/media/MHDD/devel/HomeWork/build",
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/image.dir/tests/image.cpp.o -c /media/MHDD/devel/HomeWork/tests/image.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/image.cpp"
+},
+
+{
+  "directory": "/media/MHDD/devel/HomeWork/build",
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/image_switch.dir/tests/image_switch.cpp.o -c /media/MHDD/devel/HomeWork/tests/image_switch.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/image_switch.cpp"
+},
+
+{
+  "directory": "/media/MHDD/devel/HomeWork/build",
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/image_rect_hide.dir/tests/image_rect_hide.cpp.o -c /media/MHDD/devel/HomeWork/tests/image_rect_hide.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/image_rect_hide.cpp"
 },
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
   "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/outtriangle.dir/tests/outtriangle.cpp.o -c /media/MHDD/devel/HomeWork/tests/outtriangle.cpp",
   "file": "/media/MHDD/devel/HomeWork/tests/outtriangle.cpp"
-},
-
-{
-  "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/change_window_size.dir/tests/change_window_size.cpp.o -c /media/MHDD/devel/HomeWork/tests/change_window_size.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/change_window_size.cpp"
-},
-
-{
-  "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/outrect.dir/tests/outrect.cpp.o -c /media/MHDD/devel/HomeWork/tests/outrect.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/outrect.cpp"
-},
-
-{
-  "directory": "/media/MHDD/devel/HomeWork/build",
-  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/outcircle.dir/tests/outcircle.cpp.o -c /media/MHDD/devel/HomeWork/tests/outcircle.cpp",
-  "file": "/media/MHDD/devel/HomeWork/tests/outcircle.cpp"
 }
 ]
