@@ -66,7 +66,7 @@ namespace dummy_api {
     void draw_shapes()
     {
         for(auto& shape : get_shapes()) {
-            shape->draw();
+            shape->draw_shape();
         }
     }
 
@@ -106,6 +106,25 @@ namespace dummy_api {
     Shape::Shape()
     {
         get_shapes().push_back(this);
+    }
+
+    void Shape::draw_shape() noexcept
+    {
+        if(m_hidden) {
+            return;
+        }
+
+        this->draw();
+    }
+
+    void Shape::hide() noexcept
+    {
+        m_hidden = true;
+    }
+
+    void Shape::show() noexcept
+    {
+        m_hidden = false;
     }
 
     void point(const hw::vec2& t_pos, const hw::color& t_color)

@@ -282,7 +282,7 @@ namespace dummy_api {
     class Shape
     {
       private:
-        hw::vec2 m_prev_color{};
+        bool m_hidden{false};
 
       protected:
         Shape();
@@ -300,7 +300,14 @@ namespace dummy_api {
         virtual ~Shape() noexcept = default;
 
         virtual void draw() = 0;
-        virtual void hide(){};
+        void draw_shape() noexcept;
+        void hide() noexcept;
+        void show() noexcept;
+
+        inline bool hidden() const noexcept
+        {
+            return m_hidden;
+        }
     };
 
     ///
