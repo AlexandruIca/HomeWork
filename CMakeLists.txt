@@ -59,4 +59,5 @@ add_example( hide ${CMAKE_CURRENT_SOURCE_DIR}/tests/hide.cpp )
 add_example( image ${CMAKE_CURRENT_SOURCE_DIR}/tests/image.cpp )
 add_example( image_norect ${CMAKE_CURRENT_SOURCE_DIR}/tests/image_norect.cpp )
 add_example( image_switch ${CMAKE_CURRENT_SOURCE_DIR}/tests/image_switch.cpp )
+add_example( image_rect_hide ${CMAKE_CURRENT_SOURCE_DIR}/tests/image_rect_hide.cpp )
 
