@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rectangle',['Rectangle',['../classdummy__api_1_1Rectangle.html',1,'dummy_api']]]
+  ['point',['Point',['../classdummy__api_1_1Point.html',1,'dummy_api']]]
 ];

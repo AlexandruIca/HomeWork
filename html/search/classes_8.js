@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['window',['window',['../classhw_1_1window.html',1,'hw']]]
+  ['vec2',['vec2',['../structhw_1_1vec2.html',1,'hw']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['line',['Line',['../classdummy__api_1_1Line.html',1,'dummy_api']]]
+  ['image',['Image',['../classdummy__api_1_1Image.html',1,'dummy_api']]]
 ];

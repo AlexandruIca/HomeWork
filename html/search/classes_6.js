@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['triangle',['Triangle',['../classdummy__api_1_1Triangle.html',1,'dummy_api']]]
+  ['shape',['Shape',['../classdummy__api_1_1Shape.html',1,'dummy_api']]]
 ];

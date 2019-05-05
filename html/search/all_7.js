@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['point',['Point',['../classdummy__api_1_1Point.html',1,'dummy_api::Point'],['../namespacedummy__api.html#a249a7c0ef8dbebf1440e41f7a5c0298f',1,'dummy_api::point(const hw::vec2 &amp;t_pos, const hw::color &amp;t_color=hw::color{})'],['../namespacedummy__api.html#a4efd30052d197d72b64bd67f13322e5a',1,'dummy_api::point(const int t_x, const int t_y, const hw::color &amp;t_color=hw::color{})']]]
+  ['line',['Line',['../classdummy__api_1_1Line.html',1,'dummy_api::Line'],['../namespacedummy__api.html#a7bac2a56021c552911f6dc5ae4c8f5ad',1,'dummy_api::line(const hw::vec2 &amp;t_a, const hw::vec2 &amp;t_b, const hw::color &amp;t_color=hw::color{})'],['../namespacedummy__api.html#afc5312dbe53632c5a898028246252a13',1,'dummy_api::line(const int t_x1, const int t_y1, const int t_x2, const int t_y2, const hw::color &amp;t_color=hw::color{})']]]
 ];

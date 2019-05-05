@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tasta',['tasta',['../graphics_8hpp.html#a11688f92166876d00e999b49a856e08c',1,'graphics.hpp']]],
-  ['triangle',['triangle',['../namespacedummy__api.html#a5d0771cc0f23a5b8da36bedf8c283a4a',1,'dummy_api::triangle(const hw::vec2 &amp;t_pos1, const hw::vec2 &amp;t_pos2, const hw::vec2 &amp;t_pos3, const hw::color &amp;t_color=hw::color{})'],['../namespacedummy__api.html#a39986f66e60a435145031fa476129332',1,'dummy_api::triangle(const int t_x1, const int t_y1, const int t_x2, const int t_y2, const int t_x3, const int t_y3, const hw::color &amp;t_color=hw::color{})']]]
+  ['rectangle',['rectangle',['../namespacedummy__api.html#acb6344e33577af291978e41b3322c14b',1,'dummy_api::rectangle(const hw::vec2 &amp;t_pos, const int t_width, const int t_height, const hw::color &amp;t_color=hw::color{})'],['../namespacedummy__api.html#a6409e8fb0ec9267490a4671efb23c536',1,'dummy_api::rectangle(const int t_x, const int t_y, const int t_width, const int t_height, const hw::color &amp;t_color=hw::color{})']]]
 ];
