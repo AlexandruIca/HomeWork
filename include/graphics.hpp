@@ -38,7 +38,7 @@
 /// planning to do.
 ///
 /// @section sec_overview Overview
-/// The header that you should include every time you want to use thi is
+/// The header that you should include every time you want to use this is
 /// graphics.hpp. It only contains a few convenient functions and a macro
 /// to make the library dead easy to use. One of the main goals of this library
 /// is to be incredibly accessible to anyone.
@@ -70,22 +70,22 @@
 // evil but necessary(easy to use)
 using namespace dummy_api;
 
-const hw::color RED = hw::color{255, 0, 0};
-const hw::color GREEN = hw::color{0, 255, 0};
-const hw::color BLUE = hw::color{0, 0, 255};
-const hw::color WHITE = hw::color{255, 255, 255};
-const hw::color BLACK = hw::color{0, 0, 0};
-const hw::color CYAN = hw::color{0, 188, 212};
-const hw::color YELLOW = hw::color{255, 235, 59};
-const hw::color LIME = hw::color{205, 220, 57};
-const hw::color TEAL = hw::color{0, 150, 136};
-const hw::color PURPLE = hw::color{156, 39, 176};
-const hw::color PINK = hw::color{236, 64, 122};
-const hw::color INDIGO = hw::color{63, 81, 181};
-const hw::color AMBER = hw::color{255, 193, 7};
-const hw::color ORANGE = hw::color{255, 152, 0};
-const hw::color BROWN = hw::color{121, 85, 72};
-const hw::color GREY = hw::color{158, 158, 158};
+static const hw::color RED = hw::color{255, 0, 0};
+static const hw::color GREEN = hw::color{0, 255, 0};
+static const hw::color BLUE = hw::color{0, 0, 255};
+static const hw::color WHITE = hw::color{255, 255, 255};
+static const hw::color BLACK = hw::color{0, 0, 0};
+static const hw::color CYAN = hw::color{0, 188, 212};
+static const hw::color YELLOW = hw::color{255, 235, 59};
+static const hw::color LIME = hw::color{205, 220, 57};
+static const hw::color TEAL = hw::color{0, 150, 136};
+static const hw::color PURPLE = hw::color{156, 39, 176};
+static const hw::color PINK = hw::color{236, 64, 122};
+static const hw::color INDIGO = hw::color{63, 81, 181};
+static const hw::color AMBER = hw::color{255, 193, 7};
+static const hw::color ORANGE = hw::color{255, 152, 0};
+static const hw::color BROWN = hw::color{121, 85, 72};
+static const hw::color GREY = hw::color{158, 158, 158};
 
 ///
 /// @brief Helper to change window width.
@@ -130,7 +130,7 @@ inline int height()
 ///
 /// @brief Checks if @ref t_key was pressed.
 ///
-bool key(int const t_key)
+inline bool key(int const t_key)
 {
     return get_global_window()->was_key_pressed(t_key);
 }
@@ -146,7 +146,7 @@ inline bool tasta(int const t_tasta)
 ///
 /// @brief Changes the background color of global window.
 ///
-void set_background(hw::color const& t_color)
+inline void set_background(hw::color const& t_color)
 {
     set_background_color(t_color);
 }
@@ -154,10 +154,21 @@ void set_background(hw::color const& t_color)
 ///
 /// @brief Changes the background color of global window.
 ///
-void set_background(unsigned char const t_r, unsigned char const t_g,
-                    unsigned char const t_b, unsigned char const t_a)
+inline void set_background(unsigned char const t_r, unsigned char const t_g,
+                           unsigned char const t_b, unsigned char const t_a)
 {
     set_background_color(hw::color{t_r, t_g, t_b, t_a});
+}
+
+///
+/// @brief Gets the background color of the global window.
+///
+/// Useful for creating OutlineRectangles which have the same color as the
+/// background to hide them.
+///
+inline hw::color get_background() noexcept
+{
+    return get_background_color();
 }
 
 ///
