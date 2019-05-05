@@ -148,18 +148,16 @@ inline bool tasta(int const t_tasta)
 ///
 void set_background(hw::color const& t_color)
 {
-    get_global_window()->set_bgcolor(t_color);
+    set_background_color(t_color);
 }
 
 ///
 /// @brief Changes the background color of global window.
 ///
-/// @attention NEVER use this before the @ref hw::draw call.
-///
 void set_background(unsigned char const t_r, unsigned char const t_g,
                     unsigned char const t_b, unsigned char const t_a)
 {
-    get_global_window()->set_bgcolor(hw::color{t_r, t_g, t_b, t_a});
+    set_background_color(hw::color{t_r, t_g, t_b, t_a});
 }
 
 ///
