@@ -101,6 +101,10 @@ namespace dummy_api {
     /// @param t_height New height.
     ///
     void set_global_height(const int t_height);
+    ///
+    /// @brief Set the background color.
+    ///
+    void set_background_color(hw::color const& t_color) noexcept;
 
     ///
     /// @brief Draws all the shapes currently requested.
@@ -854,32 +858,37 @@ namespace dummy_api {
         }
     };
 
-    class Image : Shape
+    class Image : public Shape
     {
       private:
-        Rectangle* m_rect{nullptr};
-        OutlineRectangle* m_outrect{nullptr};
-
+        ///
+        /// If the user specifies a rectangle or calls @ref follow this will
+        /// just point to the specified rectangle. Otherwise it will create
+        /// a rect on the heap with specified dimensions.
+        ///
+        OutlineRectangle* m_rect{nullptr};
         std::string m_path{};
-        bool m_rectangle_created_here{false};
+        bool m_created_here{false};
+        hw::color m_color_key{};
+        bool m_created_image{false};
 
-        hw::vec2& get_rect_position() noexcept;
-        hw::vec2 const& get_rect_position() const noexcept;
-        hw::vec2& get_rect_dimensions() noexcept;
-        hw::vec2 const& get_rect_dimensions() const noexcept;
-        hw::color& get_rect_color() noexcept;
-        hw::color const& get_rect_color() const noexcept;
+        SDL_Texture* m_image{nullptr};
 
         ///
-        /// @attention Deletes any rectangle if created here. You can safely
-        ///            call this on different rectangles multple times(if the
-        ///            user calls this->follow with both @ref Rectangle and
-        ///            @ref OutlineRectangle.
+        /// @attention MUST NOT be called before @ref draw_shapes.
         ///
-        void delete_rects_if_created_here() noexcept;
+        void create_image() noexcept;
+        void delete_rect_if_created_here() noexcept;
 
       public:
         Image() = default;
+        ///
+        /// @param[in] t_path Where the image is located.
+        ///
+        /// When no rect is specified there will be one created in the center
+        /// of the screen with coordinates 100, 100.
+        ///
+        Image(std::string const t_path);
         ///
         /// @param[in] t_path Where the image is located.
         /// @param[in] t_x X coordonate of the rect representing the image.
@@ -899,19 +908,29 @@ namespace dummy_api {
         ///                   keep a pointer to the rect so whenever the rect
         ///                   updates the image will also follow the rectangle.
         ///
-        Image(std::string const t_path, Rectangle& t_rect);
         Image(std::string const t_path, OutlineRectangle& t_rect);
         ~Image() noexcept override;
 
         ///
         /// @brief Specify where the image is located.
         ///
-        void set(std::string const t_path);
+        /// @attention Calling inside drawing loop has no effect.
+        ///
+        void set_path(std::string const t_path);
+        ///
+        /// @brief Ignore specified color
+        ///
+        /// If you want to load a sprite and it's background color should not
+        /// be rendered specify it with this function.
+        ///
+        /// @attention Can NOT be changed dynamically, meaning if you call this
+        ///            inside the drawing loop it will have no effect.
+        ///
+        void set_color_key(hw::color const& t_color) noexcept;
         ///
         /// Whenever the rectangle changes position/dimensions, the image will
         /// also change accordingly.
         ///
-        void follow(Rectangle& t_rect);
         void follow(OutlineRectangle& t_rect);
 
         void draw() final;
