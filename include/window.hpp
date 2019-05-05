@@ -78,6 +78,10 @@ namespace hw {
                          const std::uint8_t t_b, const std::uint8_t t_a = 255);
         void set_bgcolor(const hw::color& t_color);
         void set_bgcolor(hw::color&& t_color);
+        inline hw::color get_bgcolor() const noexcept
+        {
+            return m_color;
+        }
         void clear();
 
         bool was_key_pressed(int t_key);
