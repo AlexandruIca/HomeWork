@@ -53,4 +53,5 @@ add_example( keyboard_test2 ${CMAKE_CURRENT_SOURCE_DIR}/tests/keyboard_test2.cpp
 add_example( mixed ${CMAKE_CURRENT_SOURCE_DIR}/tests/mixed.cpp )
 add_example( change_window_size ${CMAKE_CURRENT_SOURCE_DIR}/tests/change_window_size.cpp )
 add_example( background ${CMAKE_CURRENT_SOURCE_DIR}/tests/background.cpp )
+add_example( hide ${CMAKE_CURRENT_SOURCE_DIR}/tests/hide.cpp )
 
