@@ -6,6 +6,8 @@
 #include <string>
 #include <utility>
 
+#include "SDL2/SDL_image.h"
+
 ///
 /// @file hwapi.cpp
 ///
@@ -23,6 +25,7 @@ namespace {
     hw::window* g_global_window{nullptr};
     int g_global_width{640};
     int g_global_height{480};
+    hw::color g_background{0, 0, 0};
 } // namespace
 
 namespace dummy_api {
@@ -63,6 +66,11 @@ namespace dummy_api {
         g_global_height = t_height;
     }
 
+    void set_background_color(hw::color const& t_color) noexcept
+    {
+        g_background = t_color;
+    }
+
     void draw_shapes()
     {
         for(auto& shape : get_shapes()) {
@@ -73,7 +81,9 @@ namespace dummy_api {
     int draw(std::function<void(double)> t_call)
     {
         hw::window wnd{g_global_width, g_global_height, "HWindow"};
+
         g_global_window = &wnd;
+        wnd.set_bgcolor(g_background);
 
         double avg_fps{0.0};
 
@@ -793,5 +803,118 @@ namespace dummy_api {
             else
                 p += 4 * (x++ - y--) + 10;
         }
+    }
+
+    void Image::delete_rect_if_created_here() noexcept
+    {
+        if(m_created_here) {
+            delete m_rect;
+        }
+    }
+
+    void Image::create_image() noexcept
+    {
+        if(m_created_image) {
+            return;
+        }
+        SDL_Surface* img = IMG_Load(m_path.c_str());
+
+        SDL_SetColorKey(img, SDL_TRUE,
+                        SDL_MapRGB(img->format, m_color_key.r, m_color_key.g,
+                                   m_color_key.b));
+
+        m_image = SDL_CreateTextureFromSurface(
+            get_global_window()->get_renderer(), img);
+
+        SDL_FreeSurface(img);
+
+        if(m_rect == nullptr) {
+            m_created_here = true;
+            m_rect = new OutlineRectangle{
+                get_global_window()->get_width() / 2 - 50,
+                get_global_window()->get_height() / 2 - 50, 100, 100,
+                get_global_window()->get_bgcolor()};
+        }
+
+        m_created_image = true;
+    }
+
+    Image::Image(std::string const t_path)
+        : m_rect(nullptr)
+        , m_path(t_path)
+        , m_created_here(true)
+        , m_color_key(0, 0, 0)
+        , m_created_image(false)
+        , m_image(nullptr)
+    {
+    }
+
+    Image::Image(std::string const t_path, int const t_x, int const t_y,
+                 int const t_width, int const t_height)
+        : m_rect(new OutlineRectangle{t_x, t_y, t_width, t_height})
+        , m_path(t_path)
+        , m_created_here(true)
+        , m_color_key(0, 0, 0)
+        , m_created_image(false)
+        , m_image(nullptr)
+    {
+    }
+
+    Image::Image(std::string const t_path, hw::vec2 const& t_pos,
+                 hw::vec2 const& t_dim)
+        : m_rect(new OutlineRectangle{t_pos, t_dim.x, t_dim.y})
+        , m_path(t_path)
+        , m_created_here(true)
+        , m_color_key(0, 0, 0)
+        , m_created_image(false)
+        , m_image(nullptr)
+    {
+    }
+
+    Image::Image(std::string const t_path, OutlineRectangle& t_rect)
+        : m_rect(&t_rect)
+        , m_path(t_path)
+        , m_created_here(false)
+        , m_color_key(0, 0, 0)
+        , m_created_image(false)
+        , m_image(nullptr)
+    {
+    }
+
+    Image::~Image() noexcept
+    {
+        this->delete_rect_if_created_here();
+        SDL_DestroyTexture(m_image);
+    }
+
+    void Image::draw()
+    {
+        this->create_image();
+
+        SDL_Rect dest;
+        dest.x = m_rect->pos().x;
+        dest.y = m_rect->pos().y;
+        dest.w = m_rect->dim().x;
+        dest.h = m_rect->dim().y;
+
+        SDL_RenderCopy(get_global_window()->get_renderer(), m_image, NULL,
+                       &dest);
+    }
+
+    void Image::set_path(std::string const t_path)
+    {
+        m_path = t_path;
+    }
+
+    void Image::set_color_key(hw::color const& t_color) noexcept
+    {
+        m_color_key = t_color;
+    }
+
+    void Image::follow(OutlineRectangle& t_rect)
+    {
+        this->delete_rect_if_created_here();
+        m_rect = &t_rect;
+        m_created_here = false;
     }
 } // namespace dummy_api
