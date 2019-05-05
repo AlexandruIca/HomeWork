@@ -25,9 +25,11 @@ add_library( ${LIB_NAME} ${SRC_FILES} )
 target_link_libraries( ${LIB_NAME} SDL2main SDL2 SDL2_image )
 
 if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" )
-    target_compile_options( ${LIB_NAME} PRIVATE -Werror -Wextra -Wpedantic )
+    target_compile_options( ${LIB_NAME} PRIVATE -Wall -Werror -Wextra -Wpedantic )
 elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" )
-    target_compile_options( ${LIB_NAME} PRIVATE -Werror -pedantic -pedantic-errors )
+    target_compile_options( ${LIB_NAME} PRIVATE -Wall -Werror -pedantic -pedantic-errors )
+elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" )
+    target_compile_options( ${LIB_NAME} PRIVATE -W4 -WX )
 endif()
 
 # helper to add an example
@@ -54,4 +56,7 @@ add_example( mixed ${CMAKE_CURRENT_SOURCE_DIR}/tests/mixed.cpp )
 add_example( change_window_size ${CMAKE_CURRENT_SOURCE_DIR}/tests/change_window_size.cpp )
 add_example( background ${CMAKE_CURRENT_SOURCE_DIR}/tests/background.cpp )
 add_example( hide ${CMAKE_CURRENT_SOURCE_DIR}/tests/hide.cpp )
+add_example( image ${CMAKE_CURRENT_SOURCE_DIR}/tests/image.cpp )
+add_example( image_norect ${CMAKE_CURRENT_SOURCE_DIR}/tests/image_norect.cpp )
+add_example( image_switch ${CMAKE_CURRENT_SOURCE_DIR}/tests/image_switch.cpp )
 
