@@ -71,6 +71,11 @@ namespace dummy_api {
         g_background = t_color;
     }
 
+    hw::color get_background_color() noexcept
+    {
+        return g_background;
+    }
+
     void draw_shapes()
     {
         for(auto& shape : get_shapes()) {
