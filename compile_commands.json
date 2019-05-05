@@ -1,6 +1,12 @@
 [
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
+  "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/hide.dir/tests/hide.cpp.o -c /media/MHDD/devel/HomeWork/tests/hide.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/hide.cpp"
+},
+
+{
+  "directory": "/media/MHDD/devel/HomeWork/build",
   "command": "/usr/bin/c++   -I../include  -g   -std=gnu++11 -o CMakeFiles/keyboard_test2.dir/tests/keyboard_test2.cpp.o -c /media/MHDD/devel/HomeWork/tests/keyboard_test2.cpp",
   "file": "/media/MHDD/devel/HomeWork/tests/keyboard_test2.cpp"
 },
