@@ -12,7 +12,7 @@ Making a simple app should be as straightforward as:
 int main()
 {
     line(50, 60, 300, 400);
-    
+
     return draw();
 }
 ```
@@ -27,9 +27,9 @@ int main()
 {
     set_width(1280);
     set_height(720);
-    
+
     triangle(20, 20, 900, 10, 800, 700, AMBER);
-    
+
     return draw();
 }
 ```
@@ -60,6 +60,8 @@ Want to contribute? AWESOME! There's no strict guideline to follow, although fol
 * Build the tests only if the user wants to.
 * Make it more flexible(eg. making a custom window).
 * Improve documentation.
+* Organize functionality of scripts in a python package
+* Translate docs/README.md to romanian
 * Add text, sounds
 
 For the last point:
