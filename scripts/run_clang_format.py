@@ -13,8 +13,10 @@ def join(path1: str, path2: str) -> str:
     return os.path.join(path1, path2)
 
 parent_dir: str = absolute_path("../")
+#directories_to_run_through: List[str] =\
+        #[join(parent_dir, "src/"), join(parent_dir, "include/")]
 directories_to_run_through: List[str] =\
-        [join(parent_dir, "src/"), join(parent_dir, "include/")]
+        [join(parent_dir, directory) for directory in ["include/", "src/", "tests/"]]
 
 colorama.init()
 
