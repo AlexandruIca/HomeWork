@@ -2,7 +2,8 @@
 
 int main()
 {
-    OutlineRectangle rect{width() / 2 - 100, height() / 2 - 100, 200, 200, CYAN};
+    OutlineRectangle rect{width() / 2 - 100, height() / 2 - 100, 200, 200,
+                          CYAN};
 
     Image img[] = {Image{"../media/Triangle.png"}, Image{"../media/Line.png"}};
 
@@ -27,4 +28,3 @@ int main()
         }
     });
 }
-

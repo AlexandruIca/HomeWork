@@ -3,29 +3,28 @@
 using namespace dummy_api;
 
 int main()
-{ 
+{
     const auto width = get_global_width();
     const auto height = get_global_height();
     const auto radius = width / 10;
 
-    circle(width / 4, height / 3, radius, hw::color{ 120, 36, 90 });
-    circle(2 * width / 4, height / 3, radius, hw::color{ 20, 136, 84 });
-    circle(3 * width / 4, height / 3, radius, hw::color{ 232, 20, 60 });
+    circle(width / 4, height / 3, radius, hw::color{120, 36, 90});
+    circle(2 * width / 4, height / 3, radius, hw::color{20, 136, 84});
+    circle(3 * width / 4, height / 3, radius, hw::color{232, 20, 60});
 
-    Circle a{ width / 4, 2 * height / 3, radius, hw::color{ 45, 89, 102 } };
-    Circle b{ 2 * width / 4, 2 * height / 3, radius, hw::color{ 23, 96, 77 } };
-    Circle modifiable{ 3 * width / 4, 2 * height / 3, radius };
+    Circle a{width / 4, 2 * height / 3, radius, hw::color{45, 89, 102}};
+    Circle b{2 * width / 4, 2 * height / 3, radius, hw::color{23, 96, 77}};
+    Circle modifiable{3 * width / 4, 2 * height / 3, radius};
 
     modifiable.color() = a.color();
 
-    int rincrement{ 1 };
-    int gincrement{ -1 };
+    int rincrement{1};
+    int gincrement{-1};
 
-    double red{ 0.0 };
-    double green{ 0.0 };
+    double red{0.0};
+    double green{0.0};
 
-    auto f = [&](double elapsed_time)
-    {
+    auto f = [&](double elapsed_time) {
         if(modifiable.color().r >= 255)
             rincrement = -1;
         else if(modifiable.color().r <= 0)
@@ -45,4 +44,3 @@ int main()
 
     return draw(f);
 }
-

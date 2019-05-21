@@ -3,7 +3,7 @@
 #include <iostream>
 
 Rectangle r{};
-Rectangle r2{ 30, 30, 30, 30, AMBER };
+Rectangle r2{30, 30, 30, 30, AMBER};
 
 void f(double const)
 {
@@ -26,12 +26,11 @@ int main()
     set_width(700);
     set_height(700);
 
-    r.pos() = { width() / 2, height() / 2 };
-    r.dim() = { 200, 200 };
+    r.pos() = {width() / 2, height() / 2};
+    r.dim() = {200, 200};
     r.color() = GREEN;
 
-    point({ 500, 500 }, RED);
+    point({500, 500}, RED);
 
     return draw(f);
 }
-
