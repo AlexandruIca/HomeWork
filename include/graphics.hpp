@@ -70,6 +70,12 @@
 // evil but necessary(easy to use)
 using namespace dummy_api;
 
+///
+/// @defgroup dummy_api_group Easy to use API
+///
+/// @{
+///
+
 static const hw::color RED = hw::color{255, 0, 0};
 static const hw::color GREEN = hw::color{0, 255, 0};
 static const hw::color BLUE = hw::color{0, 0, 255};
@@ -200,5 +206,9 @@ inline hw::color get_background() noexcept
     defined(main)
 #undef main
 #endif
+
+///
+/// @}
+///
 
 #endif // !GRAPHICS_HPP
