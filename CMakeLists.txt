@@ -18,6 +18,8 @@ set( SRC_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/vec2.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/hwapi.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/hwapi.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/drawing_api.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/drawing_api.cpp
     )
 
 add_library( ${LIB_NAME} ${SRC_FILES} )
@@ -40,14 +42,19 @@ endfunction()
 
 # add all examples
 add_example( basic_example ${CMAKE_CURRENT_SOURCE_DIR}/tests/basic_example.cpp )
+add_example( point ${CMAKE_CURRENT_SOURCE_DIR}/tests/point.cpp )
 add_example( line ${CMAKE_CURRENT_SOURCE_DIR}/tests/line.cpp )
+add_example( line2 ${CMAKE_CURRENT_SOURCE_DIR}/tests/line2.cpp )
 add_example( rect ${CMAKE_CURRENT_SOURCE_DIR}/tests/rect.cpp )
 add_example( rect2 ${CMAKE_CURRENT_SOURCE_DIR}/tests/rect2.cpp )
+add_example( rect_move ${CMAKE_CURRENT_SOURCE_DIR}/tests/rect_move.cpp )
 add_example( outrect ${CMAKE_CURRENT_SOURCE_DIR}/tests/outrect.cpp )
 add_example( triangle ${CMAKE_CURRENT_SOURCE_DIR}/tests/triangle.cpp )
+add_example( triangle2 ${CMAKE_CURRENT_SOURCE_DIR}/tests/triangle2.cpp )
 add_example( outtriangle ${CMAKE_CURRENT_SOURCE_DIR}/tests/outtriangle.cpp )
 add_example( circle ${CMAKE_CURRENT_SOURCE_DIR}/tests/circle.cpp )
 add_example( circle2 ${CMAKE_CURRENT_SOURCE_DIR}/tests/circle2.cpp )
+add_example( circle3 ${CMAKE_CURRENT_SOURCE_DIR}/tests/circle3.cpp )
 add_example( outcircle ${CMAKE_CURRENT_SOURCE_DIR}/tests/outcircle.cpp )
 add_example( outcircle2 ${CMAKE_CURRENT_SOURCE_DIR}/tests/outcircle2.cpp )
 add_example( keyboard_test ${CMAKE_CURRENT_SOURCE_DIR}/tests/keyboard_test.cpp )
