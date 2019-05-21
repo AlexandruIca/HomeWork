@@ -62,6 +62,7 @@ Want to contribute? AWESOME! There's no strict guideline to follow, although fol
 * Improve documentation.
 * Organize functionality of scripts in a python package
 * Translate docs/README.md to romanian
+* Translate the api to romanian as much as possible
 * Need to have way to get mouse events
 * Add text, sounds
 
