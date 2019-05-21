@@ -64,7 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">hwapi.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -76,9 +77,13 @@ $(function() {
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
 <code>#include &quot;SDL2/SDL_image.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="drawing__api_8hpp_source.html">drawing_api.hpp</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
+<tr class="memitem:namespaceglobals"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceglobals.html">globals</a></td></tr>
+<tr class="memdesc:namespaceglobals"><td class="mdescLeft">&#160;</td><td class="mdescRight">Globals are defined here. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacedummy__api"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedummy__api.html">dummy_api</a></td></tr>
 <tr class="memdesc:namespacedummy__api"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides an easy to use api for drawing different primitives like points, lines, rectangles etc. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,10 +112,10 @@ std::vector&lt; <a class="el" href="classdummy__api_1_1Shape.html">dummy_api::Sh
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedummy__api.html#abd365f6fd4f32a31bdac9090dea40d5e">dummy_api::set_background_color</a> (<a class="el" href="structhw_1_1color.html">hw::color</a> const &amp;t_color) noexcept</td></tr>
 <tr class="memdesc:abd365f6fd4f32a31bdac9090dea40d5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the background of the global color. <br /></td></tr>
 <tr class="separator:abd365f6fd4f32a31bdac9090dea40d5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14007c6249b666cf89f12a2deb235f3b"><td class="memItemLeft" align="right" valign="top"><a id="a14007c6249b666cf89f12a2deb235f3b"></a>
-<a class="el" href="structhw_1_1color.html">hw::color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedummy__api.html#a14007c6249b666cf89f12a2deb235f3b">dummy_api::get_background_color</a> (<a class="el" href="structhw_1_1color.html">hw::color</a> const &amp;t_color) noexcept</td></tr>
-<tr class="memdesc:a14007c6249b666cf89f12a2deb235f3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the background color of the global window. <br /></td></tr>
-<tr class="separator:a14007c6249b666cf89f12a2deb235f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12f280c72a07a1e8b1e0fd3a9f0a2e15"><td class="memItemLeft" align="right" valign="top"><a id="a12f280c72a07a1e8b1e0fd3a9f0a2e15"></a>
+<a class="el" href="structhw_1_1color.html">hw::color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedummy__api.html#a12f280c72a07a1e8b1e0fd3a9f0a2e15">dummy_api::get_background_color</a> () noexcept</td></tr>
+<tr class="memdesc:a12f280c72a07a1e8b1e0fd3a9f0a2e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the background color of the global window. <br /></td></tr>
+<tr class="separator:a12f280c72a07a1e8b1e0fd3a9f0a2e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7279753320ab1e1f990aeb1eae8207f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedummy__api.html#af7279753320ab1e1f990aeb1eae8207f">dummy_api::draw_shapes</a> ()</td></tr>
 <tr class="memdesc:af7279753320ab1e1f990aeb1eae8207f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws all the shapes currently requested.  <a href="namespacedummy__api.html#af7279753320ab1e1f990aeb1eae8207f">More...</a><br /></td></tr>
 <tr class="separator:af7279753320ab1e1f990aeb1eae8207f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,6 +167,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name
 <tr class="separator:a35b3f34c20c038a11f609faa339046e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8969b153de5f674aa317eef53f47a980"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedummy__api.html#a8969b153de5f674aa317eef53f47a980">dummy_api::outline_circle</a> (const int t_x, const int t_y, const int t_radius, const <a class="el" href="structhw_1_1color.html">hw::color</a> &amp;t_color=<a class="el" href="structhw_1_1color.html">hw::color</a>{})</td></tr>
 <tr class="separator:a8969b153de5f674aa317eef53f47a980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a86be7310eec6cda4c73ece0ff46f42ce"><td class="memItemLeft" align="right" valign="top"><a id="a86be7310eec6cda4c73ece0ff46f42ce"></a>
+<a class="el" href="classhw_1_1window.html">hw::window</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>globals::g_global_window</b> {nullptr}</td></tr>
+<tr class="separator:a86be7310eec6cda4c73ece0ff46f42ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae43b9075f2d42ffe7a3769797234b37d"><td class="memItemLeft" align="right" valign="top"><a id="ae43b9075f2d42ffe7a3769797234b37d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>globals::g_global_width</b> {640}</td></tr>
+<tr class="separator:ae43b9075f2d42ffe7a3769797234b37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf9e136628c8df3e13f5ab03916df236"><td class="memItemLeft" align="right" valign="top"><a id="acf9e136628c8df3e13f5ab03916df236"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>globals::g_global_height</b> {480}</td></tr>
+<tr class="separator:acf9e136628c8df3e13f5ab03916df236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b312495e652cad232c22547bd7d7b37"><td class="memItemLeft" align="right" valign="top"><a id="a5b312495e652cad232c22547bd7d7b37"></a>
+<a class="el" href="structhw_1_1color.html">hw::color</a>&#160;</td><td class="memItemRight" valign="bottom"><b>globals::g_background</b> {0, 0, 0}</td></tr>
+<tr class="separator:a5b312495e652cad232c22547bd7d7b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c11792b8399d137488af2bcb54fce4c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceglobals.html#a3c11792b8399d137488af2bcb54fce4c">globals::g_inside_draw_call</a> {false}</td></tr>
+<tr class="separator:a3c11792b8399d137488af2bcb54fce4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

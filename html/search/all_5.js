@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['image',['Image',['../classdummy__api_1_1Image.html',1,'dummy_api::Image'],['../classdummy__api_1_1Image.html#a81c23522656ee7d3dc969f98c542876c',1,'dummy_api::Image::Image(std::string const t_path)'],['../classdummy__api_1_1Image.html#a704a6d4388e09b74c1912b02325a0693',1,'dummy_api::Image::Image(std::string const t_path, int const t_x, int const t_y, int const t_width, int const t_height)'],['../classdummy__api_1_1Image.html#a87fe805491a7ebd16f72aafdf39eee9b',1,'dummy_api::Image::Image(std::string const t_path, hw::vec2 const &amp;t_pos, hw::vec2 const &amp;t_dim)'],['../classdummy__api_1_1Image.html#af3e3926c0ed6cdf6244196d93da3d7b8',1,'dummy_api::Image::Image(std::string const t_path, OutlineRectangle &amp;t_rect)']]]
+  ['height',['height',['../group__dummy__api__group.html#ga822ae85493a742654ba563619492b26a',1,'graphics.hpp']]],
+  ['hw',['hw',['../namespacehw.html',1,'']]],
+  ['hwapi_2ecpp',['hwapi.cpp',['../hwapi_8cpp.html',1,'']]],
+  ['hwapi_2ehpp',['hwapi.hpp',['../hwapi_8hpp.html',1,'']]],
+  ['homework_20_2d_20an_20api_20that_20makes_20it_20easy_20to_20draw_20shapes_20in_20c_2b_2b',['HomeWork - an API that makes it easy to draw shapes in c++',['../index.html',1,'']]]
 ];
