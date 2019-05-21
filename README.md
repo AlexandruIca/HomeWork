@@ -62,6 +62,12 @@ Want to contribute? AWESOME! There's no strict guideline to follow, although fol
 * Improve documentation.
 * Organize functionality of scripts in a python package
 * Translate docs/README.md to romanian
+* The functions starting with lowercase letters for drawing are pretty useless right now. \
+There should be a distinction between calling, for example, 'triangle' before and inside the draw call. \
+If it's called before it has the behaviour that it has now(just adding it to the global vector of shapes) \
+but if it's called inside the draw call(in the function given as parameter) then it should just call \
+the equivalent SDL function. This means having to refactor the way the shapes are drawn, possibly \
+having to make a seperate drawing api.
 * Add text, sounds
 
 For the last point:
