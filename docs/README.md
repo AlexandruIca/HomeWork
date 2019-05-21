@@ -16,7 +16,31 @@ int main()
     return draw();
 }
 ```
-which draws a point at coordinate (50, 60).
+which draws a point at coordinate (50, 60). You can also specify a color:
+```c++
+int main()
+{
+    point(50, 60, GREEN);
+    return draw();
+}
+```
+Now the point will be green. Available colors:
+* RED
+* GREEN
+* BLUE
+* WHITE
+* BLACK
+* CYAN
+* YELLOW
+* LIME
+* TEAL
+* PURPLE
+* PINK
+* INDIGO
+* AMBER
+* ORANGE
+* BROWN
+* GREY
 
 There are 2 ways to draw a primitive. The first one is by calling functions that have the same name as the primitive:
 ```c++
@@ -40,7 +64,9 @@ circle(x, y, r);
 ``` 
 will draw a circle starting at (x, y) with radius = r.
 
-To draw only the outline of a primitive you can prepend 'outline\_' for every function except line and point:
+Keep in mind that the top left of the window is coordinate (0, 0). Both x(horizontal axis) and y(vertical axis) increase from there.
+
+To draw only the outline of a primitive you can prepend 'outline\_' for every function except line and point. They take the same parameters as normal functions:
 ```c++
 outline_rectangle(...);
 outline_triangle(...);
@@ -51,12 +77,11 @@ They take the same arguments which have the same meaning.
 # Color
 Every function presented can have an optional last parameter which specifies the color of the shape. You can provide the color either by a hw::color object like so:
 ```c++
-line(x0, y0, x1, y1, hw::color{ r, g, b };
+line(x0, y0, x1, y1, hw::color{ r, g, b });
 ```
 where r, g and b are the red, green and blue values(between 0 and 255) for the color, or by using one of the (many) predefined colors in header graphics.hpp:
 ```c++
-line(x0, y0, x1, y1, RED); // There is also YELLOW, AMBER, PURPLE, BLUE, GREEN, LIME etc.
-                           // Refer to the full reference of the api to see all the colors predefined.
+line(x0, y0, x1, y1, RED); // Refer to the full reference of the api to see all the colors predefined since this is an introduction and may not contain everything.
 ```
 
 # Behaviour
@@ -64,7 +89,7 @@ Untill now you can only draw primitives and look at them. They are static and do
 So to draw a triangle you would use:
 ```c++
 Triangle t{...};
-``` 
+```
 And to draw an outline of a triangle:
 ```c++
 OutlineTriangle t{...};
