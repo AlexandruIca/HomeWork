@@ -226,6 +226,31 @@ int main()
 }
 ```
 
+To get mouse position:
+```c++
+int main()
+{
+    return draw(WITH{
+        cout << mouse().x << mouse().y;
+    });
+}
+```
+
+To check mouse buttons:
+```c++
+intt main()
+{
+    return draw(WITH{
+        if(left_click()) {
+            /* ... */
+        }
+        if(right_click()) {
+            /* ... */
+        }
+    });
+}
+```
+
 # Reference
 For the full API reference please check: https://codedocs.xyz/AlexandruIca/HomeWork/ or open html/index.html with your favourite browser.
 
