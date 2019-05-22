@@ -110,6 +110,18 @@ namespace dummy_api {
     /// @brief Gets the background color of the global window.
     ///
     hw::color get_background_color() noexcept;
+    ///
+    /// @brief Gets mouse position in window.
+    ///
+    hw::vec2 get_mouse_state() noexcept;
+    ///
+    /// @return true If the left mouse button is being clicked, false otherwise
+    ///
+    bool is_left_click() noexcept;
+    ///
+    /// @return true If the right mouse button is being clicked, false otherwise
+    ///
+    bool is_right_click() noexcept;
 
     ///
     /// @brief Draws all the shapes currently requested.

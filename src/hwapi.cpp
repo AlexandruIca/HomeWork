@@ -118,6 +118,39 @@ namespace dummy_api {
         return g_background;
     }
 
+    hw::vec2 get_mouse_state() noexcept
+    {
+        hw::vec2 result{0, 0};
+
+        if(!g_inside_draw_call) {
+            return result;
+        }
+
+        SDL_GetMouseState(&result.x, &result.y);
+
+        return result;
+    }
+
+    bool is_left_click() noexcept
+    {
+        if(!g_inside_draw_call) {
+            return false;
+        }
+        SDL_PumpEvents();
+        return SDL_GetMouseState(nullptr, nullptr) &
+               SDL_BUTTON(SDL_BUTTON_LEFT);
+    }
+
+    bool is_right_click() noexcept
+    {
+        if(!g_inside_draw_call) {
+            return false;
+        }
+        SDL_PumpEvents();
+        return SDL_GetMouseState(nullptr, nullptr) &
+               SDL_BUTTON(SDL_BUTTON_RIGHT);
+    }
+
     void draw_shapes()
     {
         for(auto& shape : get_shapes()) {
