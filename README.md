@@ -68,7 +68,6 @@ Want to contribute? AWESOME! There's no strict guideline to follow, although fol
 * Improve documentation.
 * Translate docs/README.md to romanian
 * Translate the api to romanian as much as possible
-* Need to have way to get mouse events
 * Add text, sounds
 
 For the last point:
