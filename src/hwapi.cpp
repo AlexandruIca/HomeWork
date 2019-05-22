@@ -703,7 +703,7 @@ namespace dummy_api {
         dest.w = m_rect->dim().x;
         dest.h = m_rect->dim().y;
 
-        SDL_RenderCopy(get_global_window()->get_renderer(), m_image, NULL,
+        SDL_RenderCopy(get_global_window()->get_renderer(), m_image, nullptr,
                        &dest);
     }
 
