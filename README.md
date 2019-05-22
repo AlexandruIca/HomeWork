@@ -59,7 +59,8 @@ Sadly, I haven't put too much time into making it easy to build on windows becau
 Want to contribute? AWESOME! There's no strict guideline to follow, although following the current coding style would be great. Keep in mind contributing doesn't mean just contributing to code. Find the usage of a function confusing? Improve the documentation! Not sure it handles some specific use cases? Test it and submit the tests! Found a spelling error? Fix it!
 
 # Limitations
-* Some work needs to be done to make the api a bit more flexible.
+* If you declare lots of shapes before drawing it can get pretty slow.
+* Doesn't have any advanced functionality, one of its priorities is ease of use
 
 # TODO
 * Need many more tests.
