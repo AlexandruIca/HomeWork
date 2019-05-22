@@ -31,4 +31,5 @@ add_example( image ${CMAKE_CURRENT_SOURCE_DIR}/image.cpp )
 add_example( image_norect ${CMAKE_CURRENT_SOURCE_DIR}/image_norect.cpp )
 add_example( image_switch ${CMAKE_CURRENT_SOURCE_DIR}/image_switch.cpp )
 add_example( image_rect_hide ${CMAKE_CURRENT_SOURCE_DIR}/image_rect_hide.cpp )
+add_example( mouse ${CMAKE_CURRENT_SOURCE_DIR}/mouse.cpp )
 
