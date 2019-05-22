@@ -52,7 +52,7 @@ cd build
 cmake -DHW_SDL2_INCLUDE_DIR=/path/to/sdl2/include -DHW_SDL2_LIBRARY_DIR=/path/to/sdl2/lib ..
 make
 ```
-And now you can link against this library and run the tests.
+And now you can link against this library and run the tests. You can disable building tests by passing -DHW\_BUILD\_TESTS=OFF to cmake.
 Sadly, I haven't put too much time into making it easy to build on windows because I don't have the resources :(.
 
 # Contributing 
@@ -64,7 +64,6 @@ Want to contribute? AWESOME! There's no strict guideline to follow, although fol
 
 # TODO
 * Need many more tests.
-* Build the tests only if the user wants to.
 * Improve documentation.
 * Translate docs/README.md to romanian
 * Translate the api to romanian as much as possible
