@@ -178,6 +178,30 @@ inline hw::color get_background() noexcept
 }
 
 ///
+/// @brief Gets mouse position.
+///
+inline hw::vec2 mouse() noexcept
+{
+    return get_mouse_state();
+}
+
+///
+/// @brief Checks whether the left click button is being pressed.
+///
+inline bool left_click()
+{
+    return is_left_click();
+}
+
+///
+/// @brief Checks whether the left click button is being pressed.
+///
+inline bool right_click()
+{
+    return is_right_click();
+}
+
+///
 /// @brief Runs code inside main loop.
 ///
 /// If you want to modify the color of an object of type triangle let's say,
