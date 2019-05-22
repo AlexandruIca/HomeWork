@@ -38,15 +38,22 @@ int main()
 Please check out docs/README.md for a quick start on using the library.
 
 # Building
-You have to have cmake and SDL2 library installed to build this project. After that it's pretty simple:
+On linux, it should be pretty simple, as long as you have installed cmake, SDL2, SDL2\_image:
+```c++
+cd path/to/project
+cd scripts
+./build.sh
 ```
-cd /path/to/project 
-mkdir build 
+On windows, you have to have cmake and SDL2 and SDL2\_image libraries installed to build this project:
+```
+cd /path/to/project
+mkdir build
 cd build
-cmake -G"Unix Makefiles (or whatever)" -DHW_SDL2_INCLUDE_DIR=/path/to/sdl2/include -DHW_SDL2_LIBRARY_DIR=/path/to/sdl2/lib ..
+cmake -DHW_SDL2_INCLUDE_DIR=/path/to/sdl2/include -DHW_SDL2_LIBRARY_DIR=/path/to/sdl2/lib ..
 make
 ```
 And now you can link against this library and run the tests.
+Sadly, I haven't put too much time into making it easy to build on windows because I don't have the resources :(.
 
 # Contributing 
 Want to contribute? AWESOME! There's no strict guideline to follow, although following the current coding style would be great. Keep in mind contributing doesn't mean just contributing to code. Find the usage of a function confusing? Improve the documentation! Not sure it handles some specific use cases? Test it and submit the tests! Found a spelling error? Fix it!
