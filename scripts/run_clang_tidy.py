@@ -1,41 +1,25 @@
 #!/bin/python3
 
-import os
-import subprocess
-import argparse
-import sys
 # pip3 install colorama
 import colorama
-from typing import List
-
-def absolute_path(path: str) -> str:
-    return os.path.abspath(path)
-
-def join(path1: str, path2: str) -> str:
-    return os.path.join(path1, path2)
-
-parent_dir: str = absolute_path("../")
-directories_to_run_through: List[str] =\
-        [join(parent_dir, directory) for directory in ["include/", "src/", "tests/"]]
+import common
+import subprocess
+import sys
 
 colorama.init()
 
-for directory in directories_to_run_through:
-    files_for_clang_tidy: List[str] = os.listdir(directory)
+def callback(file_path: str):
+    print(colorama.Fore.CYAN, end="")
+    print("Running clang-tidy for: ", end="")
+    print(colorama.Fore.YELLOW + file_path, end="")
+    print(colorama.Fore.RESET)
 
-    for curr_file in files_for_clang_tidy:
-        full_path: str = join(directory, curr_file)
-        print(colorama.Fore.CYAN, end="")
-        print("Running clang-tidy for: ", end="")
-        print(colorama.Fore.YELLOW + full_path, end="")
-        print(colorama.Fore.RESET)
+    if '--fix' in sys.argv:
+        subprocess.run("clang-tidy -p ../ " + file_path + "-fix", shell=True)
+    else:
+        subprocess.run("clang-tidy -p ../ " + file_path, shell=True)
 
-        if '--fix' in sys.argv:
-            subprocess.run("clang-tidy -p " + parent_dir + " " +\
-                full_path + "-fix", shell=True)
-        else:
-            subprocess.run("clang-tidy -p " + parent_dir + " " +\
-                full_path, shell=True)
+common.walk_through_files(callback)
 
 colorama.deinit()
 
