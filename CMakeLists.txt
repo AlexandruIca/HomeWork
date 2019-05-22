@@ -1,6 +1,8 @@
 cmake_minimum_required( VERSION 3.5 ) 
 project( HWAPI )
 
+option( HW_BUILD_TESTS "Build the tests that come with the library" ON )
+
 set( CMAKE_CXX_STANDARD 11 )
 set( LIB_NAME HW_LIB )
 set( LIB_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include/ )
@@ -35,5 +37,7 @@ elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" )
     target_compile_options( ${LIB_NAME} PRIVATE -W4 -WX )
 endif()
 
-add_subdirectory( tests )
+if( ${HW_BUILD_TESTS} )
+    add_subdirectory( tests )
+endif()
 
