@@ -31,6 +31,12 @@
 
 {
   "directory": "/media/MHDD/devel/HomeWork/build",
+  "command": "/usr/bin/clang++   -I../include  -g   -std=gnu++11 -o tests/CMakeFiles/mouse.dir/mouse.cpp.o -c /media/MHDD/devel/HomeWork/tests/mouse.cpp",
+  "file": "/media/MHDD/devel/HomeWork/tests/mouse.cpp"
+},
+
+{
+  "directory": "/media/MHDD/devel/HomeWork/build",
   "command": "/usr/bin/clang++   -I../include  -g   -std=gnu++11 -o tests/CMakeFiles/image_rect_hide.dir/image_rect_hide.cpp.o -c /media/MHDD/devel/HomeWork/tests/image_rect_hide.cpp",
   "file": "/media/MHDD/devel/HomeWork/tests/image_rect_hide.cpp"
 },
