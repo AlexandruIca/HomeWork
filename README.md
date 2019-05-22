@@ -64,11 +64,8 @@ Want to contribute? AWESOME! There's no strict guideline to follow, although fol
 
 # TODO
 * Need many more tests.
-* Rewrite parts of the tests to make use of the graphics.hpp header.
 * Build the tests only if the user wants to.
-* Make it more flexible(eg. making a custom window).
 * Improve documentation.
-* Organize functionality of scripts in a python package
 * Translate docs/README.md to romanian
 * Translate the api to romanian as much as possible
 * Need to have way to get mouse events
