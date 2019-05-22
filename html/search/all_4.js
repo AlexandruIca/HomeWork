@@ -8,6 +8,7 @@ var searchData=
   ['get_5fglobal_5fheight',['get_global_height',['../namespacedummy__api.html#a51288e311782806573e49cafb9cd14d9',1,'dummy_api']]],
   ['get_5fglobal_5fwidth',['get_global_width',['../namespacedummy__api.html#aff54a446fb6bdc1eaed9282ef6f1689b',1,'dummy_api']]],
   ['get_5fglobal_5fwindow',['get_global_window',['../namespacedummy__api.html#a8c2c72257eaf93c6ad454675ddc7d8e3',1,'dummy_api']]],
+  ['get_5fmouse_5fstate',['get_mouse_state',['../namespacedummy__api.html#aa83e9007b1e5002cecbd883f29aa2165',1,'dummy_api']]],
   ['get_5fprevious_5fcolor',['get_previous_color',['../classdummy__api_1_1Shape.html#a9928f8b73f188ea46bc6b5f2c038f24f',1,'dummy_api::Shape']]],
   ['get_5frenderer',['get_renderer',['../classhw_1_1window.html#a5e559ebcf31281c34e5d5c7287b6deca',1,'hw::window']]],
   ['get_5fshapes',['get_shapes',['../namespacedummy__api.html#ae22d07d02c51f47a6a4f8898d1fb2081',1,'dummy_api']]],

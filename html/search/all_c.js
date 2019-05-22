@@ -1,13 +1,5 @@
 var searchData=
 [
-  ['set_5fbackground',['set_background',['../group__dummy__api__group.html#ga895e2df1eef1497b429977573d969340',1,'set_background(hw::color const &amp;t_color):&#160;graphics.hpp'],['../group__dummy__api__group.html#ga6d77b7a5ce8d325e59e4efde52193597',1,'set_background(unsigned char const t_r, unsigned char const t_g, unsigned char const t_b, unsigned char const t_a):&#160;graphics.hpp']]],
-  ['set_5fbackground_5fcolor',['set_background_color',['../namespacedummy__api.html#abd365f6fd4f32a31bdac9090dea40d5e',1,'dummy_api']]],
-  ['set_5fcolor_5fkey',['set_color_key',['../classdummy__api_1_1Image.html#ad62666149100607c52e2b6655a36f5a3',1,'dummy_api::Image']]],
-  ['set_5fglobal_5fheight',['set_global_height',['../namespacedummy__api.html#a6dec9d711b9a8503960af9eb9f554965',1,'dummy_api']]],
-  ['set_5fglobal_5fwidth',['set_global_width',['../namespacedummy__api.html#a24b620f31b4574ab1866728c61ef933f',1,'dummy_api']]],
-  ['set_5fheight',['set_height',['../group__dummy__api__group.html#gad63ec8df8e2160232afb9f44fe55593d',1,'graphics.hpp']]],
-  ['set_5fpath',['set_path',['../classdummy__api_1_1Image.html#a65422ae5f55faf21db07809c352e1c45',1,'dummy_api::Image']]],
-  ['set_5fwidth',['set_width',['../group__dummy__api__group.html#ga7d9286f7a0b72416bad18975444c3f87',1,'graphics.hpp']]],
-  ['shape',['Shape',['../classdummy__api_1_1Shape.html',1,'dummy_api']]],
-  ['store_5fcolor',['store_color',['../classdummy__api_1_1Shape.html#ad02b0aedfa65282f1beb189450d073c7',1,'dummy_api::Shape']]]
+  ['rectangle',['Rectangle',['../classdummy__api_1_1Rectangle.html',1,'dummy_api::Rectangle'],['../namespacedummy__api.html#acb6344e33577af291978e41b3322c14b',1,'dummy_api::rectangle(const hw::vec2 &amp;t_pos, const int t_width, const int t_height, const hw::color &amp;t_color=hw::color{})'],['../namespacedummy__api.html#a6409e8fb0ec9267490a4671efb23c536',1,'dummy_api::rectangle(const int t_x, const int t_y, const int t_width, const int t_height, const hw::color &amp;t_color=hw::color{})']]],
+  ['right_5fclick',['right_click',['../group__dummy__api__group.html#gaea2d911d66994b6f452a0aa9aebdfa86',1,'graphics.hpp']]]
 ];
