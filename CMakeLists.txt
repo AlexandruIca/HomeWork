@@ -1,4 +1,4 @@
-cmake_minimum_required( VERSION 3.5 ) 
+cmake_minimum_required( VERSION 3.5 )
 project( HWAPI )
 
 option( HW_BUILD_TESTS "Build the tests that come with the library" ON )
@@ -29,7 +29,7 @@ add_library( ${LIB_NAME} ${SRC_FILES} )
 
 target_link_libraries( ${LIB_NAME} SDL2main SDL2 SDL2_image )
 
-if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" )
+if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "AppleClang" )
     target_compile_options( ${LIB_NAME} PRIVATE -Wall -Werror -Wextra -Wpedantic )
 elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" )
     target_compile_options( ${LIB_NAME} PRIVATE -Wall -Werror -pedantic -pedantic-errors )
