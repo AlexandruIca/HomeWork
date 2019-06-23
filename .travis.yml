@@ -16,6 +16,7 @@ matrix:
                       - cmake
                       - g++-8
                       - libsdl2-dev
+                      - libsdl2-image-dev
           compiler: g++-8
         - os: linux
           dist: xenial
@@ -33,6 +34,7 @@ matrix:
                       - clang-7
                       - libstdc++-7-dev
                       - libsdl2-dev
+                      - libsdl2-image-dev
           compiler: clang++-7
         - os: osx
           osx_image: xcode10.2
@@ -45,8 +47,8 @@ matrix:
 
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install sdl2; fi
-    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt install libsdl2-dev; fi
+    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install sdl2 sdl2_image; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt install libsdl2-dev libsdl2-image-dev; fi
 
 script:
     - mkdir build
@@ -55,7 +57,8 @@ script:
     - cmake ..
     - make -j$(nproc)
     - cd tests
-    - ctest
+    - ctest -Q -O ctest_log.txt
+    - cat ctest_log.txt
 
 notification:
     email:
