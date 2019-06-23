@@ -56,8 +56,7 @@ script:
     - cmake ..
     - make -j$(nproc)
     - cd tests
-    - ctest 2>&1
-    - cat ctest_log.txt
+    - ctest || true
 
 notification:
     email:
