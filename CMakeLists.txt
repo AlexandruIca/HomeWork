@@ -1,5 +1,12 @@
-cmake_minimum_required( VERSION 3.5 )
+cmake_minimum_required( VERSION 3.10 )
 project( HWAPI LANGUAGES CXX )
+
+# Weird MacOS bug with spaces in library path
+if( POLICY CMP0004 )
+    cmake_policy( SET CMP0004 OLD )
+endif()
+
+find_package( SDL2 REQUIRED )
 
 set( SRC_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/include/window.hpp
@@ -15,17 +22,37 @@ set( SRC_FILES
     )
 
 add_library( ${CMAKE_PROJECT_NAME} ${SRC_FILES} )
-
 target_compile_features( ${CMAKE_PROJECT_NAME} PRIVATE cxx_std_11 )
-target_include_directories( ${CMAKE_PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/ )
-target_link_libraries( ${CMAKE_PROJECT_NAME} INTERFACE SDL2main SDL2 SDL2_image )
+target_include_directories(
+    ${CMAKE_PROJECT_NAME}
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/
+    ${SDL2_INCLUDE_DIRECTORIES}
+)
+target_link_libraries(
+    ${CMAKE_PROJECT_NAME}
+    INTERFACE
+    ${SDL2_LIBRARIES} SDL2_image
+)
 
 if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "AppleClang" )
-    target_compile_options( ${CMAKE_PROJECT_NAME} PRIVATE -Wall -Werror -Wextra -Wpedantic )
+    target_compile_options(
+        ${CMAKE_PROJECT_NAME}
+        PRIVATE
+        -Wall -Werror -Wextra -Wpedantic
+    )
 elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" )
-    target_compile_options( ${CMAKE_PROJECT_NAME} PRIVATE -Wall -Werror -pedantic -pedantic-errors )
+    target_compile_options(
+        ${CMAKE_PROJECT_NAME}
+        PRIVATE
+        -Wall -Werror -pedantic -pedantic-errors
+    )
 elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" )
-    target_compile_options( ${CMAKE_PROJECT_NAME} PRIVATE -W4 -WX )
+    target_compile_options(
+        ${CMAKE_PROJECT_NAME}
+        PRIVATE
+        /W4 /WX /permissive- /analyze
+    )
 endif()
 
 option( HW_BUILD_TESTS "Build the tests that come with the library" ON )
