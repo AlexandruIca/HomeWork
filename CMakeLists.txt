@@ -7,7 +7,10 @@ if( APPLE AND POLICY CMP0004 )
     cmake_policy( SET CMP0004 OLD )
 endif()
 
+set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/" )
+
 find_package( SDL2 REQUIRED )
+find_package( SDL2_image REQUIRED )
 
 set( SRC_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/include/window.hpp
@@ -28,13 +31,14 @@ target_include_directories(
     ${CMAKE_PROJECT_NAME}
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include/
-    ${SDL2_INCLUDE_DIRECTORIES}
+    ${SDL2_INCLUDE_DIRS}
+    ${SDL2_IMAGE_INCLUDE_DIRS}
 )
 target_link_libraries(
     ${CMAKE_PROJECT_NAME}
     INTERFACE
-    ${SDL2_LIBRARIES}
-    SDL2_image
+    ${SDL2_LIBRARY}
+    ${SDL2_IMAGE_LIBRARIES}
 )
 
 if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "AppleClang" )
