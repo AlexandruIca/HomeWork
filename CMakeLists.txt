@@ -3,14 +3,7 @@ project( HWAPI )
 
 option( HW_BUILD_TESTS "Build the tests that come with the library" ON )
 
-set( CMAKE_CXX_STANDARD 11 )
 set( LIB_NAME HW_LIB )
-set( LIB_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include/ )
-
-include_directories( ${LIB_INCLUDE_DIRS} )
-include_directories( ${HW_SDL2_INCLUDE_DIR} )
-include_directories( ${HW_SDL2_IMAGE_INCLUDE_DIR} )
-link_directories( ${HW_SDL2_LIBRARY_DIR} )
 
 set( SRC_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/include/window.hpp
@@ -27,6 +20,8 @@ set( SRC_FILES
 
 add_library( ${LIB_NAME} ${SRC_FILES} )
 
+target_compile_features( ${LIB_NAME} PRIVATE cxx_std_11 )
+target_include_directories( ${LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/ )
 target_link_libraries( ${LIB_NAME} INTERFACE SDL2main SDL2 SDL2_image )
 
 if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "AppleClang" )
