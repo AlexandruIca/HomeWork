@@ -2,6 +2,7 @@
 #include "window.hpp"
 
 #include <chrono>
+#include <cstdlib>
 #include <iostream>
 #include <string>
 #include <utility>
@@ -192,7 +193,7 @@ namespace dummy_api {
 
         std::cout << "FPS: " << avg_fps << '\n';
 
-        return 1;
+        return EXIT_SUCCESS;
     }
 
     Shape::Shape()
