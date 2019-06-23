@@ -27,7 +27,7 @@ set( SRC_FILES
 
 add_library( ${LIB_NAME} ${SRC_FILES} )
 
-target_link_libraries( ${LIB_NAME} SDL2main SDL2 SDL2_image )
+target_link_libraries( ${LIB_NAME} INTERFACE SDL2main SDL2 SDL2_image )
 
 if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "AppleClang" )
     target_compile_options( ${LIB_NAME} PRIVATE -Wall -Werror -Wextra -Wpedantic )
