@@ -20,7 +20,7 @@ hw::window::window(const int t_width, const int t_height, const char* t_name)
                                 SDL_WINDOWPOS_UNDEFINED, m_width, m_height,
                                 SDL_WINDOW_SHOWN);
 
-    SDL_SetWindowResizable(m_window, SDL_FALSE);
+    //SDL_SetWindowResizable(m_window, SDL_FALSE);
 
     // keep SDL_RENDERER_PRESENTVSYNC so that when somebody decides to
     // change something about a primitive and their computer is
