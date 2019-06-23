@@ -4,7 +4,6 @@ function( add_example EXAMPLE_NAME EXAMPLE_FILE )
     target_link_libraries( ${EXAMPLE_NAME} ${LIB_NAME} )
 endfunction()
 
-# add all examples
 add_example( basic_example ${CMAKE_CURRENT_SOURCE_DIR}/basic_example.cpp )
 add_example( point ${CMAKE_CURRENT_SOURCE_DIR}/point.cpp )
 add_example( line ${CMAKE_CURRENT_SOURCE_DIR}/line.cpp )
