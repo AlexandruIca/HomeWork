@@ -9,7 +9,7 @@
 
 #include <vector>
 
-#include "SDL2/SDL.h"
+#include "SDL.h"
 #include "color.hpp"
 
 ///

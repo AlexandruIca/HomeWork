@@ -10,7 +10,7 @@
 /// students so this should be beneficial.
 ///
 
-#include "SDL2/SDL.h"
+#include "SDL.h"
 
 enum keys
 {

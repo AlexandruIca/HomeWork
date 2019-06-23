@@ -7,7 +7,7 @@
 #include <string>
 #include <utility>
 
-#include "SDL2/SDL_image.h"
+#include "SDL_image.h"
 
 #include "drawing_api.hpp"
 

@@ -14,7 +14,7 @@
 /// function. They do not add any shapes to the global vector.
 ///
 
-#include "SDL2/SDL.h"
+#include "SDL.h"
 
 #include "color.hpp"
 #include "vec2.hpp"
