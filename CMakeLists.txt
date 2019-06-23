@@ -1,8 +1,9 @@
 cmake_minimum_required( VERSION 3.10 )
-project( HWAPI LANGUAGES CXX )
+
+project( HWAPI )
 
 # Weird MacOS bug with spaces in library path
-if( POLICY CMP0004 )
+if( APPLE AND POLICY CMP0004 )
     cmake_policy( SET CMP0004 OLD )
 endif()
 
@@ -19,7 +20,7 @@ set( SRC_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/hwapi.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/drawing_api.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/drawing_api.cpp
-    )
+)
 
 add_library( ${CMAKE_PROJECT_NAME} ${SRC_FILES} )
 target_compile_features( ${CMAKE_PROJECT_NAME} PRIVATE cxx_std_11 )
@@ -32,7 +33,8 @@ target_include_directories(
 target_link_libraries(
     ${CMAKE_PROJECT_NAME}
     INTERFACE
-    ${SDL2_LIBRARIES} SDL2_image
+    ${SDL2_LIBRARIES}
+    SDL2_image
 )
 
 if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "AppleClang" )
