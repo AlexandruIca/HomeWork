@@ -12,6 +12,8 @@ set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/"
 find_package( SDL2 REQUIRED )
 find_package( SDL2_image REQUIRED )
 
+message( "SDL2 INCLUDE DIR: ${SDL2_INCLUDE_DIRS}" )
+
 set( SRC_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/include/window.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/window.cpp
