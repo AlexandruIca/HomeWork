@@ -8,7 +8,7 @@ int main()
     Image img{};
 
     img.set_color_key(BLACK);
-    img.set_path("../media/Triangle.png");
+    img.set_path("../../media/Triangle.png");
     img.follow(rect);
 
     return draw(WITH {

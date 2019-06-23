@@ -5,7 +5,7 @@ int main()
     set_background(YELLOW);
 
     OutlineRectangle rect{100, 100, 200, 300, CYAN};
-    Image img{"../media/Triangle.png", rect};
+    Image img{"../../media/Triangle.png", rect};
 
     rect.hide();
 

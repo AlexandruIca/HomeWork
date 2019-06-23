@@ -1,11 +1,14 @@
 #include "graphics.hpp"
 
+#include <array>
+
 int main()
 {
     OutlineRectangle rect{width() / 2 - 100, height() / 2 - 100, 200, 200,
                           CYAN};
 
-    Image img[] = {Image{"../media/Triangle.png"}, Image{"../media/Line.png"}};
+    std::array<Image, 2> img = {
+        {Image{"../../media/Triangle.png"}, Image{"../../media/Line.png"}}};
 
     img[0].follow(rect);
     img[1].follow(rect);
