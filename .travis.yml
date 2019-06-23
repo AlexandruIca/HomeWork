@@ -50,6 +50,7 @@ before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install sdl2 sdl2_image; fi
 
 script:
+    - ${CXX} --version
     - mkdir build
     - cd build
     - eval "${EVAL_CXX}"
