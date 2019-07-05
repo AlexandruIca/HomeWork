@@ -52,7 +52,7 @@ if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "AppleClang" )
     target_compile_options(
         ${CMAKE_PROJECT_NAME}
         PRIVATE
-        -Wall -Werror -Wextra -Wpedantic
+        -std=c++11 -Wall -Werror -Wextra -Wpedantic
     )
 elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" )
     target_compile_options(
