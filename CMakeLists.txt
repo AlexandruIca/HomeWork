@@ -6,6 +6,10 @@ project( HWAPI )
 if( APPLE AND POLICY CMP0004 )
     cmake_policy( SET CMP0004 OLD )
 endif()
+# Maybe solves the issue with CMAKE_CXX_STANDARD in MacOS
+if( POLICY CMP0025 )
+    cmake_policy( SET CMP0025 NEW )
+endif()
 
 set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/" )
 
@@ -52,7 +56,7 @@ if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "AppleClang" )
     target_compile_options(
         ${CMAKE_PROJECT_NAME}
         PRIVATE
-        -std=c++11 -Wall -Werror -Wextra -Wpedantic
+        -stdlib=libc++ -Wall -Werror -Wextra -Wpedantic
     )
 elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" )
     target_compile_options(
