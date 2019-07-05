@@ -6,10 +6,6 @@ project( HWAPI )
 if( APPLE AND POLICY CMP0004 )
     cmake_policy( SET CMP0004 OLD )
 endif()
-# Maybe solves the issue with CMAKE_CXX_STANDARD in MacOS
-#if( APPLE AND POLICY CMP0025 )
-#    cmake_policy( SET CMP0025 NEW )
-#endif()
 
 set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/" )
 
@@ -30,9 +26,6 @@ set( SRC_FILES
 )
 
 add_library( ${CMAKE_PROJECT_NAME} ${SRC_FILES} )
-# Doesn't work for some reason with AppleClang - no c++11
-#target_compile_features( ${CMAKE_PROJECT_NAME} PRIVATE cxx_std_11 )
-# Maybe this one?
 set_target_properties( ${CMAKE_PROJECT_NAME} PROPERTIES
     CXX_STANDARD 11
     CXX_STANDARD_REQUIRED ON
@@ -55,8 +48,7 @@ target_link_libraries(
 if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "AppleClang" )
     target_compile_options(
         ${CMAKE_PROJECT_NAME}
-        PUBLIC
-        #-std=c++11 -stdlib=libc++ -Wall -Werror -Wextra -Wpedantic
+        PRIVATE
         -Wall -Werror -Wextra -Wpedantic
     )
 elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" )

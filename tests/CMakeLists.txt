@@ -4,21 +4,8 @@ enable_testing()
 function( build_test TEST_NAME TEST_FILE )
     add_executable( ${TEST_NAME} ${TEST_FILE} )
     target_compile_features( ${TEST_NAME} PRIVATE cxx_std_11 )
-
-    if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang" OR "Clang" )
-        target_compile_options( ${TEST_NAME} PRIVATE -Wno-error=unused-parameter )
-    endif()
-
-    target_link_libraries( ${TEST_NAME} ${CMAKE_PROJECT_NAME} )
+    target_link_libraries( ${TEST_NAME} PRIVATE ${CMAKE_PROJECT_NAME} )
     add_test( ${TEST_NAME} ${TEST_NAME} )
-    #add_custom_command(
-    #    TARGET ${TEST_NAME}
-    #    POST_BUILD
-    #    COMMAND ${CMAKE_COMMAND} -E echo "Running ${TEST_NAME}..."
-    #    COMMAND ${TEST_NAME}
-    #    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-    #    VERBATIM
-    #)
     set_tests_properties( ${TEST_NAME} PROPERTIES TIMEOUT 2 )
 endfunction()
 
