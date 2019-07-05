@@ -4,11 +4,6 @@ enable_testing()
 function( build_test TEST_NAME TEST_FILE )
     add_executable( ${TEST_NAME} ${TEST_FILE} )
     target_compile_features( ${TEST_NAME} PRIVATE cxx_std_11 )
-
-    if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang" OR "Clang" )
-        target_compile_options( ${TEST_NAME} PRIVATE -stdlib=libc++ )
-    endif()
-
     target_link_libraries( ${TEST_NAME} ${CMAKE_PROJECT_NAME} )
     add_test( ${TEST_NAME} ${TEST_NAME} )
     #add_custom_command(
