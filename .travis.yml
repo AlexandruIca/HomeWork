@@ -39,7 +39,7 @@ matrix:
         - os: osx
           osx_image: xcode10.2
           env:
-              - EVAL_CXX="CC=gcc && CXX=g++"
+              - EVAL_CXX="brew install gcc; brew link --overwrite gcc && CC=gcc && CXX=g++"
           compiler: g++
         - os: osx
           osx_image: xcode10.2

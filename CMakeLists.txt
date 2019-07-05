@@ -12,8 +12,6 @@ set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/"
 find_package( SDL2 REQUIRED )
 find_package( SDL2_image REQUIRED )
 
-message( "SDL2 INCLUDE DIR: ${SDL2_INCLUDE_DIRS}" )
-
 set( SRC_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/include/window.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/window.cpp
@@ -28,7 +26,14 @@ set( SRC_FILES
 )
 
 add_library( ${CMAKE_PROJECT_NAME} ${SRC_FILES} )
-target_compile_features( ${CMAKE_PROJECT_NAME} PRIVATE cxx_std_11 )
+# Doesn't work for some reason with AppleClang - no c++11
+#target_compile_features( ${CMAKE_PROJECT_NAME} PRIVATE cxx_std_11 )
+# Maybe this one?
+set_target_properties( ${CMAKE_PROJECT_NAME} PROPERTIES
+    CXX_STANDARD 11
+    CXX_STANDARD_REQUIRED ON
+    CXX_EXTENSIONS OFF
+)
 target_include_directories(
     ${CMAKE_PROJECT_NAME}
     PUBLIC
