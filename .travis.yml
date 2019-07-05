@@ -32,7 +32,7 @@ matrix:
                   packages:
                       - cmake
                       - clang-7
-                      - libstdc++-7-dev
+                      - libc++-7-dev
                       - libsdl2-dev
                       - libsdl2-image-dev
           compiler: clang++-7
