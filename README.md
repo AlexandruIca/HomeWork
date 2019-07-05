@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/AlexandruIca/HomeWork.svg?branch=development)](https://travis-ci.org/AlexandruIca/HomeWork)
+
 # HomeWork
 An API that aims to make it as easy as possible to draw shapes in c++11.
 
