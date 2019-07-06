@@ -1,9 +1,8 @@
 enable_testing()
 
-# helper to add a test
 function( build_test TEST_NAME TEST_FILE )
     add_executable( ${TEST_NAME} ${TEST_FILE} )
-    target_compile_features( ${TEST_NAME} PRIVATE cxx_std_11 )
+    set_cxx_standard( ${TEST_NAME} 11 )
     target_link_libraries( ${TEST_NAME} PRIVATE ${CMAKE_PROJECT_NAME} )
     add_test( ${TEST_NAME} ${TEST_NAME} )
     set_tests_properties( ${TEST_NAME} PROPERTIES TIMEOUT 2 )
