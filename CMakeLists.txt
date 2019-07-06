@@ -9,6 +9,8 @@ endif()
 
 set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/" )
 
+include( SetCXXStandard )
+
 find_package( SDL2 REQUIRED )
 find_package( SDL2_image REQUIRED )
 
@@ -26,11 +28,7 @@ set( SRC_FILES
 )
 
 add_library( ${CMAKE_PROJECT_NAME} ${SRC_FILES} )
-set_target_properties( ${CMAKE_PROJECT_NAME} PROPERTIES
-    CXX_STANDARD 11
-    CXX_STANDARD_REQUIRED ON
-    CXX_EXTENSIONS OFF
-)
+set_cxx_standard( ${CMAKE_PROJECT_NAME} 11 )
 target_include_directories(
     ${CMAKE_PROJECT_NAME}
     PUBLIC
@@ -45,25 +43,17 @@ target_link_libraries(
     ${SDL2_IMAGE_LIBRARIES}
 )
 
+set( LIBRARY_COMPILE_OPTIONS )
+
 if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "AppleClang" )
-    target_compile_options(
-        ${CMAKE_PROJECT_NAME}
-        PRIVATE
-        -Wall -Werror -Wextra -Wpedantic
-    )
+    set( LIBRARY_COMPILE_OPTIONS ${LIBRARY_COMPILE_OPTIONS} -Wall -Werror -Wextra -Wpedantic )
 elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" )
-    target_compile_options(
-        ${CMAKE_PROJECT_NAME}
-        PRIVATE
-        -Wall -Werror -pedantic -pedantic-errors
-    )
+    set( LIBRARY_COMPILE_OPTIONS ${LIBRARY_COMPILE_OPTIONS} -Wall -Werror -pedantic -pedantic-errors )
 elseif( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" )
-    target_compile_options(
-        ${CMAKE_PROJECT_NAME}
-        PRIVATE
-        /W4 /WX /permissive- /analyze
-    )
+    set( LIBRARY_COMPILE_OPTIONS ${LIBRARY_COMPILE_OPTIONS} /W4 /WX /permissive- /analyze )
 endif()
+
+target_compile_options( ${CMAKE_PROJECT_NAME} PRIVATE ${LIBRARY_COMPILE_OPTIONS} )
 
 option( HW_BUILD_TESTS "Build the tests that come with the library" ON )
 
