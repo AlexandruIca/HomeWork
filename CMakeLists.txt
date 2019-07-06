@@ -61,3 +61,20 @@ if( ${HW_BUILD_TESTS} )
     add_subdirectory( tests )
 endif()
 
+option( HW_BUILD_DOCS "Build the documentation that comes with the library" ON )
+
+if( ${HW_BUILD_DOCS} )
+    find_package( Doxygen )
+
+    if( DOXYGEN_FOUND )
+        add_custom_target( documentation ALL
+            COMMAND ${CMAKE_COMMAND} -E echo "Building documentation..."
+            COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile
+            WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+            VERBATIM
+        )
+    else()
+        message( "You need doxygen to build the documentation." )
+    endif()
+endif()
+
