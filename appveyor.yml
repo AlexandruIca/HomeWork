@@ -46,6 +46,11 @@ after_build:
     - cd %APPVEYOR_BUILD_FOLDER%\build
     - copy %BASEDIR%\SDL2-2.0.9\lib\%platform%\SDL2.dll . > nul
     - copy %BASEDIR%\SDL2_image-2.0.5\lib\%platform%\SDL2_image.dll . > nul
+    - copy %BASEDIR%\SDL2_image-2.0.5\lib\%platform%\zlib1.dll . > nul
+    - copy %BASEDIR%\SDL2_image-2.0.5\lib\%platform%\libwebp-7.dll . > nul
+    - copy %BASEDIR%\SDL2_image-2.0.5\lib\%platform%\libtiff-5.dll . > nul
+    - copy %BASEDIR%\SDL2_image-2.0.5\lib\%platform%\libpng16-16.dll . > nul
+    - copy %BASEDIR%\SDL2_image-2.0.5\lib\%platform%\libjpeg-9.dll . > nul
     - cd tests
     - ctest --verbose || echo "Successul!"
 
