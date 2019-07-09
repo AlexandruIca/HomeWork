@@ -51,7 +51,6 @@ before_install:
 
 script:
     - ${CXX} --version
-    - ./scripts/run-clang-format.py -r include/ src/ tests/
     - mkdir build
     - cd build
     - eval "${EVAL_CXX}"
