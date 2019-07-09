@@ -35,7 +35,7 @@ before_build:
     - cd %APPVEYOR_BUILD_FOLDER%
     - mkdir build
     - cd build
-    - cmake -A%PLATFORM% -DCMAKE_BUILD_TYPE=%configuration% -DSDL2_DIR=%BASEDIR%\SDL2-2.0.9 -DSDL2IMAGE_DIR=%BASEDIR%\SDL2_image-2.0.5 ..
+    - cmake -A%PLATFORM% -DCMAKE_BUILD_TYPE=%configuration% -DSDL2_PATH=%BASEDIR%\SDL2-2.0.9 -DSDL2_IMAGE_PATH=%BASEDIR%\SDL2_image-2.0.5 ..
 
 build:
     project: build/CMakeGen.sln
