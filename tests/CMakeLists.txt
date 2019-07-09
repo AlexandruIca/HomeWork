@@ -6,7 +6,7 @@ function( build_test TEST_NAME TEST_FILE )
 
     if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" )
         # suppress warning on conversion from double to float
-        target_compile_options( ${TEST_NAME} -wd4244 )
+        target_compile_options( ${TEST_NAME} PRIVATE -wd4244 )
     endif()
 
     target_link_libraries( ${TEST_NAME} PRIVATE ${CMAKE_PROJECT_NAME} )
