@@ -15,9 +15,9 @@ def callback(file_path: str):
     print(colorama.Fore.RESET)
 
     if '--fix' in sys.argv:
-        subprocess.run("clang-tidy -p ../ " + file_path + "-fix", shell=True)
+        subprocess.run("clang-tidy -header-filter=.* -p ../ " + file_path + "-fix", shell=True)
     else:
-        subprocess.run("clang-tidy -p ../ " + file_path, shell=True)
+        subprocess.run("clang-tidy -header-filter=.* -p ../ " + file_path, shell=True)
 
 common.walk_through_files(callback)
 
