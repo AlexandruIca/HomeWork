@@ -38,7 +38,7 @@ target_include_directories(
 )
 target_link_libraries(
     ${CMAKE_PROJECT_NAME}
-    INTERFACE
+    PRIVATE
     ${SDL2_LIBRARY}
     ${SDL2_IMAGE_LIBRARIES}
 )
