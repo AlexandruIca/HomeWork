@@ -1,0 +1,48 @@
+image:
+    #- Visual Studio 2013
+    #- Visual Studio 2015
+    - Visual Studio 2017
+
+platform:
+    #- Win32
+    - x64
+
+environment:
+    BASEDIR: c:\mylibs
+
+install:
+    - mkdir %BASEDIR%
+    - IF NOT EXIST SDL2-devel-2.0.9-VC.zip curl -fsS -O https://libsdl.org/release/SDL2-devel-2.0.9-VC.zip
+    - IF NOT EXIST SDL2_image-devel-2.0.5-VC.zip curl -fsS -O https://libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.5-VC.zip
+    - copy SDL2-devel-2.0.9-VC.zip %BASEDIR% > nul
+    - copy SDL2_image-devel-2.0.5-VC.zip %BASEDIR% > nul
+    - cd %BASEDIR%
+    - 7z x SDL2-devel-2.0.9-VC.zip > nul
+    - 7z x SDL2_image-devel-2.0.5-VC.zip > nul
+
+configuration:
+    - Debug
+    #- Release
+
+matrix:
+    fast_finish: false
+
+init:
+    - cmd: cmake --version
+    - cmd: msbuild /version
+
+before_build:
+    - cd %APPVEYOR_BUILD_FOLDER%
+    - mkdir build
+    - cd build
+    - cmake -A%PLATFORM% -DCMAKE_BUILD_TYPE=%configuration% -DSDL2DIR=%BASEDIR%\SDL2-2.0.9 -DSDL2IMAGE_DIR=%BASEDIR%\SDL2_image-2.0.5 ..
+
+build:
+    project: build/CMakeGen.sln
+    parallel: true
+    verbosity: minimal
+
+cache:
+    - SDL2-devel-2.0.9-VC.zip
+    - SDL2_image-devel-2.0.5-VC.zip
+
