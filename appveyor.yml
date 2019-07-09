@@ -45,7 +45,7 @@ build:
 after_build:
     - cd %APPVEYOR_BUILD_FOLDER%\build
     - cd tests
-    - ctest || echo "Successul!"
+    - ctest --verbose || echo "Successul!"
 
 cache:
     - SDL2-devel-2.0.9-VC.zip
