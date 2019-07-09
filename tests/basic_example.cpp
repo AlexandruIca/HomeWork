@@ -6,7 +6,7 @@ using namespace dummy_api;
 using hw::vec2;
 using hw::color;
 
-int main(const int, const char*[])
+int main(int, char*[])
 {
     point(20, 30, color{23, 147, 60});
 

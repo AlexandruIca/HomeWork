@@ -7,7 +7,7 @@ void update(float const t_time)
     }
 }
 
-int main()
+int main(int, char*[])
 {
     for(int i = 0; i < 20; ++i) {
         point(i + 200, 300, GREEN);

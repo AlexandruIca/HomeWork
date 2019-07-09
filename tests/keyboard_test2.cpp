@@ -21,7 +21,7 @@ void f(double const)
     }
 }
 
-int main()
+int main(int, char*[])
 {
     set_width(700);
     set_height(700);

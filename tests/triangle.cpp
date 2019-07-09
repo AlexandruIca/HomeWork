@@ -4,7 +4,7 @@
 
 using namespace dummy_api;
 
-int main()
+int main(int, char*[])
 {
     triangle(hw::vec2{50, 20}, hw::vec2{20, 80}, hw::vec2{70, 80});
     triangle(hw::vec2{50, 120}, hw::vec2{20, 180}, hw::vec2{70, 180},

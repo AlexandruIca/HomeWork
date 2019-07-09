@@ -23,7 +23,7 @@ void update(float const)
     rectangle(g_rect.x, g_rect.y, g_rect.w, g_rect.h, CYAN);
 }
 
-int main()
+int main(int, char*[])
 {
     g_rect.x = width() / 2 - g_rect.w / 2;
     g_rect.y = height() / 2 - g_rect.h / 2;

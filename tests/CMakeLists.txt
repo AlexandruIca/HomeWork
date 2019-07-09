@@ -3,6 +3,12 @@ enable_testing()
 function( build_test TEST_NAME TEST_FILE )
     add_executable( ${TEST_NAME} ${TEST_FILE} )
     set_cxx_standard( ${TEST_NAME} 11 )
+
+    if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" )
+        # suppress warning on conversion from double to float
+        target_compile_options( ${TEST_NAME} -wd4244 )
+    endif()
+
     target_link_libraries( ${TEST_NAME} PRIVATE ${CMAKE_PROJECT_NAME} )
     add_test( ${TEST_NAME} ${TEST_NAME} )
     set_tests_properties( ${TEST_NAME} PROPERTIES TIMEOUT 2 )

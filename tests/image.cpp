@@ -1,6 +1,6 @@
 #include "graphics.hpp"
 
-int main()
+int main(int, char*[])
 {
     set_background(WHITE);
     // Put WHITE instead of green not to see the rectangle

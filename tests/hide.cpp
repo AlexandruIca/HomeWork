@@ -1,6 +1,6 @@
 #include "graphics.hpp"
 
-int main()
+int main(int, char*[])
 {
     Rectangle r{300, 300, 100, 100, PURPLE};
 

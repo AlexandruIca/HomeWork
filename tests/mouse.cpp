@@ -21,7 +21,7 @@ void update(float const t_time)
     }
 }
 
-int main()
+int main(int, char*[])
 {
     std::cout << "Should not crash: " << mouse().x << ' ' << mouse().y
               << std::endl;

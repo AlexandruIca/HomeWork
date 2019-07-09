@@ -2,7 +2,7 @@
 
 using namespace dummy_api;
 
-int main()
+int main(int, char*[])
 {
     const auto width = get_global_width();
     const auto height = get_global_height();

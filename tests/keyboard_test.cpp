@@ -9,7 +9,7 @@ void update(float const)
     }
 }
 
-int main()
+int main(int, char*[])
 {
     set_width(1280);
     set_height(720);

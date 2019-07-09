@@ -1,6 +1,6 @@
 #include "graphics.hpp"
 
-int main()
+int main(int, char*[])
 {
     return draw(WITH { set_background(GREEN); });
 }

@@ -2,7 +2,7 @@
 
 #include <array>
 
-int main()
+int main(int, char*[])
 {
     OutlineRectangle rect{width() / 2 - 100, height() / 2 - 100, 200, 200,
                           CYAN};

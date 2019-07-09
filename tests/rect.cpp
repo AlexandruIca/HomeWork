@@ -2,7 +2,7 @@
 
 using namespace dummy_api;
 
-int main()
+int main(int, char*[])
 {
     rectangle(hw::vec2{20, 20}, 200, 50);
     rectangle(hw::vec2{20, 100}, 200, 50, hw::color{20, 255, 30});

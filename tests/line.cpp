@@ -1,6 +1,6 @@
 #include "graphics.hpp"
 
-int main()
+int main(int, char*[])
 {
     line(50, 60, 300, 400);
 
