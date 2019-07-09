@@ -14,6 +14,9 @@ include( SetCXXStandard )
 find_package( SDL2 REQUIRED )
 find_package( SDL2_image REQUIRED )
 
+message( "SDL2_INCLUDE_DIRS: ${SDL2_INCLUDE_DIRS}" )
+message( "SDL2_IMAGE_INCLUDE_DIRS: ${SDL2_IMAGE_INCLUDE_DIRS}" )
+
 set( SRC_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/include/window.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/window.cpp
