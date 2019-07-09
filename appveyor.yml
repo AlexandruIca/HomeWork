@@ -36,15 +36,16 @@ before_build:
     - mkdir build
     - cd build
     - cmake -A%PLATFORM% -DSDL2_PATH=%BASEDIR%\SDL2-2.0.9 -DSDL2_IMAGE_PATH=%BASEDIR%\SDL2_image-2.0.5 -DHW_BUILD_TESTS=ON -DHW_BUILD_DOCS=OFF ..
-    - dir
-    - cd tests
-    - dir
-    - ctest || echo "Succesful!"
 
 build:
     project: build/HWAPI.sln
     parallel: true
     verbosity: minimal
+
+after_build:
+    - cd %APPVEYOR_BUILD_FOLDER%\build
+    - cd tests
+    - ctest || echo "Successul!"
 
 cache:
     - SDL2-devel-2.0.9-VC.zip
